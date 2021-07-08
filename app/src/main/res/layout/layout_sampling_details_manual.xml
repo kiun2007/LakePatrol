@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.SamplingDetailsActivity">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <variable name="data" type="com.kssoft.lake.data.model.commit.XcWrrbR" />
+    </data>
+    <LinearLayout
+        android:show="@{data.expansion}"
+        android:orientation="vertical"
+        style="@style/barVertical">
+        <!--水闸信息-->
+        <TextView
+            android:text="水闸信息"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="闸上水位"
+            app:secondTitle="闸下水位"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.upz, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.dwz, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="流量"
+            app:secondTitle="开闸孔数"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.q, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.gtopnum, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="开闸高度"
+            app:secondTitle=""
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.gtophgt, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+
+        <!--水循环情况-->
+        <TextView
+            android:text="水循环情况"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="降水量"
+            app:secondTitle="水面蒸发量"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.p, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.wsfe, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="蒸发形式"
+            app:secondTitle="气温"
+            style="@style/barVertical">
+            <TextView
+                tools:text="蒸发形式"
+                android:text="@{data.eetp}"
+                android:hint="未填写"
+                style="@style/tvDetailsValue"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.atmp, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="观测高度"
+            app:secondTitle="水气压"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.obhgt, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.vp, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="水气压力差"
+            app:secondTitle="风速"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.vpd, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.wndv, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="水温"
+            app:secondTitle=""
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.wtmp, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+
+        <!--潮水情况-->
+        <TextView
+            android:text="潮水情况"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="潮位"
+            app:secondTitle="潮流量"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.tdz, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.tdq, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="潮量"
+            app:secondTitle="含沙量"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.tdw, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.s, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="蓄水量"
+            app:secondTitle=""
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.w, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.list.ListSamplingCheckActivity">
+    <data>
+        <import type="kiun.com.bvroutine.presenters.list.NetListProvider" />
+
+        <variable name="dataDto" type="com.kssoft.lake.net.requests.dto.DataDto" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler" />
+        <variable name="dataService" type="com.kssoft.lake.net.services.DataService" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:background="@color/wrapDark"
+        style="@style/fill_base">
+        <androidx.recyclerview.widget.RecyclerView
+            tools:listitem="@layout/item_sampling_check"
+            android:listProvider="@{(NetListProvider.create(context, handler, @layout/item_sampling_check))}"
+            android:netBlock="@{pager->dataService.dataList(dataDto.inherit(pager), dataDto.itemClzName)}"
+            style="@style/fill_base" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

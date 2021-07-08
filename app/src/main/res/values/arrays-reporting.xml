@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="waterColor">
+        <item>无</item>
+        <item>蓝色</item>
+        <item>黄色</item>
+        <item>绿色</item>
+        <item>黑色</item>
+        <item>青色</item>
+        <item>灰色</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="waterSmell">
+        <item>无</item>
+        <item>微臭</item>
+        <item>臭</item>
+        <item>恶臭</item>
+    </string-array>
+
+    <string-array name="statusOfAlgae">
+        <item>未发现</item>
+        <item>颗粒状</item>
+        <item>条带状</item>
+        <item>油漆状</item>
+    </string-array>
+
+    <string-array name="statusOfWeather">
+        <item>晴</item>
+        <item>阴</item>
+        <item>小雨</item>
+        <item>阵雨</item>
+        <item>中雨</item>
+        <item>大雨</item>
+    </string-array>
+    
+    <string-array name="withOfWaterWeeds">
+        <item>无</item>
+        <item>有</item>
+    </string-array>
+
+    <string-array name="statusOfWaterWeeds">
+        <item>少量</item>
+        <item>中量</item>
+        <item>大量</item>
+    </string-array>
+</resources>

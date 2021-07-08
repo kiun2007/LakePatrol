@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="item" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+    </data>
+    <LinearLayout
+        style="@style/barVertical"
+        android:marginTop="@{!index.first?@dimen/cardViewMarginBottom:0}"
+        android:orientation="vertical">
+        <include
+            android:data="@{item}"
+            android:fixedOpen="@{false}"
+            layout="@layout/layout_sampling_details" />
+    </LinearLayout>
+</layout>

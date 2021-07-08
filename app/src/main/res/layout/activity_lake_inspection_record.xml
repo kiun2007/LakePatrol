@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.LakeInspectionRecordActivity">
+    <data>
+    </data>
+    <LinearLayout
+        style="@style/fill_base"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="记录详情"
+            style="@style/navigatorBar" />
+        <ScrollView
+            android:background="#FBF3FC"
+            style="@style/fill_base">
+            <LinearLayout
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <kiun.com.bvroutine.views.cardview.CardView
+                    style="@style/cardViewShallow">
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:padding="0dp"
+                        style="@style/rowInputVertical">
+                        <com.kssoft.lake.view.RowLinearLayout
+                            app:title="巡查状态"
+                            app:titleColor="@color/gray"
+                            app:titleWidth="fill"
+                            style="@style/rowInput">
+                            <TextView
+                                android:text="完成巡查"
+                                android:textColor="@color/darkBlue"
+                                android:layout_marginEnd="15dp"
+                                style="@style/tvNormal" />
+                            <TextView
+                                android:text="待校验"
+                                android:textColor="@color/org"
+                                style="@style/tvNormal" />
+                        </com.kssoft.lake.view.RowLinearLayout>
+                        <com.kssoft.lake.view.RowLinearLayout
+                            app:title="巡查人员"
+                            app:titleColor="@color/gray"
+                            app:titleWidth="fill"
+                            style="@style/rowInput">
+                            <TextView
+                                android:text="无名"
+                                style="@style/tvMain" />
+                        </com.kssoft.lake.view.RowLinearLayout>
+
+                        <com.kssoft.lake.view.RowLinearLayout
+                            app:title="开始时间"
+                            app:titleColor="@color/gray"
+                            app:titleWidth="fill"
+                            style="@style/rowInput">
+                            <TextView
+                                tools:text="2020-06-26 08:43:22"
+                                style="@style/tvMain" />
+                        </com.kssoft.lake.view.RowLinearLayout>
+                        <com.kssoft.lake.view.RowLinearLayout
+                            app:title="结束时间"
+                            app:titleColor="@color/gray"
+                            app:titleWidth="fill"
+                            style="@style/rowInput">
+                            <TextView
+                                tools:text="2020-06-26 08:43:22"
+                                style="@style/tvMain" />
+                        </com.kssoft.lake.view.RowLinearLayout>
+                        <com.kssoft.lake.view.RowLinearLayout
+                            app:title="巡查时长"
+                            app:titleColor="@color/gray"
+                            app:titleWidth="fill"
+                            style="@style/rowInput">
+                            <TextView
+                                tools:text="127.73分钟"
+                                style="@style/tvMain" />
+                        </com.kssoft.lake.view.RowLinearLayout>
+                        <com.kssoft.lake.view.RowLinearLayout
+                            app:title="巡查长度"
+                            app:titleColor="@color/gray"
+                            app:titleWidth="fill"
+                            style="@style/rowInput">
+                            <TextView
+                                tools:text="148.82km"
+                                style="@style/tvMain" />
+                        </com.kssoft.lake.view.RowLinearLayout>
+                    </LinearLayout>
+                </kiun.com.bvroutine.views.cardview.CardView>
+                <kiun.com.bvroutine.views.cardview.CardView
+                    style="@style/cardViewShallow">
+                    <LinearLayout
+                        style="@style/rowInputVertical">
+                        <TextView
+                            android:padding="0dp"
+                            android:text="多媒体(视频、语音、照片)"
+                            style="@style/tvMain"/>
+                        <kiun.com.bvroutine.views.MultipleImageGrid
+                            android:layout_marginTop="15dp"
+                            app:commitMode="false"
+                            style="@style/multipleUploadGrid" />
+                    </LinearLayout>
+                </kiun.com.bvroutine.views.cardview.CardView>
+
+                <kiun.com.bvroutine.views.cardview.CardView
+                    style="@style/cardViewShallow">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        style="@style/rowCardInput">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:background="@drawable/shape_line_right"
+                            style="@style/barVertical">
+                            <TextView
+                                android:text="采样详情"
+                                android:drawableStart="@mipmap/ic_icon_detial_sampling"
+                                android:textColor="#0D72FF"
+                                style="@style/tvSubtitle" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            style="@style/barVertical">
+                            <TextView
+                                android:text="巡查轨迹"
+                                android:drawableStart="@mipmap/ic_icon_detial_trail"
+                                android:textColor="#52BB80"
+                                style="@style/tvSubtitle" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </kiun.com.bvroutine.views.cardview.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

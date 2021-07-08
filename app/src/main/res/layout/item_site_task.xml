@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="item" type="com.kssoft.lake.data.model.XcTaskR" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+    </data>
+    <kiun.com.bvroutine.views.cardview.CardView
+        style="@style/cardViewShallow">
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/barVertical">
+            <LinearLayout
+                android:padding="10dp"
+                android:background="@drawable/shape_bottom_line_bg"
+                android:orientation="horizontal"
+                style="@style/barVertical">
+                <TextView
+                    android:textColor="#999"
+                    android:layout_width="70dp"
+                    android:text="巡检人员:"
+                    style="@style/tvNormal" />
+                <TextView
+                    tools:text="功勋、张建中"
+                    android:text="@{item.names}"
+                    style="@style/tvNormal" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="10dp"
+                android:background="@drawable/shape_bottom_line_bg"
+                android:orientation="horizontal"
+                style="@style/barVertical">
+                <TextView
+                    android:textColor="#999"
+                    android:layout_width="70dp"
+                    android:text="巡检站点:"
+                    style="@style/tvNormal" />
+                <TextView
+                    android:text="@{item.siteCount}"
+                    style="@style/tvTitle" />
+                <TextView
+                    android:text="个"
+                    style="@style/tvNormal" />
+            </LinearLayout>
+            <kiun.com.bvroutine.views.ShortListView
+                android:listHandler="@{handler}"
+                android:val="@{item.taskSt}"
+                app:itemLayout="@layout/item_short_site"
+                android:orientation="vertical"
+                style="@style/barVertical" />
+        </LinearLayout>
+    </kiun.com.bvroutine.views.cardview.CardView>
+</layout>

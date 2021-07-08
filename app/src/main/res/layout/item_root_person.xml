@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="kiun.com.bvroutine.views.adapter.StepTreeAdapter.TreeHandler" />
+        <import type="kiun.com.bvroutine.data.viewmodel.TreeNode" />
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.TreeVo" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+        <variable name="treeHandler" type="TreeHandler" />
+    </data>
+    <LinearLayout
+        style="@style/barVertical"
+        android:padding="15dp"
+        android:background="@drawable/shape_bottom_line_padding4_bg"
+        android:onClick="@{()->treeHandler.onClick(context,treeHandler.treeNode.parentLevel()==2?TreeHandler.EVENT_CHECK:-1, null)}"
+        android:orientation="horizontal">
+        <TextView
+            tools:text="部门"
+            android:text="@{item.label}"
+            style="@style/tvMain" />
+        <TextView
+            tools:text="部门"
+            android:layout_weight="1"
+            android:text="@{item.getTitleOfLevel(treeHandler.treeNode.parentLevel())}"
+            style="@style/tvMain" />
+        <ImageView
+            android:show="@{!item.childrenEmpty}"
+            android:src="@{treeHandler.treeNode.expansion?@drawable/ic_baseline_vertical_align_top_18:@drawable/ic_sharp_format_line_spacing_18}"
+            android:onClick="@{()->treeHandler.onClick(context, TreeHandler.EVENT_EXP, null)}"
+            tools:src="@drawable/ic_sharp_format_line_spacing_18"
+            style="@style/warp_base" />
+        <ImageView
+            android:show="@{treeHandler.treeNode.parentLevel() == 2}"
+            android:src="@{treeHandler.treeNode.status()== TreeNode.STATUS_OFF?@drawable/ic_baseline_check_normal:@drawable/ic_baseline_check_18}"
+            style="@style/warp_base" />
+    </LinearLayout>
+</layout>

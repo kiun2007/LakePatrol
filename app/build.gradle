@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        debug {
+            storeFile file('kssoft_debug.jks')
+            storePassword 'dev_123'
+            keyAlias = 'kssoft_debug'
+            keyPassword 'dev_123'
+        }
+        release {
+            storeFile file('kssoft.jks')
+            storePassword 'prod_kssoft_2020'
+            keyAlias = 'kssoft'
+            keyPassword 'prod_kssoft_2020'
+        }
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.kssoft.lake"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 12
+        versionName "1.0.12"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug{
+            buildConfigField('String', 'Local', '"' + getIP() + '"')
+            buildConfigField('String', 'Prefix', '"http://47.93.233.210:8080"')
+//            buildConfigField('String', 'Prefix', '"http://10.32.249.233:8880"')
+//            buildConfigField('String', 'Prefix', '"http://10.32.225.56:8880"') //南京
+//            buildConfigField('String', 'Prefix', '"http://192.168.1.126:8880"')
+        }
+        release {
+            buildConfigField('String', 'Local', '"' + getIP() + '"')
+//            buildConfigField('String', 'Prefix', '"http://10.32.217.178:8880"') //常州
+//            buildConfigField('String', 'Prefix', '"http://10.32.193.190:8880"') //苏州
+//            buildConfigField('String', 'Prefix', '"http://10.32.225.56:8880"')
+//            buildConfigField('String', 'Prefix', '"http://10.32.249.233:8880"') //无锡
+//            buildConfigField('String', 'Prefix', '"http://10.32.217.178:8880"')
+            buildConfigField('String', 'Prefix', '"http://10.32.225.56:8880"') //南京
+//            buildConfigField('String', 'Prefix', '"http://47.93.233.210:8080"')
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':libcacheline')
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.2.1'
+
+    implementation "com.alibaba:fastjson:1.2.31"
+    implementation "com.squareup.okhttp3:okhttp:3.14.9"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.4.1"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+
+    annotationProcessor files('libs/bvroutine_apt.jar')
+    implementation 'com.kiun.bvroutine:bvroutine:1.1.26@aar'
+
+    implementation 'com.esri.arcgisruntime:arcgis-android:100.9.0@aar'
+    implementation 'com.amap.api:location:5.2.0'
+
+    implementation 'com.youth.banner:banner:+'
+    implementation 'com.lzy.net:okgo:3.0.4'
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation "com.alibaba:fastjson:1.2.31"
+    implementation 'com.tencent.tbs.tbssdk:sdk:43939'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

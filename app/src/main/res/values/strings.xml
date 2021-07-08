@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">湖泛巡查</string>
+    <string name="title_flow" translatable="false">水流(m³)</string>
+    <string name="hint_flow" translatable="false">请输入水流数值</string>
+    <string name="title_flow_of_seconds" translatable="false">流量(m³/s)</string>
+    <string name="hint_flow_of_seconds" translatable="false">请输入流量数值</string>
+    <string name="dialog_area_title" translatable="false">请选择站点</string>
+
+    <string name="titleComprehensive" translatable="false">
+        <![CDATA[<f c="#FFFFFF" s="15sp">综合监视</f><br/><f c="#FFFFFF" s="11sp">Comprehensive</f>]]>
+    </string>
+    <string name="titlePatrolRecord" translatable="false">
+        <![CDATA[<f c="#FFFFFF" s="15sp">巡查记录</f><br/><f c="#FFFFFF" s="11sp">Patrol Record</f>]]>
+    </string>
+    <string name="titleBriefingReview" translatable="false">
+        <![CDATA[<f c="#FFFFFF" s="15sp">简报审核</f><br/><f c="#FFFFFF" s="11sp">Briefing Review</f>]]>
+    </string>
+
+    <string name="titleOfColourful" translatable="false">
+        <![CDATA[<f c=\"#999999\" s=\"12sp\">%1$s</f><br/><br/><f c=\"#000000\" s=\"26sp\">%2$s </f><f c=\"%4$s\" s=\"12sp\">%3$s</f>]]>
+    </string>
+
+    <string name="doubleDetailed" translatable="false">
+        <![CDATA[<f c="#333333" s="15sp">%1$s</f><f c="#7F7F7F" s="11sp">%2$s</f>]]>
+    </string>
+</resources>

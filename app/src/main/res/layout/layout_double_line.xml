@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        style="@style/barVertical">
+        <LinearLayout
+            android:id="@+id/contentFirst"
+            android:layout_weight="1"
+            style="@style/barVertical">
+            <TextView
+                android:id="@+id/tvTitleFirst"
+                android:text="标题1:"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:textColor="@color/lessTextColor"
+                style="@style/tvMain"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/contentSecond"
+            android:layout_weight="1"
+            style="@style/barVertical">
+            <TextView
+                android:id="@+id/tvTitleSecond"
+                android:text="标题2："
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:textColor="@color/lessTextColor"
+                style="@style/tvMain"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

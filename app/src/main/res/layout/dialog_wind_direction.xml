@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="kiun.com.bvroutine.presenters.list.ArrayListProvider" />
+        <import type="com.kssoft.lake.base.ArrayBridge" />
+
+        <variable name="listService" type="com.kssoft.lake.net.services.ListService" />
+        <variable name="data" type="java.util.Map&lt;String,String>" />
+        <variable name="dialog" type="kiun.com.bvroutine.views.dialog.MCDialogManager" />
+    </data>
+
+    <LinearLayout
+        style="@style/barVertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="@color/wrapBackground"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:padding="10dp"
+                style="@style/barVertical">
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:text="请选择风向"
+                    style="@style/tvMain" />
+            </RelativeLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                style="@style/fill_base">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:listProvider="@{ArrayListProvider.create(context, dialog, @layout/item_wind_direction, ArrayBridge.windDirection())}"
+                    style="@style/fill_base" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

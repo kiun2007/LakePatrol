@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="handler" type="kiun.com.bvroutine.handlers.GridHandler"/>
+    </data>
+    <LinearLayout
+        android:padding="16dp"
+        android:background="@color/wrapBackground"
+        style="@style/barVertical"
+        android:orientation="vertical">
+        <TextView
+            tools:text = "测站名称"
+            style="@style/tvNormal" />
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            style="@style/barVertical">
+            <LinearLayout
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <TextView
+                    android:textColor="@color/green"
+                    tools:text="优(80)"
+                    style="@style/tvSubtitle" />
+                <TextView
+                    tools:text="今日水质"
+                    style="@style/tvSmall" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <TextView
+                    android:textColor="@color/yellow"
+                    tools:text="良(129)"
+                    style="@style/tvSubtitle" />
+                <TextView
+                    tools:text="昨日水质"
+                    style="@style/tvSmall" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.SamplingDetailsActivity">
+    <data>
+        <import type="android.view.View" />
+        <variable name="data" type="com.kssoft.lake.data.SamplingBase" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="采样详情"
+            style="@style/navigatorBar" />
+        <ScrollView
+            android:background="@color/wrapDark"
+            android:orientation="vertical"
+            style="@style/fill_base">
+            <LinearLayout
+                style="@style/barVertical">
+                <LinearLayout
+                    android:show="@{data == null}"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="200dp"
+                    style="@style/fill_base">
+                    <ProgressBar
+                        style="@style/warp_base" />
+                    <TextView
+                        android:text="正在为您加载数据..."
+                        style="@style/tvSubtitle" />
+                </LinearLayout>
+                <ViewStub
+                    android:id="@+id/viewStub"
+                    android:layout="@layout/layout_sampling_details"
+                    android:data="@{data}"
+                    android:fixedOpen="@{true}"
+                    android:visibility="@{data != null?View.VISIBLE:View.GONE}"
+                    style="@style/barVertical" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

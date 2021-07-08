@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.mine.PwdChangeActivity">
+    <data>
+        <variable name="password" type="com.kssoft.lake.net.requests.dto.Password" />
+        <variable name="userService" type="com.kssoft.lake.net.services.UserService" />
+    </data>
+    <LinearLayout
+        style="@style/fill_base"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="密码修改"
+            style="@style/navigatorBar" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center|top"
+            android:paddingTop="15dp"
+            style="@style/fill_base">
+            <EditText
+                android:hint="旧密码"
+                android:text="@={password.oldPassword}"
+                style="@style/tvPassword" />
+            <EditText
+                android:hint="新密码"
+                android:text="@={password.newPassword}"
+                style="@style/tvPassword" />
+            <EditText
+                android:hint="再次输入密码"
+                android:text="@={password.againPassword}"
+                style="@style/tvPassword" />
+            <Button
+                android:text="确认修改"
+                android:tag="handler.onPasswordChange(data)"
+                android:verify="@{password}"
+                android:action="@{(a)->userService.resetPwd(password)}"
+                android:layout_margin="36dp"
+                style="@style/bt_active" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

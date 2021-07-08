@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.LoginActivity">
+    <data>
+        <import type="kiun.com.bvroutine.base.RequestBVActivity" />
+
+        <variable name="authorize" type="com.kssoft.lake.net.services.AuthorizeService" />
+        <variable name="user" type="com.kssoft.lake.net.requests.dto.LoginDto" />
+    </data>
+
+    <LinearLayout
+        android:background="#254FCE"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@mipmap/bg"
+            android:onClick="onChangedService"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:layout_weight="1"
+            android:gravity="center|top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="湖泛巡查"
+                android:textColor="@color/white"
+                android:layout_marginBottom="25dp"
+                style="@style/tvTitle" />
+            <EditText
+                android:background="@drawable/shape_bg_input_round"
+                android:paddingLeft="25dp"
+                android:hint="用户名"
+                android:text="@={user.username}"
+                android:textColor="@color/white"
+                android:singleLine="true"
+                android:textColorHint="#F0F0F0"
+                android:layout_width="290dp"
+                android:layout_height="48dp" />
+            <EditText
+                android:background="@drawable/shape_bg_input_round"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="25dp"
+                android:hint="登陆密码"
+                android:text="@={user.password}"
+                android:textColorHint="#F0F0F0"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:inputType="textPassword"
+                android:layout_width="290dp"
+                android:layout_height="48dp" />
+            <Button
+                style="@style/warp_base"
+                android:tag="handler.login(data)"
+                android:background="@drawable/shape_bg_button_round"
+                android:text="登 录"
+                android:textColor="#1D377F"
+                android:layout_marginTop="20dp"
+                android:action="@{(a)->authorize.login(user)}" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

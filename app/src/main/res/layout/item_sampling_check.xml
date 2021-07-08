@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.list.ListSamplingCheckActivity">
+    <data>
+        <variable name="item" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+    </data>
+    <kiun.com.bvroutine.views.cardview.CardView
+        android:marginBottom="@{index.last?0.0f:@dimen/cardViewMarginBottom}"
+        android:onClick="@{()->handler.onClick(context, 0, item)}"
+        style="@style/cardViewShallow">
+        <LinearLayout
+            style="@style/barVertical"
+            android:orientation="horizontal">
+            <ImageView
+                style="@style/warp_base"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tagImageView"
+                android:layout_marginTop="-4dp"
+                tools:src="@mipmap/ic_page_tag_blue" />
+            <LinearLayout
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="16dp"
+                    android:layout_toRightOf="@id/tagImageView"
+                    style="@style/barVertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:lines="2"
+                        android:text="@{item.itemTitle()}"
+                        tools:text="2020年6月24日太湖蓝藻巡查简报"
+                        style="@style/tvMain" />
+                    <TextView
+                        tools:visibility="visible"
+                        android:show="@{`0`.equals(item.ckstate)}"
+                        android:onClick="@{()->handler.onClick(context, 1, item)}"
+                        android:text="校核"
+                        android:backgroundTint="#53C49A"
+                        android:textColor="#53C49A"
+                        style="@style/tvRound" />
+                    <TextView
+                        android:show="@{`2`.equals(item.ckstate)}"
+                        android:layout_marginLeft="5dp"
+                        tools:visibility="visible"
+                        android:text="已完成"
+                        android:backgroundTint="#999"
+                        android:textColor="#999"
+                        style="@style/tvRound" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="15dp"
+                    style="@style/warp_base">
+                    <TextView
+                        android:drawableStart="@mipmap/ic_list_icon_time"
+                        tools:text="2020-06-24 08:19:33-2:33:34"
+                        android:text="@{item.itemTime(`yyyy-MM-dd HH:mm:ss`)}"
+                        android:layout_marginRight="20dp"
+                        style="@style/tvSubtitleSmall" />
+                    <TextView
+                        android:drawableStart="@mipmap/ic_list_icon_character"
+                        tools:text="李玟雨"
+                        android:text="@{item.names}"
+                        style="@style/tvMain" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </kiun.com.bvroutine.views.cardview.CardView>
+</layout>

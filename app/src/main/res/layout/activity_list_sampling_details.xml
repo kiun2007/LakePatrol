@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.list.ListSamplingActivity">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="list" type="java.util.List&lt;SamplingBase>" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="采样详情列表"
+            style="@style/navigatorBar" />
+        <ScrollView
+            android:background="@color/wrapDark"
+            tools:visibility="visible"
+            style="@style/wrap_group_view">
+            <LinearLayout
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <kiun.com.bvroutine.views.ShortListView
+                    android:val="@{list}"
+                    android:orientation="vertical"
+                    app:emptyLayout="@layout/list_short_empty"
+                    app:itemLayout="@layout/item_sampling_site"
+                    style="@style/barVertical" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

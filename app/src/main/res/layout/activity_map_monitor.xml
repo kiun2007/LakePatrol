@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.leader.MapMonitorActivity">
+    <data>
+        <variable name="monitorDto" type="com.kssoft.lake.net.requests.dto.MonitorDto" />
+        <variable name="statistics" type="com.kssoft.lake.data.model.vo.MapStatistics" />
+        <variable
+            name="markerList"
+            type="java.util.List" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barLeftTitle="综合监视"
+            style="@style/navigatorBar">
+            <RelativeLayout
+                style="@style/barVertical">
+                <kiun.com.bvroutine.views.DatePickerLayout
+                    android:layout_centerInParent="true"
+                    android:val="@={monitorDto.tm}"
+                    app:format="yyyy-MM-dd"
+                    app:returnType="formatDate"
+                    app:type="date"
+                    app:hideArrow="false"
+                    android:textColor="@color/mainTextColor"
+                    android:drawableRight="@drawable/svg_down_arrow"
+                    style="@style/tvSubtitle" />
+                <ImageView
+                    style="@style/warp_base"
+                    android:onClick="onMenuClick"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    app:srcCompat="@mipmap/ic_map_title_sort" />
+            </RelativeLayout>
+        </kiun.com.bvroutine.views.NavigatorBar>
+        <FrameLayout
+            style="@style/fill_base">
+            <com.esri.arcgisruntime.mapping.view.MapView
+                android:id="@+id/mapView"
+                android:val="@{markerList}"
+                style="@style/fill_base" />
+            <LinearLayout
+                android:layout_gravity="center"
+                android:show="@{statistics == null}"
+                style="@style/warp_base">
+                <include layout="@layout/layout_loading" android:title="@{`正在统计图例`}" />
+            </LinearLayout>
+            <HorizontalScrollView
+                android:layout_gravity="bottom"
+                android:show="@{statistics != null}"
+                style="@style/barVertical">
+                <LinearLayout
+                    style="@style/barHorizontal">
+                    <kiun.com.bvroutine.views.cardview.CardView
+                        style="@style/cardViewShallow">
+                        <LinearLayout
+                            android:padding="16dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            style="@style/warp_base">
+                            <TextView
+                                android:text="湖泛巡查图例"
+                                android:textStyle="normal"
+                                style="@style/tvTitle" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp"
+                                android:layout_width="140dp"
+                                style="@style/fill_base">
+                                <include android:index="@{0}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                                <include android:index="@{1}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                                <include android:index="@{2}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </kiun.com.bvroutine.views.cardview.CardView>
+                    <kiun.com.bvroutine.views.cardview.CardView
+                        android:layout_marginLeft="-15dp"
+                        style="@style/cardViewShallow">
+                        <LinearLayout
+                            android:padding="16dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            style="@style/warp_base">
+                            <TextView
+                                android:text="水文巡测图例"
+                                android:textStyle="normal"
+                                style="@style/tvTitle" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp"
+                                android:layout_width="140dp"
+                                style="@style/fill_base">
+                                <include android:index="@{3}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                                <include android:index="@{4}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                                <include android:index="@{5}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </kiun.com.bvroutine.views.cardview.CardView>
+                    <kiun.com.bvroutine.views.cardview.CardView
+                        android:layout_marginLeft="-15dp"
+                        style="@style/cardViewShallow">
+                        <LinearLayout
+                            android:padding="16dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            style="@style/warp_base">
+                            <TextView
+                                android:text="人工观测图例"
+                                android:textStyle="normal"
+                                style="@style/tvTitle" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp"
+                                android:layout_width="140dp"
+                                style="@style/fill_base">
+                                <include android:index="@{6}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                                <include android:index="@{7}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                                <include android:index="@{8}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </kiun.com.bvroutine.views.cardview.CardView>
+                    <kiun.com.bvroutine.views.cardview.CardView
+                        android:layout_marginLeft="-15dp"
+                        style="@style/cardViewShallow">
+                        <LinearLayout
+                            android:padding="16dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            style="@style/warp_base">
+                            <TextView
+                                android:text="应急监测图例"
+                                android:textStyle="normal"
+                                style="@style/tvTitle" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp"
+                                style="@style/warp_base">
+                                <include android:index="@{9}" android:statistics="@{statistics}" layout="@layout/item_legend"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </kiun.com.bvroutine.views.cardview.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="data" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="dialog" type="kiun.com.bvroutine.views.dialog.MCDialogManager" />
+    </data>
+    <kiun.com.bvroutine.views.cardview.CardView
+        android:layout_width="wrap_content"
+        style="@style/cardViewShallow">
+        <LinearLayout
+            android:paddingTop="15dp"
+            android:layout_width="250dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            style="@style/barVertical">
+            <TextView
+                android:text="是否驳回数据"
+                android:drawableLeft="@drawable/ic_baseline_error_outline_24"
+                android:layout_marginBottom="10dp"
+                style="@style/tvTitle" />
+            <EditText
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/shape_bottom_line_bg"
+                android:paddingBottom="5dp"
+                tools:hint="请您仔细阅读 2020年6月20日湖泛采样(月亮湾) 具体内容，并输入驳回理由"
+                android:hint="@{String.format(`请您仔细阅读 %s 具体内容，并输入驳回理由`,data.itemTitle())}"
+                android:gravity="left|top"
+                style="@style/tvSubtitle" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:padding="8dp"
+                style="@style/barVertical">
+                <TextView
+                    android:text="取消"
+                    android:onClick="@{()->dialog.cancel()}"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_line_right"
+                    style="@style/tvSubtitle" />
+                <TextView
+                    android:text="确定"
+                    android:onClick="@{()->dialog.onClick(context, 0, data)}"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    style="@style/tvMain" />
+            </LinearLayout>
+        </LinearLayout>
+    </kiun.com.bvroutine.views.cardview.CardView>
+</layout>

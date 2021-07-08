@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="data" type="com.kssoft.lake.data.DateChooseItem" />
+        <variable name="dialog" type="kiun.com.bvroutine.views.dialog.MCDialogManager" />
+    </data>
+    <LinearLayout
+        style="@style/barVertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wrapBackground"
+            android:gravity="center|top"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:padding="10dp"
+                style="@style/barVertical">
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:text="请选择起止时间"
+                    android:drawableLeft="@mipmap/ic_list_icon_clock"
+                    style="@style/tvMain" />
+            </RelativeLayout>
+            <kiun.com.bvroutine.views.DatePickerLayout
+                android:hint="请选择开始时间"
+                android:padding="10dp"
+                android:gravity="center"
+                app:returnType="date"
+                app:type="date"
+                app:format="yyyy-MM-dd"
+                android:val="@={data.start}"
+                style="@style/tvSubtitle" />
+            <TextView
+                android:text="至"
+                style="@style/tvTitle" />
+            <kiun.com.bvroutine.views.DatePickerLayout
+                android:hint="请选择结束时间"
+                android:padding="10dp"
+                android:gravity="center"
+                app:returnType="date"
+                app:type="date"
+                app:format="yyyy-MM-dd"
+                android:val="@={data.end}"
+                android:layout_marginBottom="15dp"
+                style="@style/tvSubtitle" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

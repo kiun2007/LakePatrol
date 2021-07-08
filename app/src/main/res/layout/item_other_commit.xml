@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="kiun.com.bvroutine.utils.ContextUtil" />
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.XcTaskPro" />
+    </data>
+    <com.kssoft.lake.view.RowLinearLayout
+        tools:title="标题"
+        app:title="@{item.chname}"
+        style="@style/rowInput">
+
+        <EditText
+            android:show="@{!ContextUtil.getBoolean(context, `isCheck`)}"
+            android:text="@={item.sbv}"
+            android:hint="请输入数值"
+            style="@style/rowEditDouble" />
+        <EditText
+            android:show="@{ContextUtil.getBoolean(context, `isCheck`)}"
+            android:text="@={item.jhv}"
+            android:hint="请输入校核值"
+            style="@style/rowEditDouble" />
+    </com.kssoft.lake.view.RowLinearLayout>
+</layout>

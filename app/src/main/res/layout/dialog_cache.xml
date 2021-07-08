@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View" />
+        <import type="kiun.com.bvroutine.utils.MCString" />
+
+        <variable
+            name="data"
+            type="com.kssoft.lake.data.model.CacheModel" />
+        <variable name="dialog" type="android.content.DialogInterface" />
+    </data>
+    <kiun.com.bvroutine.views.cardview.CardView
+        android:layout_width="wrap_content"
+        style="@style/cardViewShallow">
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_width="300dp"
+            style="@style/barVertical">
+            <TextView
+                tools:text="离线填报"
+                android:text="@{data.title}"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_no_network"
+                android:layout_marginBottom="15dp"
+                style="@style/tvTitle" />
+            <TextView
+                tools:text="已开启离线填报模式,填报将被缓存至本地,关闭离线后恢复正常!"
+                android:text="@{data.desc}"
+                android:layout_marginBottom="15dp"
+                style="@style/tvSubtitle" />
+            <TextView
+                android:layout_gravity="left"
+                tools:text="当前进度(43/100)"
+                android:text="@{String.format(`当前进度(%d/%d)`, data.progress, data.count)}"
+                style="@style/tvNormal" />
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:max="100"
+                tools:progress="50"
+                android:max="@{data.count}"
+                android:progress="@{data.progress}"
+                style="?android:attr/progressBarStyleHorizontal" />
+        </LinearLayout>
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="right"
+            android:show="@{data.complete}"
+            android:onClick="@{()->dialog.dismiss()}"
+            android:src="@drawable/ic_baseline_cancel_24"
+            style="@style/warp_base" />
+    </kiun.com.bvroutine.views.cardview.CardView>
+</layout>

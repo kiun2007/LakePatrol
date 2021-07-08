@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.HomeActivity">
+    <data>
+        <import type="kiun.com.bvroutine.utils.ListUtil" />
+        <import type="com.kssoft.lake.utils.ModuleUtil" />
+        <import type="com.kssoft.lake.data.model.XcAppM" />
+        <import type="android.view.View" />
+        <import type="com.kssoft.lake.ui.activity.mine.MineActivity" />
+
+        <variable name="trailService" type="com.kssoft.lake.services.TrailService" />
+        <variable name="homeService" type="com.kssoft.lake.net.services.HomeService" />
+        <variable name="moduleList" type="java.util.List&lt;XcAppM>" />
+        <variable name="taskDto" type="com.kssoft.lake.net.requests.dto.TaskDto" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.layout.StatusLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="48dp"
+            style="@style/barVertical">
+            <TextView
+                tools:text="苏州市苏州市苏州市苏州市苏州市苏州市苏州市苏州市苏州市苏州市"
+                android:text="@{trailService.lastLocation.address??`获取中`}"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:drawableStart="@mipmap/ic_home_title_address"
+                style="@style/tvNormal" />
+            <LinearLayout
+                android:id="@+id/rightButton"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                style="@style/warp_base">
+                <ImageView
+                    android:padding="10dp"
+                    android:startActivity="@{MineActivity.clz}"
+                    android:src="@mipmap/ic_home_title_set"
+                    style="@style/warp_base" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            style="@style/fill_base">
+            <LinearLayout
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <kiun.com.bvroutine.views.AutoFitLayout
+                    app:scaleHeight="2"
+                    style="@style/barVertical">
+                    <com.youth.banner.Banner
+                        app:bannerNetCall="@{(a)->homeService.getBannerImages(``)}"
+                        style="@style/fill_base" />
+                </kiun.com.bvroutine.views.AutoFitLayout>
+                <LinearLayout
+                    android:show="@{moduleList == null}"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    style="@style/barVertical">
+                    <ProgressBar
+                        style="@style/warp_base" />
+                    <TextView
+                        android:text="正在为您加载模块..."
+                        style="@style/tvSubtitle" />
+                </LinearLayout>
+                <ViewStub
+                    android:id="@+id/viewStub"
+                    android:module="@{ModuleUtil.create(moduleList, trailService)}"
+                    android:taskDto="@{taskDto}"
+                    android:layout="@layout/layout_module"
+                    android:visibility="@{moduleList!=null?View.VISIBLE:View.GONE}"
+                    style="@style/barVertical" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

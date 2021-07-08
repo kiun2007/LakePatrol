@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 标题 -->
+    <style name="tvTitle" parent="warp_base">
+        <item name="android:textColor">#243148</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 次要的字体 -->
+    <style name="tvSmall" parent="warp_base">
+        <item name="android:textColor">#999</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="tvNavigation" parent="warp_base">
+        <item name="android:textColor">#243148</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 副标题 -->
+    <style name="tvSubtitle" parent="warp_base">
+        <item name="android:textColor">#999</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- 副标题缩小 -->
+    <style name="tvSubtitleSmall" parent="warp_base">
+        <item name="android:textColor">#999</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    
+    <style name="tvLeaf" parent="warp_base">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">top</item>
+    </style>
+
+    <style name="tvLeafRed" parent="tvLeaf">
+        <item name="android:background">@drawable/shape_leaf_red</item>
+    </style>
+
+    <style name="tvLeafYellow" parent="tvLeaf">
+        <item name="android:background">@drawable/shape_leaf_yellow</item>
+    </style>
+
+    <!-- 默认文本样式 -->
+    <style name="tvNormal" parent="warp_base">
+        <item name="android:textColor">#333</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="tvMain" parent="tvNormal">
+        <item name="android:textColor">@color/mainTextColor</item>
+    </style>
+    
+    <style name="tvButton" parent="warp_base">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="title_label">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#243148</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- 填报文本输入单行 -->
+    <style name="rowEditText" parent="barVertical">
+        <item name="android:gravity">right</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--输入框样式-->
+    <style name="rowEditDecimal" parent="rowEditText">
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+
+    <style name="rowEditNumber" parent="rowEditText">
+        <item name="android:inputType">number</item>
+    </style>
+
+    <style name="rowEditDouble" parent="rowEditDecimal">
+        <item name="android:transitionName">@string/textDouble</item>
+    </style>
+
+    <style name="rowEditFloat" parent="rowEditDecimal">
+        <item name="android:transitionName">@string/textFloat</item>
+    </style>
+
+    <style name="rowEditInt" parent="rowEditNumber">
+        <item name="android:transitionName">@string/textInteger</item>
+    </style>
+
+    <style name="rowEditLong" parent="rowEditNumber">
+        <item name="android:transitionName">@string/textLong</item>
+    </style>
+
+    <!-- 填报文本输入多行 -->
+    <style name="rowEditMultiline" parent="barVertical">
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">top</item>
+        <item name="android:background">@null</item>
+        <item name="android:maxLength">100</item>
+    </style>
+
+    <style name="tvSeparate" parent="barVertical">
+        <item name="android:background">#fff3f3f6</item>
+        <item name="android:textColor">#666</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">16dp</item>
+    </style>
+
+    <style name="rowSelectText" parent="rowEditText">
+        <item name="android:drawableRight">@drawable/svg_right_arrow_gray</item>
+        <item name="android:hint">请选择</item>
+    </style>
+
+    <style name="spinnerBase" parent="barVertical">
+        <item name="android:dropDownVerticalOffset">30dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:gravity">right</item>
+        <item name="android:background">@drawable/shape_spinner_bg</item>
+    </style>
+
+    <style name="tvEditSingle" parent="warp_base">
+    </style>
+
+    <style name="blockTitle" parent="barVertical">
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">#333</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="radioButton" parent="warp_base">
+        <item name="android:textColor">@color/sel_radio_text_color</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:background">@drawable/sel_radio_text_bg</item>
+        <item name="android:minWidth">60dp</item>
+    </style>
+
+    <style name="tvRound" parent="tvNormal">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:backgroundTintMode">multiply</item>
+        <item name="android:background">@drawable/shape_radius_stroke_60dp</item>
+    </style>
+    
+    <style name="tvDetailsValue" parent="tvMain">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1.5</item>
+    </style>
+
+    <style name="tvDetailsNumber" parent="tvDetailsValue">
+        <item name="android:textColor">#999</item>
+        <item name="android:transitionName">@string/numberCharSequence</item>
+    </style>
+
+    <style name="tvDetailsNormalTitle" parent="barVertical">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/darkBlue</item>
+    </style>
+
+    <style name="tvDetailsTitle" parent="tvDetailsNormalTitle">
+        <item name="android:drawableStart">@drawable/shape_bar_4x15</item>
+        <item name="android:background">@drawable/shape_bottom_line_bg</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+    <style name="tvPassword" parent="barVertical">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:background">@drawable/shape_bg_input_round</item>
+        <item name="android:layout_marginLeft">35dp</item>
+        <item name="android:layout_marginRight">35dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">25dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+    </style>
+</resources>

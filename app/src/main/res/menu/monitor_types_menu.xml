@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/camera"
+        android:icon="@mipmap/ic_map_title_sort_hufan"
+        android:checkable="true"
+        android:title="湖泛巡查" />
+    <item android:id="@+id/album"
+        android:icon="@mipmap/ic_map_title_sort_shuiwen"
+        android:checkable="true"
+        android:title="水文巡测" />
+    <item android:id="@+id/audio"
+        android:icon="@mipmap/ic_map_title_sort_yingji"
+        android:checkable="true"
+        android:title="应急监测" />
+    <item android:id="@+id/video"
+        android:icon="@mipmap/ic_map_title_sort_rengong"
+        android:checkable="true"
+        android:title="人工观测" />
+</menu>

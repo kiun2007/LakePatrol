@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tabTypes">
+        <item>湖泛巡查</item>
+        <item>水文巡测</item>
+        <item>人工观测</item>
+        <item>应急监测</item>
+    </string-array>
+
+    <string-array name="tabFragmentTypes">
+        <item>com.kssoft.lake.ui.fragment.SamplingCheckFragment</item>
+        <item>com.kssoft.lake.ui.fragment.SamplingCheckFragment</item>
+        <item>com.kssoft.lake.ui.fragment.SamplingCheckFragment</item>
+        <item>com.kssoft.lake.ui.fragment.SamplingCheckFragment</item>
+    </string-array>
+
+    <string-array name="tabTypesTask">
+        <item>湖泛巡查</item>
+        <item>水文巡测</item>
+        <item>人工观测</item>
+    </string-array>
+
+    <string-array name="tabTypesReport">
+        <item>湖泛巡查</item>
+        <item>应急监测</item>
+    </string-array>
+
+    <string-array name="recordTabTypes">
+        <item>巡查中</item>
+        <item>已暂停</item>
+        <item>待校核</item>
+        <item>已驳回</item>
+        <item>已完成</item>
+    </string-array>
+    <integer-array name="recordTabStateTypes">
+        <item>0</item>
+        <item>2</item>
+        <item>4</item>
+    </integer-array>
+
+    <!--方位选择数组-->
+    <string-array name="windDirection">
+        <item>东</item>
+        <item>南</item>
+        <item>西</item>
+        <item>北</item>
+        <item>东南</item>
+        <item>东北</item>
+        <item>西南</item>
+        <item>西北</item>
+    </string-array>
+
+    <string-array name="positive20">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 边 -->
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <size android:height="16dp" />
+            <padding android:bottom="8dp" />
+            <gradient android:startColor="#7FCCCCCC" android:endColor="#00CCCCCC" />
+            <corners android:bottomLeftRadius="8dp" android:bottomRightRadius="8dp" />
+        </shape>
+    </item>
+
+    <!-- 中心背景 -->
+    <item>
+        <shape android:shape="rectangle" android:useLevel="false">
+            <!-- 实心 -->
+            <solid android:color="#FFF" />
+            <corners android:bottomLeftRadius="8dp" android:bottomRightRadius="8dp" />
+        </shape>
+    </item>
+</layer-list>

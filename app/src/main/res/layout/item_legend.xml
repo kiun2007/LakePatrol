@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="statistics" type="com.kssoft.lake.data.model.vo.MapStatistics" />
+        <variable name="index" type="Integer" />
+    </data>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        style="@style/fill_base">
+        <ImageView
+            android:src="@{statistics.getIcon(index, context)}"
+            tools:src="@mipmap/ic_legend_hufan_inspected"
+            style="@style/warp_base" />
+        <TextView
+            android:textAlignment="center"
+            tools:text="已巡\n(10)"
+            android:text="@{statistics.getTitle(index)}"
+            style="@style/tvMain"/>
+    </LinearLayout>
+</layout>

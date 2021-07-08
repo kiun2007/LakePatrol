@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+    <LinearLayout
+        android:tag="bottom"
+        android:gravity="center"
+        android:orientation="vertical"
+        style="@style/warp_base">
+        <TextView
+            android:text="终点"
+            android:textColor="@color/blue"
+            style="@style/tvNormal" />
+        <ImageView
+            android:src="@drawable/ic_baseline_flag_30"
+            style="@style/warp_base" />
+    </LinearLayout>
+</layout>

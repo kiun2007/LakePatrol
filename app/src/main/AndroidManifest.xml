@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kssoft.lake">
+
+    <!--网络定位-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="b6a8425a60bfa5253c9d20726f3d0e87"/>
+        <service android:name="com.amap.api.location.APSService" />
+        <service android:name=".services.TrailService" />
+
+        <service
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:label="dexopt"
+            android:process=":dexopt" >
+        </service>
+
+        <provider
+            android:name="com.tencent.smtt.utils.FileProvider"
+            android:authorities="com.kssoft.lake.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".GuideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.personnel.LakeTaskActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.personnel.HomeActivity" />
+        <activity android:name=".ui.activity.personnel.LakeInspectionRecordActivity" />
+        <activity android:name=".ui.activity.personnel.SamplingDetailsActivity" />
+        <activity android:name=".ui.activity.commit.CommitHydrologyActivity" />
+        <activity android:name=".ui.activity.commit.CommitLakeActivity" />
+        <activity android:name=".ui.activity.commit.CommitManualActivity" />
+        <activity android:name=".ui.activity.commit.CommitUrgentActivity" />
+        <activity android:name=".ui.activity.list.ListRecordActivity" />
+        <activity android:name=".ui.activity.personnel.MapTrailActivity" />
+        <activity android:name=".ui.activity.list.ListSamplingActivity" />
+        <activity android:name=".ui.activity.list.ListSamplingCheckActivity" />
+        <activity android:name=".ui.activity.list.ListReportActivity" />
+        <activity android:name=".ui.activity.leader.MapMonitorActivity" />
+        <activity android:name=".ui.activity.mine.MineActivity" />
+        <activity android:name=".ui.activity.leader.WordBrowseActivity" />
+        <activity android:name=".ui.activity.mine.PwdChangeActivity" />
+        <activity android:name=".ui.activity.mine.AboutActivity" />
+        <activity android:name=".ui.activity.personnel.LakeInspectionGisMapActivity" />
+        <activity android:name=".ui.activity.mine.CacheLineActivity" />
+    </application>
+</manifest>

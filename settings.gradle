@@ -1,0 +1,3 @@
+rootProject.name='LakePatrol'
+include ':app'
+include ':libcacheline'

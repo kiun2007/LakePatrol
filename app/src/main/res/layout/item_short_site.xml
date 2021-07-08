@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <import type="android.graphics.drawable.Drawable" />
+        <variable name="item" type="com.kssoft.lake.data.model.XcTaskSt" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+    </data>
+    <LinearLayout
+        style="@style/barVertical"
+        android:background="@{index.last?null:@drawable/shape_bottom_line_bg}"
+        android:padding="15dp"
+        android:onClick="@{()->handler.onClick(context, 0, item)}"
+        android:orientation="horizontal">
+        <ImageView
+            tools:src="@mipmap/ic_map_title_sort_hufan"
+            android:src="@{(Drawable)handler.getTag(1)}"
+            android:layout_marginRight="15dp"
+            style="@style/warp_base" />
+        <TextView
+            android:layout_weight="1"
+            tools:text="萨尔铁列克水库工程巡检-西段闸门水位情况"
+            android:text="@{item.stnm}"
+            style="@style/tvMain" />
+        <TextView
+            android:layout_marginLeft="8dp"
+            tools:backgroundTint="@color/green"
+            tools:textColor="@color/green"
+            android:backgroundTint="@{`已巡`.equals(item.state)?@color/green:@color/yellow}"
+            android:textColor="@{`已巡`.equals(item.state)?@color/green:@color/yellow}"
+            android:backgroundTintMode="multiply"
+            android:background="@drawable/shape_radius_stroke_4dp"
+            android:padding="3dp"
+            tools:text="已巡"
+            android:text="@{item.state}"
+            style="@style/tvSubtitleSmall" />
+    </LinearLayout>
+</layout>

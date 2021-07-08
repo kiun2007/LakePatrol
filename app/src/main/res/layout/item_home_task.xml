@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <import type="android.graphics.drawable.Drawable" />
+        <import type="com.kssoft.lake.ui.activity.personnel.LakeTaskActivity" />
+
+        <variable name="item" type="com.kssoft.lake.data.model.XcTaskR" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+    </data>
+    <kiun.com.bvroutine.views.DrawLinearLayout
+        style="@style/barVertical"
+        app:paintColor="@color/partTranslucent"
+        app:radius="5dp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="8dp"
+        android:onClick="@{()->LakeTaskActivity.startFromType(context, item.xctp)}"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_weight="1"
+            tools:text="巡查人员: 张三"
+            android:text="@{`巡查人员: ` + item.names}"
+            style="@style/tvSubtitle" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            style="@style/barVertical">
+            <TextView
+                android:text="巡查进度:"
+                android:layout_marginRight="10dp"
+                style="@style/tvSubtitle" />
+            <ProgressBar
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="@{item.patrolCount(0)}"
+                android:progress="@{item.patrolCount(1)}"
+                android:progressDrawable="@drawable/progressbar"
+                style="?android:attr/progressBarStyleHorizontal" />
+            <TextView
+                tools:text="65%"
+                android:textColor="#00F4CC"
+                android:layout_marginLeft="10dp"
+                android:text="@{item.percentage}"
+                style="@style/tvSubtitle" />
+        </LinearLayout>
+    </kiun.com.bvroutine.views.DrawLinearLayout>
+</layout>

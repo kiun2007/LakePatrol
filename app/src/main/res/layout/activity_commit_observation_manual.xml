@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.commit.CommitManualActivity">
+    <data>
+        <variable name="data" type="com.kssoft.lake.data.model.commit.XcWrrbR" />
+
+        <!--自动-->
+        <variable name="user" type="com.kssoft.lake.data.model.User" />
+        <variable name="snimdtDto" type="com.kssoft.lake.net.requests.dto.SnimdtDto" />
+        <variable name="siteList" type="java.util.List" />
+        <variable name="editMode" type="Boolean" />
+
+        <!--service-->
+        <variable name="trailService" type="com.kssoft.lake.services.TrailService" />
+        <variable name="commitService" type="com.kssoft.lake.net.services.CommitService" />
+        <variable name="baseService" type="com.kssoft.lake.net.services.BaseService" />
+        <variable name="dataService" type="com.kssoft.lake.net.services.DataService" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barStyle="transparentBlack"
+            app:barTitle="人工观测填报"
+            style="@style/navigatorBar" />
+        <ScrollView
+            android:background="@color/wrapFillColor"
+            style="@style/fill_base">
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/wrapBackground"
+                style="@style/barVertical">
+                <!-- 基本资料 -->
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="站点"
+                    style="@style/rowInput">
+                    <kiun.com.bvroutine.views.text.GeneralItemText
+                        app:dialogLayoutId="@layout/dialog_area_list"
+                        android:enabled="@{!data.check}"
+                        android:layout_weight="1"
+                        app:param="@{siteList}"
+                        app:listener="@{data}"
+                        android:text="@{data.stnm}"
+                        android:hint="请选择站点"
+                        style="@style/rowEditText" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="填报人"
+                    style="@style/rowInput">
+                    <TextView
+                        android:hint="填报人名称"
+                        android:text="@{user.nickName}"
+                        style="@style/rowEditText" />
+                </com.kssoft.lake.view.RowLinearLayout>
+
+                <!-- 水闸信息 -->
+                <LinearLayout
+                    style="@style/division" />
+                <TextView
+                    android:text="水闸信息"
+                    style="@style/blockTitle" />
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="闸上水位"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`upz`}"
+                        android:val="@={data.upz}"
+                        android:hint="请输入闸上水位数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="闸下水位"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`dwz`}"
+                        android:val="@={data.dwz}"
+                        android:hint="请输入闸下水位数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="流量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`q`}"
+                        android:val="@={data.q}"
+                        android:hint="请输入流量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="开闸孔数"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`gtopnum`}"
+                        android:val="@={data.gtopnum}"
+                        android:hint="请输入开闸孔数数值"
+                        style="@style/rowEditInt" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="开闸高度"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`gtophgt`}"
+                        android:val="@={data.gtophgt}"
+                        android:hint="请输入开闸高度数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+
+                <!-- 水循环情况 -->
+                <LinearLayout
+                    style="@style/division" />
+                <TextView
+                    android:text="水循环情况"
+                    style="@style/blockTitle" />
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="降水量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`p`}"
+                        android:val="@={data.p}"
+                        android:hint="请输入降水量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="水面蒸发量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`wsfe`}"
+                        android:val="@={data.wsfe}"
+                        android:hint="请输入水面蒸发量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="蒸发形式"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`eetp`}"
+                        android:val="@={data.eetp}"
+                        android:maxLength="20"
+                        android:hint="请输入蒸发形式"
+                        style="@style/rowEditText" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="气温"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`atmp`}"
+                        android:val="@={data.atmp}"
+                        android:hint="请输入气温数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="观测高度"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`obhgt`}"
+                        android:val="@={data.obhgt}"
+                        android:hint="请输入观测高度数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="水气压"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`vp`}"
+                        android:val="@={data.vp}"
+                        android:hint="请输入水气压数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="水气压力差"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`vpd`}"
+                        android:val="@={data.vpd}"
+                        android:hint="请输入水气压力差数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="风速"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`wndv`}"
+                        android:val="@={data.wndv}"
+                        android:hint="请输入风速数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="水温"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`wtmp`}"
+                        android:val="@={data.wtmp}"
+                        android:hint="请输入水温数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+
+                <!-- 潮水情况 -->
+                <LinearLayout
+                    style="@style/division" />
+                <TextView
+                    android:text="潮水情况"
+                    style="@style/blockTitle" />
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="潮位"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`tdz`}"
+                        android:val="@={data.tdz}"
+                        android:hint="请输入潮位数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="潮流量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`tdq`}"
+                        android:val="@={data.tdq}"
+                        android:hint="请输入潮流量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="潮量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`tdw`}"
+                        android:val="@={data.tdw}"
+                        android:hint="请输入潮量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="含沙量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`s`}"
+                        android:val="@={data.s}"
+                        android:hint="请输入含沙量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="蓄水量"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`w`}"
+                        android:val="@={data.w}"
+                        android:hint="请输入蓄水量数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+
+                <LinearLayout
+                    android:show="@{!data.other.empty}"
+                    style="@style/division" />
+                <LinearLayout
+                    android:show="@{!data.other.empty}"
+                    android:orientation="vertical"
+                    style="@style/barVertical">
+                    <TextView
+                        android:text="其他"
+                        style="@style/blockTitle" />
+                    <kiun.com.bvroutine.views.ShortListView
+                        app:itemLayout="@layout/item_other_commit"
+                        android:val="@{data.other}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/division" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                    style="@style/barVertical">
+                    <TextView
+                        android:text="情况描述"
+                        style="@style/blockTitle" />
+                    <EditText
+                        android:lines="4"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:textAlignment="textStart"
+                        android:hint="采样情况描述..."
+                        android:val="@={data.remark}"
+                        android:verifyField="@{`remark`}"
+                        style="@style/rowEditText" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/division" />
+                <LinearLayout
+                    style="@style/rowInputVertical" >
+                    <TextView
+                        android:padding="0dp"
+                        android:text="现场情况"
+                        style="@style/blockTitle"/>
+                    <kiun.com.bvroutine.views.MultipleImageGrid
+                        app:gridItemLayout="@layout/item_grid_upload"
+                        android:val="@={data.xcsnimdtf}"
+                        android:serviceThumb="@{(part, thumb)->baseService.uploadFile(part, thumb, snimdtDto)}"
+                        android:layout_marginTop="15dp"
+                        style="@style/multipleUploadGrid" />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/division">
+                    <Button
+                        tools:text="确认上报"
+                        android:text="@{data.check?`确认校核`:`确认上报`}"
+                        android:layout_margin="8dp"
+                        android:action="@{(a)->commitService.editProData(data.toProList())}"
+                        android:verify="@{data}"
+                        android:tag="handler.onComplete(data)"
+                        style="@style/bt_active" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

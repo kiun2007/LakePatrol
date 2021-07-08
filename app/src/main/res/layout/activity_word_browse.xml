@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.leader.WordBrowseActivity">
+    <data>
+        <import type="kiun.com.bvroutine.base.binding.value.TbsViewBindConvert" />
+        <import type="com.kssoft.lake.net.services.DownloadService" />
+        <variable name="url" type="String" />
+        <variable name="downloadService" type="DownloadService" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="简报浏览"
+            style="@style/navigatorBar" />
+        <LinearLayout
+            android:id="@+id/contentView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <kiun.com.bvroutine.views.word.TbsView
+                android:id="@+id/tbsView"
+                android:bindConvertBuilder="@{TbsViewBindConvert.Builder.create(DownloadService.download(downloadService))}"
+                android:val="@{`/profile` + url}"
+                style="@style/fill_base" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

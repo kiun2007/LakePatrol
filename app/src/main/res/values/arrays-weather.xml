@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="weatherIcons">
+
+        <item>@drawable/ic_weather_baoxue</item>
+        <item>@drawable/ic_weather_baoyu</item>
+        <item>@drawable/ic_weather_baoyuzhuandabaoyu</item>
+
+        <item>@drawable/ic_weather_daxue</item>
+        <item>@drawable/ic_weather_daxuezhuanbaoxue</item>
+        <item>@drawable/ic_weather_dayu</item>
+        <item>@drawable/ic_weather_dayuzhuanbaoyu</item>
+        <item>@drawable/ic_weather_duoyun</item>
+        <item>@drawable/ic_weather_dongyu</item>
+        <item>@drawable/ic_weather_dabaoyu</item>
+        <item>@drawable/ic_weather_dabaoyuzhuantedabaoyu</item>
+
+        <item>@drawable/ic_weather_fuchen</item>
+
+        <item>@drawable/ic_weather_leiyubingbao</item>
+        <item>@drawable/ic_weather_leizhenyu</item>
+
+        <item>@drawable/ic_weather_qing</item>
+
+        <item>@drawable/ic_weather_shachenbao</item>
+
+        <item>@drawable/ic_weather_tedabaoyu</item>
+        <item>@drawable/ic_weather_tedashachenbao</item>
+
+        <item>@drawable/ic_weather_weizhitianqi</item>
+        <item>@drawable/ic_weather_wu</item>
+        <item>@drawable/ic_weather_wumai</item>
+
+        <item>@drawable/ic_weather_xue</item>
+        <item>@drawable/ic_weather_xiaoxue</item>
+        <item>@drawable/ic_weather_xiaoxuezhuanzhongxue</item>
+        <item>@drawable/ic_weather_xiaoyu</item>
+        <item>@drawable/ic_weather_xiaoyuzhuanzhongyu</item>
+
+        <item>@drawable/ic_weather_yangsha</item>
+        <item>@drawable/ic_weather_yin</item>
+        <item>@drawable/ic_weather_yu</item>
+        <item>@drawable/ic_weather_yujiaxue</item>
+
+        <item>@drawable/ic_weather_zhenxue</item>
+        <item>@drawable/ic_weather_zhenyu</item>
+        <item>@drawable/ic_weather_zhongxue</item>
+        <item>@drawable/ic_weather_zhongxuezhuandaxue</item>
+        <item>@drawable/ic_weather_zhongyu</item>
+        <item>@drawable/ic_weather_zhongyuzhuandayu</item>
+    </integer-array>
+
+    <string-array name="weatherNames">
+        <item>暴雪</item>
+        <item>暴雨</item>
+        <item>暴雨-大暴雨</item>
+
+        <item>大雪</item>
+        <item>大雪-暴雪</item>
+        <item>大雨</item>
+        <item>大雨-暴雨</item>
+        <item>多云</item>
+        <item>冻雨</item>
+        <item>大暴雨</item>
+        <item>大暴雨-特大暴雨</item>
+
+        <item>浮尘</item>
+
+        <item>雷阵雨并伴有冰雹</item>
+        <item>雷阵雨</item>
+
+        <item>晴</item>
+
+        <item>沙尘暴</item>
+
+        <item>特大暴雨</item>
+        <item>强沙尘暴</item>
+
+        <item>未知</item>
+        <item>雾</item>
+        <item>霾</item>
+
+        <item>雪</item>
+        <item>小雪</item>
+        <item>小雪-中雪</item>
+        <item>小雨</item>
+        <item>小雨-中雨</item>
+
+        <item>扬沙</item>
+        <item>阴</item>
+        <item>雨</item>
+        <item>雨夹雪</item>
+
+        <item>阵雪</item>
+        <item>阵雨</item>
+        <item>中雪</item>
+        <item>中雪-大雪</item>
+        <item>中雨</item>
+        <item>中雨-大雨</item>
+    </string-array>
+
+</resources>

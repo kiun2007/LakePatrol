@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.AreaStBprp" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+    </data>
+    <LinearLayout
+        style="@style/barVertical"
+        android:background="@drawable/shape_bottom_line_bg"
+        android:padding="15dp"
+        android:gravity="center"
+        android:onClick="@{()->handler.onClick(context, 0, item)}"
+        android:orientation="horizontal">
+        <TextView
+            tools:text="苏州阳澄湖B站点"
+            android:text="@{item.stnm}"
+            android:layout_weight="1"
+            style="@style/tvMain" />
+        <TextView
+            tools:text="距您500.9米"
+            android:text="@{item.gapFormat}"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@mipmap/ic_list_icon_out"
+            style="@style/tvSubtitleSmall" />
+    </LinearLayout>
+</layout>

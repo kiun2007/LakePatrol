@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.SamplingDetailsActivity">
+    <data>
+        <import type="android.view.View" />
+        <import type="kiun.com.bvroutine.utils.ListUtil" />
+        <variable name="fixedOpen" type="Boolean" />
+        <variable name="data" type="com.kssoft.lake.data.SamplingBase" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.cardview.CardView
+            style="@style/cardViewShallow">
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                style="@style/rowInput">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:background="@drawable/shape_bottom_line_bg"
+                    android:paddingBottom="10dp"
+                    style="@style/barVertical">
+                    <TextView
+                        tools:text="复读港"
+                        android:text="@{data.stnm}"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        style="@style/barVertical" />
+                    <TextView
+                        android:show="@{!fixedOpen}"
+                        android:text="@{data.expansion?`收起`:`展开`}"
+                        android:onClick="@{()->data.setExpansion(!data.expansion)}"
+                        tools:drawableLeft="@drawable/ic_sharp_format_line_spacing_18"
+                        tools:text="展开"
+                        android:drawableLeft="@{data.expansion?@drawable/ic_baseline_vertical_align_top_18:@drawable/ic_sharp_format_line_spacing_18}"
+                        style="@style/tvSubtitleSmall" />
+                </LinearLayout>
+                <com.kssoft.lake.view.DoubleLinearLayout
+                    app:firstTitle="采样时间"
+                    app:secondTitle="填报人"
+                    style="@style/barVertical">
+                    <TextView
+                        tools:text="湖泊"
+                        android:text="@{data.itemTime(`MM-dd HH:mm`)}"
+                        android:layout_weight="0.5"
+                        style="@style/tvDetailsValue"/>
+                    <TextView
+                        android:text="@{data.names}"
+                        android:layout_weight="0.5"
+                        android:singleLine="true"
+                        tools:text="预想"
+                        style="@style/tvDetailsValue"/>
+                </com.kssoft.lake.view.DoubleLinearLayout>
+                <LinearLayout
+                    android:show="@{!ListUtil.isEmpty(data.xcsnimdtf)}"
+                    android:orientation="vertical"
+                    style="@style/barVertical">
+                    <TextView
+                        android:text="采样现场情况"
+                        android:background="@null"
+                        style="@style/tvDetailsTitle" />
+                    <kiun.com.bvroutine.views.ShortListView
+                        android:val="@{data.xcsnimdtf}"
+                        app:itemLayout="@layout/item_record_picture"
+                        app:flowHorizontalSpacing="12dp"
+                        android:orientation="horizontal"
+                        style="@style/barVertical" />
+                </LinearLayout>
+                <ViewStub
+                    android:id="@+id/viewStub"
+                    android:layout="@{data.viewLayoutId()}"
+                    android:data="@{data}"
+                    android:visibility="@{(data != null&amp;&amp;data.expansion)?View.VISIBLE:View.GONE}"
+                    style="@style/barVertical" />
+            </LinearLayout>
+        </kiun.com.bvroutine.views.cardview.CardView>
+    </LinearLayout>
+</layout>

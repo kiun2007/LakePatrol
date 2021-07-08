@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.SamplingDetailsActivity">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <variable name="data" type="com.kssoft.lake.data.model.commit.XcWqnmispR" />
+    </data>
+    <LinearLayout
+        android:show="@{data.expansion}"
+        android:orientation="vertical"
+        style="@style/barVertical">
+        <!--水文指标-->
+        <TextView
+            android:text="水文指标"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="水位"
+            app:secondTitle="流量"
+            style="@style/barVertical">
+        </com.kssoft.lake.view.DoubleLinearLayout>
+
+        <!--水化学指标-->
+        <TextView
+            android:text="水化学指标"
+            style="@style/tvDetailsTitle" />
+
+        <!--水源地特别指标-->
+        <LinearLayout
+            android:show="@{`0`.equals(data.sbtp)}"
+            android:orientation="vertical"
+            style="@style/barVertical">
+            <TextView
+                android:text="水源地特别指标"
+                style="@style/tvDetailsTitle" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

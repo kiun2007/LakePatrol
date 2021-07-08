@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.list.ListSamplingCheckActivity">
+    <data>
+        <import type="kiun.com.bvroutine.data.FieldEvent" />
+
+        <variable name="index" type="FieldEvent&lt;Integer>" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="巡查记录校核"
+            style="@style/navigatorBar" />
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/fill_base">
+            <kiun.com.bvroutine.views.TabViewLayout
+                app:tabArray="@array/tabTypes"
+                android:val="@={index.value}"
+                style="@style/tabLayout" />
+            <kiun.com.bvroutine.views.layout.StaticPager
+                android:val="@={index.value}"
+                app:pagesClzName="@array/tabFragmentTypes"
+                style="@style/fill_base" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

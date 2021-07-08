@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="kiun.com.bvroutine.presenters.list.ArrayListProvider" />
+
+        <variable name="listService" type="com.kssoft.lake.net.services.ListService" />
+        <variable name="data" type="java.util.List" />
+        <variable name="dialog" type="kiun.com.bvroutine.views.dialog.MCDialogManager" />
+    </data>
+    <LinearLayout
+        style="@style/barVertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/wrapBackground"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:padding="10dp"
+                style="@style/barVertical">
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:text="@string/dialog_area_title"
+                    style="@style/tvMain" />
+            </RelativeLayout>
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                style="@style/fill_base">
+                <androidx.recyclerview.widget.RecyclerView
+                    tools:listitem="@layout/item_site_nearby"
+                    android:listProvider="@{ArrayListProvider.create(context, dialog, @layout/item_site_nearby, data)}"
+                    style="@style/fill_base" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

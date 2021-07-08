@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="kiun.com.bvroutine.utils.ListUtil" />
+        <import type="android.view.View" />
+
+        <variable name="data" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="dialog" type="kiun.com.bvroutine.views.dialog.MCDialogManager" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/barVertical">
+        <View
+            android:onClick="@{()->dialog.cancel()}"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+        <ScrollView
+            android:minHeight="200dp"
+            android:background="@color/white"
+            style="@style/fill_base">
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                style="@style/rowInput">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:background="@drawable/shape_bottom_line_bg"
+                    android:paddingBottom="10dp"
+                    style="@style/barVertical">
+                    <TextView
+                        tools:text="复读港"
+                        android:text="@{data.stnm}"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="16sp"
+                        android:gravity="left"
+                        android:layout_weight="1"
+                        style="@style/barVertical" />
+                    <TextView
+                        android:text="@{data.expansion?`收起`:`展开`}"
+                        android:onClick="@{()->data.setExpansion(!data.expansion)}"
+                        tools:drawableLeft="@drawable/ic_sharp_format_line_spacing_18"
+                        tools:text="详细信息"
+                        android:drawableLeft="@{data.expansion?@drawable/ic_baseline_vertical_align_top_18:@drawable/ic_sharp_format_line_spacing_18}"
+                        style="@style/tvSubtitleSmall" />
+                </LinearLayout>
+                <com.kssoft.lake.view.DoubleLinearLayout
+                    app:firstTitle="采样时间"
+                    app:secondTitle="填报人"
+                    style="@style/barVertical">
+                    <TextView
+                        tools:text="湖泊"
+                        android:text="@{data.itemTime(`MM-dd HH:mm`)}"
+                        android:layout_weight="0.5"
+                        style="@style/tvDetailsValue"/>
+                    <TextView
+                        android:text="@{data.names}"
+                        android:layout_weight="0.5"
+                        android:singleLine="true"
+                        tools:text="预想"
+                        style="@style/tvDetailsValue"/>
+                </com.kssoft.lake.view.DoubleLinearLayout>
+                <LinearLayout
+                    android:show="@{!ListUtil.isEmpty(data.xcsnimdtf)}"
+                    android:orientation="vertical"
+                    style="@style/barVertical">
+                    <kiun.com.bvroutine.views.ShortListView
+                        android:val="@{data.xcsnimdtf}"
+                        app:itemLayout="@layout/item_record_picture"
+                        app:flowHorizontalSpacing="12dp"
+                        android:orientation="horizontal"
+                        style="@style/barVertical" />
+                </LinearLayout>
+                <ViewStub
+                    android:id="@+id/viewStub"
+                    android:layout="@{data.viewLayoutId()}"
+                    android:data="@{data}"
+                    android:visibility="@{(data != null&amp;&amp;data.expansion)?View.VISIBLE:View.GONE}"
+                    style="@style/barVertical" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

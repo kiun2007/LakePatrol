@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.LakeTaskActivity">
+    <data>
+        <import type="kiun.com.bvroutine.presenters.list.NetListProvider" />
+
+        <variable name="trailService" type="com.kssoft.lake.services.TrailService" />
+        <variable name="taskService" type="com.kssoft.lake.net.services.TaskService" />
+        <variable name="taskDto" type="com.kssoft.lake.net.requests.dto.TaskDto" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler" />
+    </data>
+    <LinearLayout
+        style="@style/fill_base"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="巡查任务"
+            style="@style/navigatorBar" />
+        <kiun.com.bvroutine.views.TabViewLayout
+            app:tabArray="@array/tabTypesTask"
+            android:val="@={taskDto.index}"
+            style="@style/tabLayout" />
+        <LinearLayout
+            android:id="@+id/rl_tool"
+            style="@style/barVertical"
+            android:padding="15dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@color/white">
+            <TextView
+                tools:text="七月"
+                android:text="@{taskDto.month}"
+                android:textColor="#77558A"
+                android:layout_marginLeft="10dp"
+                style="@style/tvTitle" />
+            <TextView
+                tools:text="2020"
+                android:text="@{taskDto.year}"
+                android:textColor="#999"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                style="@style/tvSubtitle" />
+            <ImageView
+                android:visibility="gone"
+                android:src="@drawable/ic_baseline_more_horiz_24"
+                style="@style/warp_base" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            tools:listitem="@layout/item_site_task"
+            android:listProvider="@{(NetListProvider.create(context, handler, @layout/item_site_task))}"
+            android:netBlock="@{pager->taskService.taskList(taskDto.formatDate, taskDto.formatDate, taskDto.xctp)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F4F4F4" />
+<!--        <kiun.com.bvroutine.views.calendar.CalendarLayout-->
+<!--            android:id="@+id/calendarLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#fff"-->
+<!--            app:default_status="shrink"-->
+<!--            app:calendar_content_view_id="@+id/recyclerView">-->
+<!--            <kiun.com.bvroutine.views.calendar.CalendarView-->
+<!--                android:id="@+id/calendarView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#fff"-->
+<!--                android:val="@={taskDto.choose}"-->
+<!--                app:calendar_padding="10dp"-->
+<!--                app:current_month_text_color="#333333"-->
+<!--                app:current_month_lunar_text_color="#CFCFCF"-->
+<!--                app:min_year="2004"-->
+<!--                app:max_year="2049"-->
+<!--                app:other_month_text_color="#e1e1e1"-->
+<!--                app:other_month_lunar_text_color="#e1e1e1"-->
+<!--                app:scheme_text="假"-->
+<!--                app:scheme_text_color="#333"-->
+<!--                app:scheme_theme_color="#128c4b"-->
+<!--                app:selected_lunar_text_color="#CFCFCF"-->
+<!--                app:selected_text_color="#333"-->
+<!--                app:selected_theme_color="#80cfcfcf"-->
+<!--                app:week_background="#fff"-->
+<!--                app:week_text_color="#111"-->
+<!--                app:week_start_with="sun"-->
+<!--                app:week_view_scrollable="true"-->
+<!--                app:year_view_day_text_color="#333333"-->
+<!--                app:year_view_day_text_size="9sp"-->
+<!--                app:year_view_month_text_color="#ff0000"-->
+<!--                app:year_view_month_text_size="20sp"-->
+<!--                app:month_view_show_mode="mode_only_current"-->
+<!--                app:year_view_scheme_color="#f17706"/>-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/recyclerView"-->
+<!--                tools:listitem="@layout/item_site_task"-->
+<!--                android:listProvider="@{(NetListProvider.create(context, handler, @layout/item_site_task))}"-->
+<!--                android:netBlock="@{pager->taskService.taskList(taskDto.formatDate, taskDto.formatDate, taskDto.xctp)}"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="#F4F4F4" />-->
+<!--        </kiun.com.bvroutine.views.calendar.CalendarLayout>-->
+    </LinearLayout>
+</layout>

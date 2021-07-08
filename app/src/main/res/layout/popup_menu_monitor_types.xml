@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="data" type="com.kssoft.lake.net.requests.dto.MonitorDto"/>
+    </data>
+    <kiun.com.bvroutine.views.cardview.CardView
+        android:layout_width="wrap_content"
+        style="@style/cardViewShallow">
+        <LinearLayout
+            style="@style/warp_base"
+            android:orientation="vertical">
+            <CheckBox
+                android:text="湖泛巡查"
+                android:drawableLeft="@mipmap/ic_map_title_sort_hufan"
+                android:background="@drawable/shape_bottom_line_bg"
+                android:checked="@{data.isChecked(`0`)}"
+                android:onCheckedChanged="@{(view, checked)->data.checkType(`0`, checked)}"
+                style="@style/menuCheckButton" />
+            <CheckBox
+                android:text="水文巡测"
+                android:drawableLeft="@mipmap/ic_map_title_sort_shuiwen"
+                android:background="@drawable/shape_bottom_line_bg"
+                android:checked="@{data.isChecked(`1`)}"
+                android:onCheckedChanged="@{(view, checked)->data.checkType(`1`, checked)}"
+                style="@style/menuCheckButton" />
+            <CheckBox
+                android:text="应急监测"
+                android:drawableLeft="@mipmap/ic_map_title_sort_yingji"
+                android:background="@drawable/shape_bottom_line_bg"
+                android:checked="@{data.isChecked(`2`)}"
+                android:onCheckedChanged="@{(view, checked)->data.checkType(`2`, checked)}"
+                style="@style/menuCheckButton" />
+            <CheckBox
+                android:text="人工观测"
+                android:drawableLeft="@mipmap/ic_map_title_sort_rengong"
+                android:checked="@{data.isChecked(`3`)}"
+                android:onCheckedChanged="@{(view, checked)->data.checkType(`3`, checked)}"
+                style="@style/menuCheckButton" />
+        </LinearLayout>
+    </kiun.com.bvroutine.views.cardview.CardView>
+</layout>

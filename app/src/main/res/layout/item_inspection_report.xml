@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.list.ListReportActivity">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <import type="kiun.com.bvroutine.utils.ListUtil" />
+
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.ReportVo" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+    </data>
+    <kiun.com.bvroutine.views.cardview.CardView
+        android:marginBottom="@{index.last?0.0f:@dimen/cardViewMarginBottom}"
+        style="@style/cardViewShallow">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_button_round_8dp"
+            android:onClick="@{()->handler.onClick(context, 0, item)}"
+            android:orientation="horizontal">
+            <ImageView
+                style="@style/warp_base"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tagImageView"
+                android:layout_marginTop="-4dp"
+                android:src="@mipmap/ic_page_tag_blue" />
+            <LinearLayout
+                android:orientation="vertical"
+                style="@style/barVertical">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="16dp"
+                    android:layout_toRightOf="@id/tagImageView"
+                    style="@style/barVertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:lines="3"
+                        android:text="@{item.title}"
+                        tools:text="2020年6月24日太湖蓝藻巡查简报"
+                        style="@style/tvMain" />
+
+                    <TextView
+                        android:show="@{ListUtil.contains(item.rst,`4`)}"
+                        android:text="已发布"
+                        android:backgroundTint="#999"
+                        android:textColor="#999"
+                        style="@style/tvRound" />
+                    <TextView
+                        tools:visibility="gone"
+                        android:show="@{ListUtil.contains(item.rst,`0`,`2`)}"
+                        android:onClick="@{()->handler.onClick(context, 1, item)}"
+                        android:text="同意"
+                        android:backgroundTint="#00F"
+                        android:textColor="#00F"
+                        style="@style/tvRound" />
+                    <TextView
+                        tools:visibility="gone"
+                        android:show="@{ListUtil.contains(item.rst,`0`,`2`)}"
+                        android:onClick="@{()->handler.onClick(context, 2, item)}"
+                        android:text="驳回"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="#F00"
+                        android:textColor="#F00"
+                        style="@style/tvRound" />
+                    <TextView
+                        tools:visibility="gone"
+                        android:show="@{ListUtil.contains(item.rst,`1`,`3`)}"
+                        android:onClick="@{()->handler.onClick(context, 3, item)}"
+                        android:text="申请再审"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="#00F"
+                        android:textColor="#00F"
+                        style="@style/tvRound" />
+                </LinearLayout>
+                <TextView
+                    tools:text="驳回理由:"
+                    android:show="@{ListUtil.contains(item.rst,`1`,`3`)}"
+                    android:text="@{`驳回理由: ` + item.nt}"
+                    style="@style/tvSubtitleSmall" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="15dp"
+                    style="@style/warp_base">
+                    <TextView
+                        android:drawableStart="@mipmap/ic_list_icon_time"
+                        tools:text="2020-06-24 08:19:33-2:33:34"
+                        android:text="@{item.tm}"
+                        android:layout_marginRight="20dp"
+                        style="@style/tvSubtitleSmall" />
+                    <TextView
+                        android:drawableStart="@mipmap/ic_list_icon_character"
+                        tools:text="李玟雨"
+                        android:text="@{item.sbpnm}"
+                        style="@style/tvMain" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </kiun.com.bvroutine.views.cardview.CardView>
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.list.ListReportActivity">
+    <data>
+        <import type="kiun.com.bvroutine.presenters.list.NetListProvider" />
+
+        <variable name="reportDto" type="com.kssoft.lake.net.requests.dto.ReportDto" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler" />
+        <variable name="listService" type="com.kssoft.lake.net.services.ListService" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="巡查报告"
+            app:barRightImage="@mipmap/ic_map_title_date"
+            style="@style/navigatorBar" />
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/fill_base">
+            <kiun.com.bvroutine.views.TabViewLayout
+                app:tabArray="@array/tabTypesReport"
+                android:transitionName="@string/objectToString"
+                android:val="@={reportDto.rtp}"
+                style="@style/tabLayout" />
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:background="@color/wrapDark"
+                style="@style/fill_base">
+                <androidx.recyclerview.widget.RecyclerView
+                    tools:listitem="@layout/item_inspection_report"
+                    android:listProvider="@{(NetListProvider.create(context, handler, @layout/item_inspection_report))}"
+                    android:netBlock="@{pager->listService.getReportList(reportDto.inherit(pager))}"
+                    style="@style/fill_base" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

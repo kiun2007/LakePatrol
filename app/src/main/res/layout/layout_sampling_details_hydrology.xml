@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.SamplingDetailsActivity">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <variable name="data" type="com.kssoft.lake.data.model.commit.XcRiverR" />
+    </data>
+    <LinearLayout
+        android:show="@{data.expansion}"
+        android:orientation="vertical"
+        style="@style/barVertical">
+        <!--基本要素-->
+        <TextView
+            android:text="基本要素"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="水位"
+            app:secondTitle="流量"
+            style="@style/barVertical">
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.z, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+            <kiun.com.bvroutine.views.text.HtmlTextView
+                app:html="@string/doubleDetailed"
+                android:argument="@{MCString.decimalToArray(data.q, 2)}"
+                android:hint="未填写"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+    </LinearLayout>
+</layout>

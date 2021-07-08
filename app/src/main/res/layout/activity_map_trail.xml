@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.MapTrailActivity">
+    <data>
+        <variable name="trailList" type="java.util.List" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barStyle="transparentBlack"
+            app:barTitle="巡查轨迹"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/fill_base">
+            <com.esri.arcgisruntime.mapping.view.MapView
+                android:val="@{trailList}"
+                android:id="@+id/mapView"
+                style="@style/fill_base" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

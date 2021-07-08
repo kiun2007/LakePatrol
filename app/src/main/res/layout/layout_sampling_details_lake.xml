@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.SamplingDetailsActivity">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <variable name="data" type="com.kssoft.lake.data.model.commit.XcLakeR" />
+    </data>
+    <LinearLayout
+        android:show="@{data.expansion}"
+        android:orientation="vertical"
+        style="@style/barVertical">
+
+        <!--气象要素-->
+        <TextView
+            android:text="气象要素"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="气压(Kpa)"
+            app:secondTitle="风级"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                style="@style/tvDetailsNumber"
+                android:val="@{data.atm}"
+                tools:text="100.2" />
+            <TextView
+                tools:text="3"
+                android:val="@{data.wndpwr}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="风向"
+            app:secondTitle="气温(℃)"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="东"
+                android:val="@{data.wnddir}"
+                style="@style/tvDetailsValue"/>
+            <TextView
+                tools:text="27.3"
+                android:val="@{data.atm}"
+                style="@style/tvDetailsNumber" />
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="风速(m/s)"
+            style="@style/barVertical">
+            <TextView
+                tools:text="5.0"
+                android:val="@{data.wndv}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <!--水质感官指标-->
+        <TextView
+            android:text="水质感官指标"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="水色"
+            app:secondTitle="气味"
+            style="@style/barVertical">
+            <TextView
+                tools:text="无"
+                android:val="@{MCString.item(data.wtcl,0,`无`,`蓝色`,`黄色`,`绿色`,`黑色`,`青色`,`灰色`,`其他`)}"
+                style="@style/tvDetailsValue"/>
+            <TextView
+                tools:text="无"
+                android:val="@{MCString.item(data.wtcl,0,`无`,`微臭`,`臭`,`恶臭`)}"
+                style="@style/tvDetailsValue"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+
+        <!--水化学指标-->
+        <TextView
+            android:text="水化学指标"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="透明度(cm)"
+            app:secondTitle="ph"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="45"
+                android:val="@{data.clarity}"
+                style="@style/tvDetailsNumber"/>
+            <TextView
+                tools:text="8.12"
+                android:val="@{data.ph}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="溶解氧(mg/L)\n水下0.5m"
+            app:secondTitle="溶解氧(mg/L)\n底层"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="6.02"
+                android:val="@{data.dox}"
+                style="@style/tvDetailsNumber"/>
+            <TextView
+                tools:text="5.89"
+                android:val="@{data.doxd}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="氧化还原电位(mV)"
+            style="@style/barVertical">
+            <TextView
+                tools:text="223"
+                android:val="@{data.redox}"
+                style="@style/tvDetailsNumber" />
+        </com.kssoft.lake.view.DoubleLinearLayout>
+
+        <TextView
+            android:text="藻密度(万个细胞/L)"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="直接测50cm处"
+            app:secondTitle="30cm柱状水样"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="288"
+                android:val="@{data.algae05}"
+                style="@style/tvDetailsNumber"/>
+            <TextView
+                tools:text="312"
+                android:val="@{data.algae10}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="10cm柱状水样"
+            app:secondTitle="50cm柱状水样"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="376"
+                android:val="@{data.algae30}"
+                style="@style/tvDetailsNumber"/>
+            <TextView
+                tools:text="347"
+                android:val="@{data.algae50}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <TextView
+            android:text="叶绿素a(μg/L)"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="直接测50cm处"
+            app:secondTitle="30cm柱状水样"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="6.8"
+                android:val="@{data.chla}"
+                style="@style/tvDetailsNumber"/>
+            <TextView
+                tools:text="6.3"
+                android:val="@{data.chla10}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="10cm柱状水样"
+            app:secondTitle="50cm柱状水样"
+            style="@style/barVertical">
+            <TextView
+                tools:text="6.5"
+                android:val="@{data.chla30}"
+                style="@style/tvDetailsNumber"/>
+            <TextView
+                tools:text="6.5"
+                android:val="@{data.chla50}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+
+        <!--其他-->
+        <TextView
+            android:text="其他"
+            style="@style/tvDetailsTitle" />
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="蓝藻状况"
+            app:secondTitle="溶解氧饱和度(%)"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="颗粒状"
+                android:val="@{MCString.item(data.algaest, 0,`未发现`,`颗粒状`,`条带状`,`油漆状`)}"
+                style="@style/tvDetailsValue"/>
+            <TextView
+                tools:text="74.9"
+                android:val="@{data.dof}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="天气状况"
+            app:secondTitle="水草生长状况"
+            android:background="@drawable/shape_bottom_line_bg"
+            style="@style/barVertical">
+            <TextView
+                tools:text="阵雨"
+                android:val="@{MCString.item(data.wth, 0,`晴`,`阴`,`小雨`,`阵雨`,`中雨`,`大雨`)}"
+                style="@style/tvDetailsValue"/>
+            <TextView
+                tools:text="少量"
+                android:val="@{`0`.equals(data.gaqp) ? `无` : MCString.item(data.gaqpam, 0,`少量`,`中量`,`大量`)}"
+                style="@style/tvDetailsValue"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+        <com.kssoft.lake.view.DoubleLinearLayout
+            app:firstTitle="电导率(μS/cm)"
+            style="@style/barVertical">
+            <TextView
+                tools:text="437"
+                android:val="@{data.cond}"
+                style="@style/tvDetailsNumber"/>
+        </com.kssoft.lake.view.DoubleLinearLayout>
+    </LinearLayout>
+</layout>

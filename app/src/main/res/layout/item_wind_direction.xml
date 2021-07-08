@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="item" type="String" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+    </data>
+    <LinearLayout
+        style="@style/barVertical"
+        android:background="@drawable/shape_bottom_line_bg"
+        android:padding="15dp"
+        android:gravity="center"
+        android:onClick="@{()->handler.onClick(context, 0, item)}"
+        android:orientation="horizontal">
+        <TextView
+            tools:text="东"
+            android:text="@{item}"
+            android:layout_weight="1"
+            style="@style/tvMain" />
+    </LinearLayout>
+</layout>

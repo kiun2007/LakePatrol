@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.activity.personnel.LakeInspectionGisMapActivity">
+    <data>
+        <import type="com.kssoft.lake.data.types.RecordState" />
+        <import type="android.view.Gravity" />
+        <import type="com.kssoft.lake.ui.activity.commit.CommitLakeActivity" />
+        <import type="kiun.com.bvroutine.utils.MCString" />
+
+        <variable
+            name="noMap"
+            type="boolean" />
+        <variable name="fieldVisible" type="kiun.com.bvroutine.data.FieldEvent&lt;Boolean>" />
+        <variable name="trailService" type="com.kssoft.lake.services.TrailService" />
+        <variable name="recordService" type="com.kssoft.lake.net.services.RecordService" />
+        <variable name="intent" type="android.content.Intent" />
+        <variable name="record" type="com.kssoft.lake.net.requests.dto.XcRecdR" />
+        <variable name="state" type="RecordState" />
+        <variable name="user" type="com.kssoft.lake.data.model.User" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wrapBackground"
+        android:orientation="vertical">
+        <kiun.com.bvroutine.views.NavigatorBar
+            app:barTitle="湖泛巡查"
+            style="@style/navigatorBar" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:show="@{noMap}"
+                android:gravity="center"
+                style="@style/fill_base">
+                <TextView
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/ic_baseline_warning_24"
+                    android:text="地图功能未启用,点右上角按钮启用"
+                    style="@style/warp_base" />
+            </LinearLayout>
+            <com.esri.arcgisruntime.mapping.view.MapView
+                android:visibility="gone"
+                android:show="@{!noMap}"
+                android:background="#F4F4F4"
+                android:val="@{trailService.pointsField}"
+                android:id="@+id/mapView"
+                style="@style/fill_base" />
+            <LinearLayout
+                android:show="@{state != RecordState.Stopped}"
+                android:background="@mipmap/ic_map_top_bg"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="-2dp"
+                android:paddingBottom="18dp"
+                android:layout_height="75dp"
+                style="@style/barVertical">
+                <LinearLayout
+                    style="@style/barVertical">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        style="@style/fill_base">
+                        <TextView
+                            tools:text="36分钟"
+                            android:text="@{record.totalTime()}"
+                            style="@style/tvNormal" />
+                        <TextView
+                            android:text="巡查时长"
+                            android:layout_marginTop="3dp"
+                            style="@style/tvSubtitleSmall" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="@drawable/shape_line_left_right"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        style="@style/fill_base">
+                        <TextView
+                            tools:text="1.6km"
+                            android:text="@{record.totalMileage()}"
+                            style="@style/tvNormal" />
+                        <TextView
+                            android:text="巡查时长"
+                            android:layout_marginTop="3dp"
+                            style="@style/tvSubtitleSmall" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        style="@style/fill_base">
+                        <TextView
+                            tools:text="张三、李四"
+                            android:text="@{user.nickName}"
+                            style="@style/tvNormal" />
+                        <TextView
+                            android:text="巡查人"
+                            android:layout_marginTop="3dp"
+                            style="@style/tvSubtitleSmall" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginBottom="40dp"
+                android:layout_gravity="center|bottom"
+                android:gravity="center"
+                style="@style/warp_base">
+                <LinearLayout
+                    android:show="@{fieldVisible.value}"
+                    style="@style/warp_base">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:background="@drawable/shape_lake_map_start_button"
+                        style="@style/warp_base">
+                        <TextView
+                            tools:visibility="visible"
+                            style="@style/tvMain"
+                            android:textColor="@color/white"
+                            android:tag="handler.onStop(data)"
+                            android:gravity="center"
+                            android:beforehand="@{MCString.asArray(`是否结束此次巡查任务？`,`结束`,`取消`)}"
+                            android:iconGravity="@{Gravity.TOP}"
+                            android:action="@{(a)->recordService.editRecord(record.stop(trailService.lastLocation))}"
+                            android:text="结束"
+                            android:drawableTop="@drawable/ic_baseline_stop_24"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/shape_lake_map_start_button"
+                        style="@style/warp_base">
+                        <TextView
+                            tools:visibility="visible"
+                            android:show="@{fieldVisible.value}"
+                            style="@style/tvSubtitleSmall"
+                            android:textColor="@color/white"
+                            android:layout_centerInParent="true"
+                            android:tag="handler.onPause(data)"
+                            android:beforehand="@{MCString.asArray(`是否暂停此次巡查任务,暂停后不再上传行动轨迹？`,`暂停`,`取消`)}"
+                            android:iconGravity="@{Gravity.TOP}"
+                            android:action="@{(a)->recordService.editRecord(record.pause())}"
+                            android:text="暂停"
+                            android:drawableTop="@mipmap/ic_map_btn_pause"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <RelativeLayout
+                    tools:background="@drawable/shape_lake_map_start_button"
+                    android:background="@{fieldVisible.value?@drawable/shape_lake_map_start_button:context.getDrawable(state.bgRes)}"
+                    style="@style/warp_base">
+                    <TextView
+                        tools:visibility="gone"
+                        android:show="@{state == RecordState.Starting&amp;&amp;!fieldVisible.value}"
+                        android:beforehand="@{MCString.asArray(`关闭巡查后此次巡查记录会被清除,是否关闭？`,`关闭`,`取消`)}"
+                        android:action="@{(a)->recordService.editRecord(record.resume())}"
+                        android:layout_marginLeft="40dp"
+                        android:drawableTop="@mipmap/ic_map_btn_cancel"
+                        android:layout_centerVertical="true"
+                        android:text="关闭"
+                        style="@style/tvMain" />
+                    <TextView
+                        tools:visibility="visible"
+                        android:show="@{fieldVisible.value}"
+                        style="@style/tvSubtitleSmall"
+                        android:textColor="@color/white"
+                        android:onClick="@{()->fieldVisible.setValue(false)}"
+                        android:layout_centerInParent="true"
+                        android:text="返回"
+                        android:drawableTop="@drawable/ic_baseline_reply_24"/>
+                    <TextView
+                        tools:visibility="visible"
+                        android:show="@{state == RecordState.Starting&amp;&amp;!fieldVisible.value}"
+                        style="@style/tvSubtitleSmall"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:onClick="@{()->fieldVisible.setValue(true)}"
+                        android:text="结束/暂停"
+                        android:drawableTop="@mipmap/ic_map_btn_pause"/>
+                    <TextView
+                        tools:visibility="gone"
+                        android:show="@{state == RecordState.Paused}"
+                        style="@style/tvMain"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:text="恢复"
+                        android:tag="handler.onResume(data)"
+                        android:beforehand="@{MCString.asArray(`是否恢复巡查任务？`,`开始`,`取消`)}"
+                        android:iconGravity="@{Gravity.TOP}"
+                        android:action="@{(a)->recordService.editRecord(record.resume())}"
+                        android:drawableTop="@drawable/ic_baseline_play_arrow_24"/>
+                    <TextView
+                        tools:visibility="gone"
+                        android:show="@{state == RecordState.Stopped}"
+                        style="@style/tvMain"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:text="开始"
+                        android:tag="handler.onStart(data)"
+                        android:beforehand="@{MCString.asArray(`是否开始巡查任务？`,`开始`,`取消`)}"
+                        android:iconGravity="@{Gravity.TOP}"
+                        android:action="@{(a)->recordService.startRecord(record.begin(trailService.lastLocation))}"
+                        android:drawableTop="@drawable/ic_baseline_play_arrow_24"/>
+                    <TextView
+                        tools:visibility="visible"
+                        android:show="@{state == RecordState.Starting&amp;&amp;!fieldVisible.value}"
+                        android:layout_marginLeft="235dp"
+                        android:text="巡查上报"
+                        android:drawableTop="@mipmap/ic_map_btn_report"
+                        android:layout_centerVertical="true"
+                        android:onClick="onReportClick"
+                        style="@style/tvMain" />
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  动作按钮  -->
+    <style name="bt_active" parent="barVertical">
+        <item name="android:background">@drawable/shape_radius_blue_bg</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="bt_pad" parent="warp_base">
+<!--        <item name="android:background">@drawable/shape_radius_blue_bg</item>-->
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="bt_pad_small" parent="bt_pad">
+        <item name="android:textSize">11sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+    
+    <style name="bt_nav_pad" parent="barVertical">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">top|center</item>
+    </style>
+
+    <style name="bt_icon">
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#333</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="AppButtonCheckBox" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:textColor">#333</item>
+<!--        <item name="android:background">@drawable/check_button_bg</item>-->
+        <item name="android:textSize">13sp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="flowRadioGroup" parent="barVertical">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="itemLayout">@layout/layout_radio_button</item>
+    </style>
+
+    <style name="menuCheckButton" parent="tvTitle">
+        <item name="android:textStyle">normal</item>
+        <item name="android:drawableRight">@drawable/sel_menu_checkbox</item>
+        <item name="android:layout_width">220dp</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:button">@null</item>
+    </style>
+</resources>
