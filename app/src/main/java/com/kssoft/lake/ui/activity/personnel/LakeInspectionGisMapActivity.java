@@ -3,16 +3,12 @@ package com.kssoft.lake.ui.activity.personnel;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Location;
 import android.os.Build;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.esri.arcgisruntime.geometry.Point;
 import com.kssoft.lake.BR;
 import com.kssoft.lake.R;
-import com.kssoft.lake.data.model.CacheModel;
 import com.kssoft.lake.data.types.RecordState;
 import com.kssoft.lake.data.types.SamplingType;
 import com.kssoft.lake.databinding.ActivityMapLakeInspectionBinding;
@@ -23,10 +19,10 @@ import com.kssoft.lake.ui.activity.commit.CommitHydrologyActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitLakeActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitManualActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitUrgentActivityHandler;
+
 import kiun.com.bvroutine.ActivityCallback;
 import kiun.com.bvroutine.utils.AlertUtil;
 import kiun.com.bvroutine.utils.SharedUtil;
-import kiun.com.bvroutine.views.dialog.MCDialogManager;
 import kiun.com.bvroutine_apt.IntentValue;
 
 /**
@@ -107,10 +103,10 @@ public class LakeInspectionGisMapActivity extends GisMapActivity<ActivityMapLake
         }
 
         if ("3".equals(xctp)){
-            AlertUtil.build(this, "是否启用计划外填报模式?启用后不再填报计划内的站点.")
-                    .setNegativeButton("否", (dialog, which) ->{
+            AlertUtil.build(this, "选择是否计划外填报模式?")
+                    .setNegativeButton("计划内填报", (dialog, which) ->{
                         SharedUtil.saveValue("isPlan", false);
-                    }).setPositiveButton("是", (dialog, which) -> {
+                    }).setPositiveButton("计划外填报", (dialog, which) -> {
                         SharedUtil.saveValue("isPlan", true);
                     }).setCancelable(false).show();
         }
