@@ -130,6 +130,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp" />
 
+                <kiun.com.bvroutine.views.NavigationRow
+                    app:icon="@mipmap/ic_chang_pwd"
+                    app:title="更换IP地址"
+                    android:background="@drawable/shape_bottom_line_padding4_bg"
+                    android:onClick="onChangedService"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+
                 <kiun.com.bvroutine.views.DrawLinearLayout
                     app:radius="4dp"
                     app:paintColor="#EBEDF0"

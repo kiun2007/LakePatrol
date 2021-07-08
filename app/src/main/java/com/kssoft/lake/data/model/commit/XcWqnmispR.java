@@ -3,7 +3,6 @@ package com.kssoft.lake.data.model.commit;
 import com.kssoft.lake.R;
 import com.kssoft.lake.data.QualityStandard;
 import com.kssoft.lake.data.types.SamplingType;
-import com.kssoft.lake.net.services.DataService;
 import com.kssoft.lake.ui.activity.commit.CommitBaseActivity;
 import com.kssoft.lake.ui.activity.commit.CommitUrgentActivity;
 
@@ -14,7 +13,6 @@ import kiun.com.bvroutine.data.verify.RunCheck;
 import kiun.com.bvroutine.interfaces.verify.Verify;
 import kiun.com.bvroutine.interfaces.verify.Verifys;
 import kiun.com.bvroutine.utils.MCString;
-import retrofit2.Call;
 
 /**
  * 应急监测 实体类
