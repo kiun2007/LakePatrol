@@ -55,13 +55,18 @@ public class CommitUrgentActivity extends CommitBaseActivity<ActivityCommitObser
 
     @Override
     protected void onSamplingChanged(SamplingBase samplingBase) {
-        if (TextUtils.isEmpty(samplingBase.getStcd()) || !isNoPlan){
-            super.onSamplingChanged(samplingBase);
-        }
+//        if (isNoPlan == true) {
+//            super.onSamplingChanged(samplingBase);
+//        }else {
+            if (TextUtils.isEmpty(samplingBase.getStcd()) || !isNoPlan){
+                super.onSamplingChanged(samplingBase);
+            }
+//        }
     }
 
     @Override
     @ActivityOpen
     protected void startSampling(SamplingBase base) {
+        samplingBase = base;
     }
 }

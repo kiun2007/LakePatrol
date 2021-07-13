@@ -108,6 +108,7 @@
             <TextView
                 tools:text="223"
                 android:val="@{data.redox}"
+                android:inputType="numberSigned"
                 style="@style/tvDetailsNumber" />
         </com.kssoft.lake.view.DoubleLinearLayout>
 

@@ -114,6 +114,15 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    app:title="风速(m/s)"
+                    style="@style/rowInput">
+                    <EditText
+                        android:hint="请输入风速"
+                        android:verifyField="@{`wndv`}"
+                        android:val="@={data.wndv}"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
                     app:title="风向"
                     style="@style/rowInput">
                     <kiun.com.bvroutine.views.text.GeneralItemText
@@ -122,15 +131,6 @@
                         android:verifyField="@{`wnddir`}"
                         app:dialogLayoutId="@layout/dialog_wind_direction"
                         style="@style/rowEditText" />
-                </com.kssoft.lake.view.RowLinearLayout>
-                <com.kssoft.lake.view.RowLinearLayout
-                    app:title="风速(m/s)"
-                    style="@style/rowInput">
-                    <EditText
-                        android:hint="请输入风速"
-                        android:verifyField="@{`wndv`}"
-                        android:val="@={data.wndv}"
-                        style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     app:title="风级"
@@ -172,6 +172,7 @@
                         android:hint="请输入氧化还原电位"
                         android:verifyField="@{`redox`}"
                         android:val="@={data.redox}"
+                        android:inputType="numberSigned"
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="kiun.com.bvroutine.utils.MCString" />
+        <import type="kiun.com.bvroutine.utils.ListUtil" />
+        <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
+        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.XcTaskPro" />
+    </data>
+
+    <LinearLayout
+        style="@style/barVertical"
+        android:padding="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            tools:text="指标标题"
+            android:text="@{item.chname}"
+            style="@style/tvMain" />
+        <TextView
+            tools:text="2020"
+            android:layout_weight="1"
+            android:text="@{item.sbv}"
+            android:gravity="right"
+            style="@style/tvSubtitleSmall" />
+    </LinearLayout>
+</layout>

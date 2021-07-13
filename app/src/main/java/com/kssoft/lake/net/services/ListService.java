@@ -11,9 +11,8 @@ import com.kssoft.lake.net.responses.vo.XcTaskPro;
 
 import java.util.Map;
 
-import kiun.com.bvroutine.base.binding.variable.RetrofitVariableSet;
 import kiun.com.bvroutine.base.binding.variable.AutoImport;
-import kiun.com.bvroutine.data.QueryBean;
+import kiun.com.bvroutine.base.binding.variable.RetrofitVariableSet;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -47,7 +46,7 @@ public interface ListService {
      * @return 采样样本数据.
      */
     @GET("/task/xcTaskProList")
-    Call<NetListWrapper<XcTaskPro>> xcTaskProList(@Query("stcd") String stcd, @Query("tm") String tm);
+    Call<NetListWrapper<XcTaskPro>> xcTaskProList(@Query("stcd") String stcd, @Query("tm") String tm, @Query("rdcd") String rdcd);
 
     /**
      * 获取第三方图例

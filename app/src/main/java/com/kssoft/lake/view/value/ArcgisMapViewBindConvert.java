@@ -14,7 +14,6 @@ import com.esri.arcgisruntime.mapping.view.MapView;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.kssoft.lake.R;
 import com.kssoft.lake.base.presenter.GraphicsEvent;
-import com.kssoft.lake.base.presenter.GraphicsPoint;
 import com.kssoft.lake.base.presenter.imp.ArcgisViewPresenter;
 import com.kssoft.lake.data.model.vo.MapStateVo;
 import com.kssoft.lake.net.requests.dto.XcTrailR;
@@ -23,7 +22,6 @@ import com.kssoft.lake.utils.ViewMaker;
 import java.util.List;
 
 import kiun.com.bvroutine.base.binding.value.BindConvert;
-import kiun.com.bvroutine.net.ServiceGenerator;
 import kiun.com.bvroutine.utils.SharedUtil;
 
 public class ArcgisMapViewBindConvert extends BindConvert<MapView, Object, Object> {

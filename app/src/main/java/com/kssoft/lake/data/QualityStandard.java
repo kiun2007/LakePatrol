@@ -39,8 +39,11 @@ public abstract class QualityStandard extends SamplingBase {
     }
 
     @Override
+//    public String itemTime(String format) {
+//        return MCString.formatDate(format, getSpt());
+//    }
     public String itemTime(String format) {
-        return MCString.formatDate(format, getSpt());
+        return MCString.formatDate(format, spt);
     }
 
     @Override

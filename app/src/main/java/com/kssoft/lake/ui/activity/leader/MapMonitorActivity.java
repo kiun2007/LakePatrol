@@ -15,7 +15,6 @@ import com.kssoft.lake.databinding.ActivityMapMonitorBinding;
 import com.kssoft.lake.net.requests.dto.DataDto;
 import com.kssoft.lake.net.requests.dto.MonitorDto;
 import com.kssoft.lake.net.responses.vo.XcTaskPro;
-import com.kssoft.lake.net.services.DataService;
 import com.kssoft.lake.net.services.ListService;
 import com.kssoft.lake.ui.activity.GisMapActivity;
 
@@ -96,7 +95,7 @@ public class MapMonitorActivity extends GisMapActivity<ActivityMapMonitorBinding
     }
 
     private SamplingBase getSampling(String stcd, DataDto dataDto) throws Exception{
-        List<XcTaskPro> list = rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, binding.getMonitorDto().getTm()), null);
+        List<XcTaskPro> list = rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, binding.getMonitorDto().getTm(), dataDto.getRdcd()), null);
         if (ListUtil.isEmpty(list)){
             return null;
         }

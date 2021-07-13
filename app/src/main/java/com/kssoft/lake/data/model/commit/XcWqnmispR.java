@@ -30,18 +30,6 @@ import kiun.com.bvroutine.utils.MCString;
 )})
 public class XcWqnmispR extends QualityStandard implements Serializable {
 
-//    private Double algae;
-//    private Double cl;
-//    private Double codmn;
-//    private Double dox;
-//    private Double f;
-//    private Double nh3n;
-//    private Double ph;
-//    private Double q;
-//    private Double redox;
-//    private Double tp;
-//    private Double z;
-
     public XcWqnmispR() {
     }
 
@@ -64,6 +52,18 @@ public class XcWqnmispR extends QualityStandard implements Serializable {
     public String itemTitle() {
         return this.formatItemTitle(SamplingType.Urgent.getTitle());
     }
+
+    //    private Double algae;
+//    private Double cl;
+//    private Double codmn;
+//    private Double dox;
+//    private Double f;
+//    private Double nh3n;
+//    private Double ph;
+//    private Double q;
+//    private Double redox;
+//    private Double tp;
+//    private Double z;
 
 //    public Double getAlgae() {
 //        return this.algae;

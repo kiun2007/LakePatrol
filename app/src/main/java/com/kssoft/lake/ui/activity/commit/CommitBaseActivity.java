@@ -1,20 +1,22 @@
 package com.kssoft.lake.ui.activity.commit;
 
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
+
 import com.kssoft.lake.BR;
 import com.kssoft.lake.data.LastLocation;
 import com.kssoft.lake.data.SamplingBase;
 import com.kssoft.lake.net.responses.vo.AreaStBprp;
 import com.kssoft.lake.net.services.ListService;
-import com.kssoft.lake.net.services.SimulationListService;
 import com.kssoft.lake.services.TrailService;
 import com.kssoft.lake.view.value.EditTextLimitBindConvert;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 import kiun.com.bvroutine.base.EventBean;
 import kiun.com.bvroutine.base.RequestBVActivity;
 import kiun.com.bvroutine.base.binding.variable.AutoImportHandler;
@@ -86,7 +88,7 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
                 this.samplingBase.setStcd(stcd);
                 this.samplingBase.setCheck(true);
 
-                rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm), null), this.samplingBase::setSource);
+                rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm, rdcd), null), this.samplingBase::setSource);
                 super.setVariable(BR.data, this.samplingBase);
             }
         }
@@ -111,11 +113,13 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
         Map<String, Object> latLngMap = lastLocation.toMap("lttd","lgtd");
         latLngMap.put("xctp", getXctp());
         latLngMap.put("tkcd", (tkcd == null || isNoPlan) ? "" : tkcd);
-        addRequest(()->rbp.callServiceList(ListService.class, s -> s.getNearbySite(latLngMap), null), this::setSiteList);
+        if (isNoPlan == false) {
+            addRequest(()->rbp.callServiceList(ListService.class, s -> s.getNearbySite(latLngMap), null), this::setSiteList);
+        }
     }
 
     protected void onSamplingChanged(SamplingBase samplingBase){
-        rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(samplingBase.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date())), null), samplingBase::setSource);
+        rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(samplingBase.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date()),samplingBase.getRdcd()), null), samplingBase::setSource);
     }
 
     @Override

@@ -11,30 +11,40 @@
         android:show="@{data.expansion}"
         android:orientation="vertical"
         style="@style/barVertical">
-        <!--水文指标-->
-        <TextView
-            android:text="水文指标"
-            style="@style/tvDetailsTitle" />
-        <com.kssoft.lake.view.DoubleLinearLayout
-            app:firstTitle="水位"
-            app:secondTitle="流量"
-            style="@style/barVertical">
-        </com.kssoft.lake.view.DoubleLinearLayout>
-
         <!--水化学指标-->
         <TextView
             android:text="水化学指标"
             style="@style/tvDetailsTitle" />
+<!--        <LinearLayout-->
+<!--            android:show="@{!data.other.empty}"-->
+<!--            android:orientation="vertical"-->
+<!--            style="@style/barVertical">-->
+            <kiun.com.bvroutine.views.ShortListView
+                android:orientation="vertical"
+                app:itemLayout="@layout/item_other_show"
+                android:val="@{data.other}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+<!--        </LinearLayout>-->
 
         <!--水源地特别指标-->
-        <LinearLayout
-            android:show="@{`0`.equals(data.sbtp)}"
-            android:orientation="vertical"
-            style="@style/barVertical">
-            <TextView
-                android:text="水源地特别指标"
-                style="@style/tvDetailsTitle" />
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:show="@{`0`.equals(data.sbtp)}"-->
+<!--            android:orientation="vertical"-->
+<!--            style="@style/barVertical">-->
+<!--            <TextView-->
+<!--                android:text="水源地特别指标"-->
+<!--                style="@style/tvDetailsTitle" />-->
+<!--        </LinearLayout>-->
 
+        <!--水文指标-->
+        <!--        <TextView-->
+        <!--            android:text="水文指标"-->
+        <!--            style="@style/tvDetailsTitle" />-->
+        <!--        <com.kssoft.lake.view.DoubleLinearLayout-->
+        <!--            app:firstTitle="水位"-->
+        <!--            app:secondTitle="流量"-->
+        <!--            style="@style/barVertical">-->
+        <!--        </com.kssoft.lake.view.DoubleLinearLayout>-->
     </LinearLayout>
 </layout>
