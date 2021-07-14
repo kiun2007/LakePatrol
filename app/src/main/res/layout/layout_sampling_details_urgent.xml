@@ -5,7 +5,7 @@
         tools:context=".ui.activity.personnel.SamplingDetailsActivity">
     <data>
         <import type="kiun.com.bvroutine.utils.MCString" />
-        <variable name="data" type="com.kssoft.lake.data.model.commit.XcWqnmispR" />
+        <variable name="data" type="com.kssoft.lake.data.model.commit.XcWqnmispDetail" />
     </data>
     <LinearLayout
         android:show="@{data.expansion}"
