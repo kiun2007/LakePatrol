@@ -29,8 +29,8 @@
     <string-array name="recordTabTypes">
         <item>巡查中</item>
         <item>已暂停</item>
-        <item>待校核</item>
-        <item>已驳回</item>
+<!--        <item>待校核</item>-->
+<!--        <item>已驳回</item>-->
         <item>已完成</item>
     </string-array>
     <integer-array name="recordTabStateTypes">

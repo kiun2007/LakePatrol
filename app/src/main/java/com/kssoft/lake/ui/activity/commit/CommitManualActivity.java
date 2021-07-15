@@ -37,7 +37,7 @@ public class CommitManualActivity extends CommitBaseActivity<ActivityCommitObser
 
     @Override
     protected EventBean saveBean() {
-        return null;
+        return binding.getData();
     }
 
     @Override
@@ -48,5 +48,6 @@ public class CommitManualActivity extends CommitBaseActivity<ActivityCommitObser
     @Override
     @ActivityOpen
     protected void startSampling(SamplingBase base) {
+        samplingBase = base;
     }
 }

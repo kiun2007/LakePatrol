@@ -10,6 +10,7 @@
     </data>
     <com.kssoft.lake.view.RowLinearLayout
         tools:title="标题"
+        app:required="true"
         app:title="@{item.chname}"
         style="@style/rowInput">
 
