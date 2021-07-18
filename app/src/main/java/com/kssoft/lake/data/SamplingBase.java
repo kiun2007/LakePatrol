@@ -98,7 +98,8 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
     private List<XcTaskPro> source = new LinkedList<>();
 
     @JSONField(serialize = false)
-    @Verify(value = ItemCheck.class, desc = "其他项必须填写", extra = "item.isPass()")
+    @Verify(value = ItemCheck.class, desc = "红标项必须填写", extra = "item.isPass()")
+//    @Verify(value = ItemCheck.class, desc = "其他项必须填写", extra = "item.isPass()")
     private List<XcTaskPro> other = new LinkedList<>();
 
     private boolean isCheck = false;
