@@ -49,6 +49,10 @@ public class SamplingDetailsActivity extends RequestBVActivity<ActivitySamplingD
 //        samplingBase = sampling;
         String tkcd = ListUtil.isEmpty(sampling.getXcTaskP()) ? null : sampling.getXcTaskP().get(0).getTkcd();
         dataDto = new DataDto(sampling.getStcd(), sampling.type(), tkcd);
+
+        if (tkcd == null){
+            dataDto.setRdcd(sampling.getRdcd());
+        }
     }
 
     @Override
