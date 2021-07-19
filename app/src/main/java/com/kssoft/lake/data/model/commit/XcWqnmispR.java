@@ -53,6 +53,11 @@ public class XcWqnmispR extends QualityStandard implements Serializable {
         return this.formatItemTitle(SamplingType.Urgent.getTitle());
     }
 
+    @Override
+    public String type() {
+        return "3";
+    }
+
     //    private Double algae;
 //    private Double cl;
 //    private Double codmn;

@@ -35,6 +35,9 @@ public class DoubleLinearLayout extends LinearLayout implements TypedBindView {
     @ViewBind
     private LinearLayout contentSecond;
 
+    @AttrBind(def = 1)
+    private float firstWeight;
+
     public DoubleLinearLayout(Context context) {
         super(context);
     }
@@ -87,6 +90,9 @@ public class DoubleLinearLayout extends LinearLayout implements TypedBindView {
             removeView(secondView);
             contentSecond.addView(secondView);
         }
+
+        LinearLayout.LayoutParams layoutParams = (LayoutParams) contentFirst.getLayoutParams();
+        layoutParams.weight = firstWeight;
     }
 
     @Override

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="item" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.StationSampling" />
         <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
         <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
     </data>

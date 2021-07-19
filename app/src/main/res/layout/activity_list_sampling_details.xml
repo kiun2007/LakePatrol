@@ -5,8 +5,8 @@
         tools:context=".ui.activity.list.ListSamplingActivity">
     <data>
         <import type="android.view.View" />
-        <import type="com.kssoft.lake.data.SamplingBase" />
-        <variable name="list" type="java.util.List&lt;SamplingBase>" />
+        <import type="com.kssoft.lake.net.responses.vo.StationSampling" />
+        <variable name="list" type="java.util.List&lt;StationSampling>" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"

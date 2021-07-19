@@ -15,7 +15,7 @@ import kiun.com.bvroutine.presenters.list.NetListProvider;
 public class ListRecordActivity extends RequestBVActivity<ActivityListRecordBinding> {
     public static final Class clz = ListRecordActivity.class;
 
-    ListHandler<XcRecdR> listHandler = new ListHandler<XcRecdR>(16, 2131492990) {
+    ListHandler<XcRecdR> listHandler = new ListHandler<XcRecdR>(BR.handler, R.layout.list_error_normal) {
         public void onClick(Context var1, int var2, XcRecdR var3) {
             if (var2 == 1) {
                 ListSamplingActivityHandler.openActivityNormal(ListRecordActivity.this.getContext(), var3.getRdcd(), var3.getXctp());
@@ -23,7 +23,6 @@ public class ListRecordActivity extends RequestBVActivity<ActivityListRecordBind
                 if (var2 == 2) {
                     MapTrailActivityHandler.openActivityNormal(var1, var3.getRdcd());
                 }
-
             }
         }
     };

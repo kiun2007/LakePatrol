@@ -22,10 +22,11 @@ public class ListSamplingActivity extends RequestBVActivity<ActivityListSampling
     }
 
     public void initView() {
+
         DataDto dataDto = new DataDto();
         dataDto.setXctp(this.xctp);
         dataDto.setRdcd(this.recordId);
 
-        rbp.addRequest(()->rbp.callServiceList(DataService.class, s -> s.dataList(dataDto, dataDto.getItemClzName()), null), binding::setList);
+        rbp.addRequest(()->rbp.callServiceData(DataService.class, s -> s.dataAList(dataDto)), binding::setList);
     }
 }

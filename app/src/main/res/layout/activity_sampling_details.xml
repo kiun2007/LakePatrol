@@ -5,7 +5,7 @@
         tools:context=".ui.activity.personnel.SamplingDetailsActivity">
     <data>
         <import type="android.view.View" />
-        <variable name="data" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="data" type="com.kssoft.lake.net.responses.vo.StationSampling" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"

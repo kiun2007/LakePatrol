@@ -61,6 +61,11 @@ public class XcRiverR extends WaterStandard implements Serializable {
         return this.formatItemTitle(SamplingType.Hydrology.getTitle());
     }
 
+    @Override
+    public String type() {
+        return "1";
+    }
+
     public void setQ(Double var1) {
         this.q = var1;
     }

@@ -12,7 +12,7 @@ public class DataDto extends PagerBean<Object,DataDto> implements TypeRequest{
     private String stcd; //测站编码
     private String xctp; //巡测类型 0湖泛，1水文，2人工，3应急
     private String tkcd; //任务代码
-    private String rdcd; //
+    private String rdcd; //巡查记录
 
     public DataDto(){}
 

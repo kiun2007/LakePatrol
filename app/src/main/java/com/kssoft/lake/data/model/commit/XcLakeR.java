@@ -199,6 +199,11 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
         return this.formatItemTitle(SamplingType.Lake.getTitle());
     }
 
+    @Override
+    public String type() {
+        return "0";
+    }
+
     public void setAirt(Double var1) {
         this.airt = var1;
     }

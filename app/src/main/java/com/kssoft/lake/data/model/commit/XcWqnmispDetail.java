@@ -157,4 +157,9 @@ public class XcWqnmispDetail extends QualityStandard implements Serializable {
     public int viewLayoutId() {
         return R.layout.layout_sampling_details_urgent;
     }
+
+    @Override
+    public String type() {
+        return "3";
+    }
 }

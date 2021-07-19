@@ -7,7 +7,7 @@
         <import type="kiun.com.bvroutine.utils.ListUtil" />
         <variable name="index" type="kiun.com.bvroutine.views.adapter.Indexer" />
         <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler"/>
-        <variable name="item" type="com.kssoft.lake.net.responses.vo.XcTaskPro" />
+        <variable name="item" type="com.kssoft.lake.net.responses.vo.SamplingQuota" />
     </data>
 
     <LinearLayout
@@ -17,13 +17,19 @@
         android:orientation="horizontal">
         <TextView
             tools:text="指标标题"
-            android:text="@{item.chname}"
+            android:text="@{item.ch}"
             style="@style/tvMain" />
         <TextView
             tools:text="2020"
             android:layout_weight="1"
-            android:text="@{item.sbv}"
+            android:val="@{item.value}"
             android:gravity="right"
-            style="@style/tvSubtitleSmall" />
+            style="@style/tvNormal" />
+        <TextView
+            tools:text="单位"
+            android:show="@{!`null`.equals(item.unit)}"
+            android:layout_marginLeft="5dp"
+            android:text="@{item.unit}"
+            style="@style/tvSubtitle" />
     </LinearLayout>
 </layout>

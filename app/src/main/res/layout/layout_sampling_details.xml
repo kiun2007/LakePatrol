@@ -6,8 +6,9 @@
     <data>
         <import type="android.view.View" />
         <import type="kiun.com.bvroutine.utils.ListUtil" />
+        <import type="kiun.com.bvroutine.utils.MCString" />
         <variable name="fixedOpen" type="Boolean" />
-        <variable name="data" type="com.kssoft.lake.data.SamplingBase" />
+        <variable name="data" type="com.kssoft.lake.net.responses.vo.StationSampling" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,21 +45,21 @@
                 <com.kssoft.lake.view.DoubleLinearLayout
                     app:firstTitle="采样时间"
                     app:secondTitle="填报人"
+                    app:firstWeight="0.75"
                     style="@style/barVertical">
                     <TextView
-                        tools:text="湖泊"
-                        android:text="@{data.itemTime(`MM-dd HH:mm`)}"
+                        tools:text="2021年5月10日"
+                        android:text="@{MCString.formatDate(`yyyy-MM-dd HH:mm`, data.spt)}"
                         android:layout_weight="0.5"
                         style="@style/tvDetailsValue"/>
                     <TextView
-                        android:text="@{data.names}"
+                        android:text="@{data.sbpnm}"
                         android:layout_weight="0.5"
                         android:singleLine="true"
                         tools:text="预想"
                         style="@style/tvDetailsValue"/>
                 </com.kssoft.lake.view.DoubleLinearLayout>
                 <LinearLayout
-                    android:show="@{!ListUtil.isEmpty(data.xcsnimdtf)}"
                     android:orientation="vertical"
                     style="@style/barVertical">
                     <TextView
@@ -72,12 +73,21 @@
                         android:orientation="horizontal"
                         style="@style/barVertical" />
                 </LinearLayout>
-                <ViewStub
-                    android:id="@+id/viewStub"
-                    android:layout="@{data.viewLayoutId()}"
-                    android:data="@{data}"
-                    android:visibility="@{(data != null&amp;&amp;data.expansion)?View.VISIBLE:View.GONE}"
-                    style="@style/barVertical" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:show="@{data.expansion}"
+                    style="@style/barVertical">
+                    <TextView
+                        android:text="采样数据"
+                        android:background="@null"
+                        style="@style/tvDetailsTitle" />
+                    <kiun.com.bvroutine.views.ShortListView
+                        android:val="@{data.parm}"
+                        android:orientation="vertical"
+                        app:itemLayout="@layout/item_other_show"
+                        style="@style/barVertical" />
+                </LinearLayout>
             </LinearLayout>
         </kiun.com.bvroutine.views.cardview.CardView>
     </LinearLayout>

@@ -5,6 +5,7 @@ import com.kssoft.lake.R;
 import com.kssoft.lake.data.SamplingBase;
 import com.kssoft.lake.databinding.ActivitySamplingDetailsBinding;
 import com.kssoft.lake.net.requests.dto.DataDto;
+import com.kssoft.lake.net.responses.vo.StationSampling;
 import com.kssoft.lake.net.services.DataService;
 import java.util.List;
 import kiun.com.bvroutine.base.RequestBVActivity;
@@ -45,7 +46,9 @@ public class SamplingDetailsActivity extends RequestBVActivity<ActivitySamplingD
 
     @ActivityOpen
     public void openByDetails(SamplingBase sampling){
-        samplingBase = sampling;
+//        samplingBase = sampling;
+        String tkcd = ListUtil.isEmpty(sampling.getXcTaskP()) ? null : sampling.getXcTaskP().get(0).getTkcd();
+        dataDto = new DataDto(sampling.getStcd(), sampling.type(), tkcd);
     }
 
     @Override
@@ -64,8 +67,8 @@ public class SamplingDetailsActivity extends RequestBVActivity<ActivitySamplingD
         });
     }
 
-    private SamplingBase getSamplingValue() throws Exception{
-        List<? extends SamplingBase> list = rbp.callServiceList(DataService.class, s->s.dataList(dataDto, dataDto.getType().getName()), null);
+    private StationSampling getSamplingValue() throws Exception{
+        List<StationSampling> list = rbp.callServiceData(DataService.class, s->s.dataAList(dataDto));
         return ListUtil.first(list);
     }
 }

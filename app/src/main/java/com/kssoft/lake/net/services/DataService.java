@@ -3,7 +3,9 @@ package com.kssoft.lake.net.services;
 import com.kssoft.lake.data.SamplingBase;
 import com.kssoft.lake.net.requests.dto.DataDto;
 import com.kssoft.lake.net.responses.NetListWrapper;
+import com.kssoft.lake.net.responses.NetMsgWrapper;
 import com.kssoft.lake.net.responses.NetWrapper;
+import com.kssoft.lake.net.responses.vo.StationSampling;
 
 import kiun.com.bvroutine.base.binding.variable.RetrofitVariableSet;
 import kiun.com.bvroutine.base.binding.variable.AutoImport;
@@ -31,6 +33,9 @@ public interface DataService {
     @BeginLoading
     @GET("/data/list")
     Call<NetListWrapper> dataList(@QueryMap DataDto dataDto, @Header("itemClz") String itemClz);
+
+    @GET("/data/alist")
+    Call<NetMsgWrapper> dataAList(@QueryMap DataDto dataDto);
 
     //修改采样数据
     @PUT("/data/editXcLake")

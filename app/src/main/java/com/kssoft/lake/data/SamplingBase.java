@@ -55,6 +55,8 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
      */
     public abstract Date samplingTime();
 
+    public abstract String type();
+
     /**
      * 采样站点名称.
      */

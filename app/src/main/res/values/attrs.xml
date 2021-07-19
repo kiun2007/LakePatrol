@@ -44,7 +44,7 @@
     <declare-styleable name="DoubleLinearLayout">
         <attr name="firstTitle" format="string" />
         <attr name="secondTitle" format="string" />
-
+        <attr name="firstWeight" format="float" />
     </declare-styleable>
 
     <declare-styleable name="FlowRadioGroup">

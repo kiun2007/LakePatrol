@@ -152,6 +152,11 @@ public class XcWrrbR extends WaterStandard implements Serializable {
         return this.formatItemTitle(SamplingType.Manual.getTitle());
     }
 
+    @Override
+    public String type() {
+        return "2";
+    }
+
     public void setAtmp(Double var1) {
         this.atmp = var1;
     }
