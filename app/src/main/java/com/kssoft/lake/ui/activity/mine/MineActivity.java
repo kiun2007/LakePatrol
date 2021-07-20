@@ -44,4 +44,19 @@ public class MineActivity extends RequestBVActivity<ActivityMineBinding> {
                 }).setNegativeButton("取消",(dialogInterface, i) -> {
         }).setCancelable(false).show();
     }
+
+    public void onChangedMapService(View view) {
+        String mapIp = SharedUtil.getValue("mapService",com.kssoft.lake.BuildConfig.MapService);
+        final EditText editText = new EditText(this);
+        editText.setText(mapIp);
+        new AlertDialog.Builder(this).setTitle("请输入地图服务器地址,格式http://ip")
+                .setIcon(R.mipmap.ic_update_version)
+                .setView(editText)
+                .setPositiveButton("确定",(dialogInterface, i) -> {
+                    SharedUtil.saveValue("mapService", editText.getText().toString());
+                    String url = SharedUtil.getValue("mapService", com.kssoft.lake.BuildConfig.MapService);
+                    Toast.makeText(getContext(), "地图服务器地址修改为:" + url + ",手动重启后生效", Toast.LENGTH_LONG).show();
+                }).setNegativeButton("取消",(dialogInterface, i) -> {
+        }).setCancelable(false).show();
+    }
 }

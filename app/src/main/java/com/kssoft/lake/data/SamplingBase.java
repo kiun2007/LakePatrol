@@ -283,6 +283,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
                 taskPro.setSttp(SamplingType.getType(getClass()).getType());
             }
 
+            taskPro.setStnm(stnm);
             taskPro.setRdcd(rdcd);
             taskPro.setState(isCheck ? "6" : "5");
         }
@@ -295,6 +296,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
             taskPro.setChname("图片");
             taskPro.setEnname("XCSNIMDTF");
             taskPro.setRdcd(rdcd);
+            taskPro.setStnm(stnm);
             taskPro.setState(isCheck ? "6" : "5");
             if (!isCheck) {
                 taskPro.setSbv(value);

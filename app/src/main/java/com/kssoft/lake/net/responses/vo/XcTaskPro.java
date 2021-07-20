@@ -19,6 +19,7 @@ public class XcTaskPro {
     private String rdcd;
     private int sort;//排序
     private String code;
+    private String stnm;
 
     public String getId() {
         return id;
@@ -26,6 +27,14 @@ public class XcTaskPro {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getStnm() {
+        return stnm;
+    }
+
+    public void setStnm(String stnm) {
+        this.stnm = stnm;
     }
 
     public String getStcd() {

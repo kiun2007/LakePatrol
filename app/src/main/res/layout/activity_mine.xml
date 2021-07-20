@@ -93,20 +93,20 @@
                     android:background="@drawable/shape_bottom_line_padding4_bg"
                     android:layout_width="match_parent"
                     android:layout_height="60dp" />
-                <kiun.com.bvroutine.views.NavigationRow
-                    app:icon="@mipmap/ic_about_me"
-                    app:title="关于我们"
-                    android:startActivity="@{AboutActivity.clz}"
-                    android:background="@drawable/shape_bottom_line_padding4_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp" />
-                <kiun.com.bvroutine.views.NavigationRow
-                    app:icon="@mipmap/ic_about_me"
-                    app:title="离线"
-                    android:startActivity="@{AboutActivity.clz}"
-                    android:background="@drawable/shape_bottom_line_padding4_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+<!--                <kiun.com.bvroutine.views.NavigationRow-->
+<!--                    app:icon="@mipmap/ic_about_me"-->
+<!--                    app:title="关于我们"-->
+<!--                    android:startActivity="@{AboutActivity.clz}"-->
+<!--                    android:background="@drawable/shape_bottom_line_padding4_bg"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="60dp" />-->
+<!--                <kiun.com.bvroutine.views.NavigationRow-->
+<!--                    app:icon="@mipmap/ic_about_me"-->
+<!--                    app:title="离线"-->
+<!--                    android:startActivity="@{AboutActivity.clz}"-->
+<!--                    android:background="@drawable/shape_bottom_line_padding4_bg"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="60dp" />-->
                 <kiun.com.bvroutine.views.NavigationRow
                     app:icon="@drawable/ic_outline_delete"
                     app:title="@{`清除缓存(`+cacheManage.totalSize+`)`}"
@@ -135,6 +135,14 @@
                     app:title="更换IP地址"
                     android:background="@drawable/shape_bottom_line_padding4_bg"
                     android:onClick="onChangedService"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+
+                <kiun.com.bvroutine.views.NavigationRow
+                    app:icon="@mipmap/ic_update_version"
+                    app:title="更换地图IP地址"
+                    android:background="@drawable/shape_bottom_line_padding4_bg"
+                    android:onClick="onChangedMapService"
                     android:layout_width="match_parent"
                     android:layout_height="60dp" />
 

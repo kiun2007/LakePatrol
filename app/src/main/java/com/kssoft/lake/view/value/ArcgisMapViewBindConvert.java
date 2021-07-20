@@ -28,8 +28,8 @@ public class ArcgisMapViewBindConvert extends BindConvert<MapView, Object, Objec
 
     protected ArcgisViewPresenter viewPresenter;
 
-    private static final String localMapServer = "http://36.153.143.166/arcgis15/rest/services/jssl_vector_with_water_2019/MapServer";
-    private static final String localMapAnnoServer = "http://36.153.143.166/arcgis15/rest/services/jssl_vector_with_water_anno_2019/MapServer";
+    private static final String localMapServer = SharedUtil.getValue("mapService", com.kssoft.lake.BuildConfig.MapService) + "/arcgis15/rest/services/jssl_vector_with_water_2019/MapServer";//http://36.153.143.166
+    private static final String localMapAnnoServer = SharedUtil.getValue("mapService", com.kssoft.lake.BuildConfig.MapService) + "/arcgis15/rest/services/jssl_vector_with_water_anno_2019/MapServer";
 
     public static final String mapServer = "http://218.94.6.92:6080/arcgis/rest/services/jssl_vector_map/MapServer";
 

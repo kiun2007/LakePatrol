@@ -40,6 +40,7 @@ android {
 //            buildConfigField('String', 'Prefix', '"http://10.32.249.233:8880"')
 //            buildConfigField('String', 'Prefix', '"http://10.32.225.56:8880"') //南京
 //            buildConfigField('String', 'Prefix', '"http://192.168.1.126:8880"')
+            buildConfigField('String', 'MapService', '"http://36.153.143.166"')
         }
         release {
             buildConfigField('String', 'Local', '"' + getIP() + '"')
@@ -52,7 +53,7 @@ android {
 //            buildConfigField('String', 'Prefix', '"http://47.93.233.210:8080"')
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
+            buildConfigField('String', 'MapService', '"http://36.153.143.166"')
             signingConfig signingConfigs.release
         }
     }

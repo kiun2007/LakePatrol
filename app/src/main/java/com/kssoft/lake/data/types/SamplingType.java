@@ -6,7 +6,6 @@ import com.kssoft.lake.R;
 import com.kssoft.lake.data.SamplingBase;
 import com.kssoft.lake.data.model.commit.XcLakeR;
 import com.kssoft.lake.data.model.commit.XcRiverR;
-import com.kssoft.lake.data.model.commit.XcWqnmispDetail;
 import com.kssoft.lake.data.model.commit.XcWqnmispR;
 import com.kssoft.lake.data.model.commit.XcWrrbR;
 
@@ -35,8 +34,8 @@ public enum SamplingType {
     /**
      * 应急.
      */
-    Urgent(XcWqnmispDetail.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
-//    Urgent(XcWqnmispR.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
+//    Urgent(XcWqnmispDetail.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
+    Urgent(XcWqnmispR.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
 
     private Class<? extends SamplingBase> clz;
     private int icon;
