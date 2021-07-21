@@ -15,6 +15,7 @@ import com.kssoft.lake.databinding.ActivityMapLakeInspectionBinding;
 import com.kssoft.lake.net.requests.dto.XcRecdR;
 import com.kssoft.lake.services.TrailService;
 import com.kssoft.lake.ui.activity.GisMapActivity;
+import com.kssoft.lake.ui.activity.commit.CommitGeneralActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitHydrologyActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitLakeActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitManualActivityHandler;
@@ -83,12 +84,8 @@ public class LakeInspectionGisMapActivity extends GisMapActivity<ActivityMapLake
         String recordId = binding.getTrailService().getRecord().getRdcd();
         if ("0".equals(xctp)){
             CommitLakeActivityHandler.openActivityNormal(this, recordId);
-        }else if ("1".equals(xctp)){
-            CommitHydrologyActivityHandler.openActivityNormal(this, recordId);
-        }else if ("2".equals(xctp)){
-            CommitManualActivityHandler.openActivityNormal(this, recordId);
-        }else if ("3".equals(xctp)){
-            CommitUrgentActivityHandler.openActivityNormal(this, recordId);
+        }else {
+            CommitGeneralActivityHandler.openActivityNormal(this, recordId, xctp);
         }
     }
 

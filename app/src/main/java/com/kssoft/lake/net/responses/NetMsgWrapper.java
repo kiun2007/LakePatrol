@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.kssoft.lake.net.responses.vo.StationSampling;
 import com.kssoft.lake.net.responses.vo.XcTaskPro;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import kiun.com.bvroutine.interfaces.wrap.DataWrap;
@@ -22,11 +23,14 @@ public class NetMsgWrapper implements DataWrap<List<StationSampling>> {
 
     @Override
     public String getMsg() {
-        return null;
+        return "数据加载失败";
     }
 
     @Override
     public boolean isSuccess() {
+        if ("[null]".equals(msg)){
+            return false;
+        }
         return "200".equals(code);
     }
 

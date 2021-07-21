@@ -46,7 +46,6 @@ public class SamplingDetailsActivity extends RequestBVActivity<ActivitySamplingD
 
     @ActivityOpen
     public void openByDetails(SamplingBase sampling){
-//        samplingBase = sampling;
         String tkcd = ListUtil.isEmpty(sampling.getXcTaskP()) ? null : sampling.getXcTaskP().get(0).getTkcd();
         dataDto = new DataDto(sampling.getStcd(), sampling.type(), tkcd);
 
@@ -63,6 +62,7 @@ public class SamplingDetailsActivity extends RequestBVActivity<ActivitySamplingD
             setVariable(BR.data, samplingBase);
             return;
         }
+
         addRequest(this::getSamplingValue, v->{
             if (v != null){
                 v.setExpansion(true);

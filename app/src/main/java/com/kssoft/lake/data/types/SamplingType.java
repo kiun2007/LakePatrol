@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.kssoft.lake.R;
 import com.kssoft.lake.data.SamplingBase;
+import com.kssoft.lake.data.model.commit.SamplingGeneral;
 import com.kssoft.lake.data.model.commit.XcLakeR;
 import com.kssoft.lake.data.model.commit.XcRiverR;
 import com.kssoft.lake.data.model.commit.XcWqnmispR;
@@ -24,18 +25,17 @@ public enum SamplingType {
     /**
      * 水文
      */
-    Hydrology(XcRiverR.class, R.mipmap.ic_map_title_sort_shuiwen,"水文巡查采样","1"),
+    Hydrology(SamplingGeneral.class, R.mipmap.ic_map_title_sort_shuiwen,"水文巡查采样","1"),
 
     /**
      * 人工
      */
-    Manual(XcWrrbR.class, R.mipmap.ic_map_title_sort_rengong,"人工巡测采样","2"),
+    Manual(SamplingGeneral.class, R.mipmap.ic_map_title_sort_rengong,"人工巡测采样","2"),
 
     /**
      * 应急.
      */
-//    Urgent(XcWqnmispDetail.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
-    Urgent(XcWqnmispR.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
+    Urgent(XcWrrbR.class, R.mipmap.ic_map_title_sort_yingji,"应急监测采样","3");
 
     private Class<? extends SamplingBase> clz;
     private int icon;

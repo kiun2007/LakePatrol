@@ -3,6 +3,7 @@ package com.kssoft.lake.ui.activity.list;
 import android.content.Context;
 
 import com.kssoft.lake.BR;
+import com.kssoft.lake.BuildConfig;
 import com.kssoft.lake.R;
 import com.kssoft.lake.databinding.ActivityListRecordBinding;
 import com.kssoft.lake.net.requests.dto.RecdDto;
@@ -32,7 +33,6 @@ public class ListRecordActivity extends RequestBVActivity<ActivityListRecordBind
         if (this.listHandler.getTag() instanceof NetListProvider) {
             ((NetListProvider)this.listHandler.getTag()).refresh();
         }
-
     }
 
     public Context getContext() {

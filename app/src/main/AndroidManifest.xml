@@ -70,5 +70,6 @@
         <activity android:name=".ui.activity.mine.AboutActivity" />
         <activity android:name=".ui.activity.personnel.LakeInspectionGisMapActivity" />
         <activity android:name=".ui.activity.mine.CacheLineActivity" />
+        <activity android:name=".ui.activity.commit.CommitGeneralActivity" />
     </application>
 </manifest>

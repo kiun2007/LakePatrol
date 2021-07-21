@@ -25,6 +25,7 @@
                 style="@style/tabLayout" />
             <kiun.com.bvroutine.views.layout.StaticPager
                 android:val="@={index.value}"
+                app:maxCachePageSize="4"
                 app:pagesClzName="@array/tabFragmentTypes"
                 style="@style/fill_base" />
         </LinearLayout>

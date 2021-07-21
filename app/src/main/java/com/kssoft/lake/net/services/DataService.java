@@ -1,6 +1,8 @@
 package com.kssoft.lake.net.services;
 
 import com.kssoft.lake.data.SamplingBase;
+import com.kssoft.lake.data.model.commit.SamplingGeneral;
+import com.kssoft.lake.data.model.commit.XcLakeR;
 import com.kssoft.lake.net.requests.dto.DataDto;
 import com.kssoft.lake.net.responses.NetListWrapper;
 import com.kssoft.lake.net.responses.NetMsgWrapper;
@@ -27,13 +29,22 @@ public interface DataService {
     /**
      * 获取采样数据.
      * @param dataDto
-     * @param itemClz
      * @return
      */
     @BeginLoading
     @GET("/data/list")
-    Call<NetListWrapper> dataList(@QueryMap DataDto dataDto, @Header("itemClz") String itemClz);
+    Call<NetListWrapper<XcLakeR>> dataLakeList(@QueryMap DataDto dataDto);
 
+    /**
+     * 获取采样数据.
+     * @param dataDto
+     * @return
+     */
+    @BeginLoading
+    @GET("/data/list")
+    Call<NetListWrapper<SamplingGeneral>> dataGeneralList(@QueryMap DataDto dataDto);
+
+    @BeginLoading(title = "获取采样详情")
     @GET("/data/alist")
     Call<NetMsgWrapper> dataAList(@QueryMap DataDto dataDto);
 

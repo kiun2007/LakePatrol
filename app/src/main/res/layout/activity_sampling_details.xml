@@ -18,21 +18,9 @@
         <ScrollView
             android:background="@color/wrapDark"
             android:orientation="vertical"
-            style="@style/fill_base">
+            style="@style/wrap_group_view">
             <LinearLayout
                 style="@style/barVertical">
-                <LinearLayout
-                    android:show="@{data == null}"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginTop="200dp"
-                    style="@style/fill_base">
-                    <ProgressBar
-                        style="@style/warp_base" />
-                    <TextView
-                        android:text="正在为您加载数据..."
-                        style="@style/tvSubtitle" />
-                </LinearLayout>
                 <ViewStub
                     android:id="@+id/viewStub"
                     android:layout="@layout/layout_sampling_details"

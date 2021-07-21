@@ -7,17 +7,17 @@
     <data>
         <import type="kiun.com.bvroutine.presenters.list.NetListProvider" />
 
-        <variable name="dataDto" type="com.kssoft.lake.net.requests.dto.DataDto" />
-        <variable name="handler" type="kiun.com.bvroutine.handlers.ListHandler" />
         <variable name="dataService" type="com.kssoft.lake.net.services.DataService" />
+        <variable
+            name="provider"
+            type="NetListProvider" />
     </data>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:background="@color/wrapDark"
         style="@style/fill_base">
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item_sampling_check"
-            android:listProvider="@{(NetListProvider.create(context, handler, @layout/item_sampling_check))}"
-            android:netBlock="@{pager->dataService.dataList(dataDto.inherit(pager), dataDto.itemClzName)}"
+            android:listProvider="@{provider}"
             style="@style/fill_base" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
