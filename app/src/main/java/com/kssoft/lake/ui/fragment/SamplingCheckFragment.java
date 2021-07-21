@@ -47,7 +47,10 @@ public class SamplingCheckFragment extends RequestBVFragment<FragmentSamplingChe
                             .setMessage("是否对数据进行校核,您需将站点数据重新填报一次")
                             .setNegativeButton("取消", null)
                             .setPositiveButton("确定校核", (dialog, which) -> {
-                                Intent intent = new Intent(context, samplingBase.commitActivity()).putExtra("sampling", samplingBase).putExtra("isCheck", true);
+                                Intent intent = new Intent(context, samplingBase.commitActivity())
+                                        .putExtra("sampling", samplingBase)
+                                        .putExtra("isCheck", true)
+                                        .putExtra("xctp", dataDto.getXctp());
                                 activity.startForResult(intent, v -> {
                                     ListViewUtil.refresh(this);
                                 });

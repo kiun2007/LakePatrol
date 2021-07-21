@@ -77,6 +77,7 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
             this.samplingBase = (SamplingBase) getIntent().getSerializableExtra("sampling");
 
             if (this.samplingBase != null){
+
                 String stcd = this.samplingBase.getStcd();
                 String tm = MCString.formatDate("yyyy-MM-dd", this.samplingBase.samplingTime());
                 String rdcd = this.samplingBase.getRdcd();

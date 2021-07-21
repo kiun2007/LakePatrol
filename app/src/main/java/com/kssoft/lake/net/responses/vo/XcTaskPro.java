@@ -99,6 +99,9 @@ public class XcTaskPro {
 
     public void setState(String state) {
         this.state = state;
+        if("6".equals(state)){
+            jhv = sbv;
+        }
     }
 
     public String getSbcd() {

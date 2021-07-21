@@ -20,7 +20,8 @@ public class CommitGeneralActivity extends CommitBaseActivity<ActivityCommitObse
     @Override
     public void initView() {
         super.initView();
-        getBarItem().setTitle(SamplingType.getType(xctp).getTitle());
+
+        getBarItem().setTitle(SamplingType.getType(getIntent().getStringExtra("xctp")).getTitle());
     }
 
     @Override

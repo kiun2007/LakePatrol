@@ -130,6 +130,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
         this.source = source;
         other.clear();
 
+
         Map<String, XcTaskPro> map = new HashMap<>();
         ListUtil.map(source, v -> map.put(v.getEnname().toLowerCase(), v));
 
@@ -155,6 +156,9 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
 
 
         other = ListUtil.filter(source, item -> {
+            if (isCheck){
+                item.setJhv(item.getSbv());
+            }
             if (names.indexOf(item.getEnname().toLowerCase()) < 0){
                 item.setSbv(null);
                 return true;
