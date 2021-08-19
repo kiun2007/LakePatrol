@@ -139,7 +139,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
     }
 
     public void setSource(List<XcTaskPro> source) {
-        setSourceCopy(source, false);
+        setSourceCopy(source, true);
     }
 
     public void setSourceCopy(List<XcTaskPro> source, boolean isCopy) {
@@ -169,7 +169,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
             ObjectUtil.copyByMapping(this, copy);
         }
 
-        other = ListUtil.filter(source, item -> {
+        List<XcTaskPro> proList = ListUtil.filter(source, item -> {
             if (isCheck){
                 item.setJhv(item.getSbv());
             }
@@ -180,6 +180,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
             return false;
         });
 
+        other.addAll(proList);
         onChanged();
     }
 

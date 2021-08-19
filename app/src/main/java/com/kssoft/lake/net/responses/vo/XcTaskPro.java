@@ -101,7 +101,7 @@ public class XcTaskPro extends EventBean {
 
     public void setState(String state) {
         this.state = state;
-        if("6".equals(state)){
+        if("6".equals(state) && jhv == null){
             jhv = sbv;
         }
     }
