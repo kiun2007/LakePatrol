@@ -82,11 +82,17 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
                 String tm = MCString.formatDate("yyyy-MM-dd", this.samplingBase.samplingTime());
                 String rdcd = this.samplingBase.getRdcd();
                 String stnm = this.samplingBase.getStnm();
+                String sbtp = this.samplingBase.getSbtp();
 
                 this.samplingBase = ObjectUtil.newObject(this.samplingBase.getClass());
                 this.samplingBase.setRdcd(rdcd);
                 this.samplingBase.setStnm(stnm);
                 this.samplingBase.setStcd(stcd);
+                if ("2".equals(sbtp)) {
+                    this.samplingBase.setIsLakeType("1");
+                } else {
+                    this.samplingBase.setIsLakeType("0");
+                }
                 this.samplingBase.setCheck(true);
 
                 rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm, rdcd), null), this.samplingBase::setSource);

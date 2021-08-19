@@ -2,7 +2,9 @@ package com.kssoft.lake.net.responses.vo;
 
 import android.text.TextUtils;
 
-public class XcTaskPro {
+import kiun.com.bvroutine.base.EventBean;
+
+public class XcTaskPro extends EventBean {
 
     private String id; // ID编号
     private String stcd; //测站编码
@@ -157,6 +159,6 @@ public class XcTaskPro {
     }
 
     public boolean isPass(){
-        return (TextUtils.isEmpty(sbcd) && !TextUtils.isEmpty(sbv)) || !TextUtils.isEmpty(jhv);
+        return !TextUtils.isEmpty(sbv) || !TextUtils.isEmpty(jhv);
     }
 }

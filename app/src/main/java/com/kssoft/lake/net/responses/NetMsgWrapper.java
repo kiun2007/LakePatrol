@@ -2,9 +2,7 @@ package com.kssoft.lake.net.responses;
 
 import com.alibaba.fastjson.JSON;
 import com.kssoft.lake.net.responses.vo.StationSampling;
-import com.kssoft.lake.net.responses.vo.XcTaskPro;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import kiun.com.bvroutine.interfaces.wrap.DataWrap;
@@ -23,7 +21,7 @@ public class NetMsgWrapper implements DataWrap<List<StationSampling>> {
 
     @Override
     public String getMsg() {
-        return "数据加载失败";
+        return "未查询到数据";
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.kssoft.lake.data.model.commit;
 
+import android.text.TextUtils;
+
 import com.alibaba.fastjson.annotation.JSONField;
 import com.kssoft.lake.R;
 import com.kssoft.lake.data.QualityStandard;
@@ -192,7 +194,7 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
     }
 
     public boolean isPass(String var1) {
-        return !"1".equals(this.gaqp) && "gaqpam".equals(var1);
+        return !"0".equals(super.getIsLakeType()) ? (!TextUtils.isEmpty(wtcl)) : (!"1".equals(this.gaqp) && "gaqpam".equals(var1));
     }
 
     public String itemTitle() {

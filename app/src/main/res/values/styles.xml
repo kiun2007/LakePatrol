@@ -39,6 +39,11 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="barCopyVertical">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="navigatorBar" parent="barVertical">
         <item name="android:background">@drawable/shape_bottom_line_bg</item>
         <item name="barStyle">transparentBlack</item>
@@ -54,7 +59,7 @@
     <!-- 表单分割 -->
     <style name="division" parent="barVertical">
         <item name="android:padding">8dp</item>
-        <item name="android:background">#F8F8FA</item>
+        <item name="android:background">#ECF5FF</item>
     </style>
 
     <!-- 点按钮 -->
@@ -77,8 +82,8 @@
     <style name="rowInput" parent="barVertical">
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
         <item name="android:gravity">center|left</item>
         <item name="titleWidth">wrap</item>
         <item name="required">false</item>

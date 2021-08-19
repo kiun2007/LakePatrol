@@ -30,7 +30,7 @@
             app:barTitle="通用填报项"
             style="@style/navigatorBar" />
         <ScrollView
-            android:background="@color/wrapFillColor"
+            android:background="@color/scroll_blue_bg"
             style="@style/fill_base">
             <LinearLayout
                 android:orientation="vertical"
@@ -73,6 +73,7 @@
                 <LinearLayout
                     android:show="@{!data.other.empty}"
                     android:orientation="vertical"
+                    android:background="@color/wrapBackground"
                     style="@style/barVertical">
                     <kiun.com.bvroutine.views.ShortListView
                         android:orientation="vertical"

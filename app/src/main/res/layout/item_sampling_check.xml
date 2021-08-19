@@ -27,49 +27,106 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:paddingRight="16dp"
+                    android:gravity="center_vertical"
                     android:layout_toRightOf="@id/tagImageView"
                     style="@style/barVertical">
                     <TextView
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"
-                        android:lines="2"
-                        android:text="@{item.itemTitle()}"
-                        tools:text="2020年6月24日太湖蓝藻巡查简报"
+                        android:text="@{item.stnm}"
+                        tools:text="2020"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
                         style="@style/tvMain" />
                     <TextView
                         tools:visibility="visible"
                         android:show="@{`0`.equals(item.ckstate)}"
                         android:onClick="@{()->handler.onClick(context, 1, item)}"
-                        android:text="校核"
-                        android:backgroundTint="#53C49A"
-                        android:textColor="#53C49A"
+                        android:text="待校核"
+                        android:layout_margin="1dp"
+                        android:backgroundTint="#38AFFF"
+                        android:textColor="#38AFFF"
                         style="@style/tvRound" />
                     <TextView
                         android:show="@{`2`.equals(item.ckstate)}"
                         android:layout_marginLeft="5dp"
                         tools:visibility="visible"
-                        android:text="已完成"
-                        android:backgroundTint="#999"
-                        android:textColor="#999"
+                        android:layout_margin="1dp"
+                        android:text="已校核"
+                        android:backgroundTint="#53C49A"
+                        android:textColor="#53C49A"
                         style="@style/tvRound" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp"
-                    style="@style/warp_base">
+                    android:paddingRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_toRightOf="@id/tagImageView"
+                    style="@style/barVertical">
                     <TextView
-                        android:drawableStart="@mipmap/ic_list_icon_time"
-                        tools:text="2020-06-24 08:19:33-2:33:34"
-                        android:text="@{item.itemTime(`yyyy-MM-dd HH:mm:ss`)}"
-                        android:layout_marginRight="20dp"
-                        style="@style/tvSubtitleSmall" />
-                    <TextView
-                        android:drawableStart="@mipmap/ic_list_icon_character"
-                        tools:text="李玟雨"
-                        android:text="@{item.names}"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:text="@{item.itemTitle()}"
+                        tools:text="2020年6月24日太湖蓝藻巡查简报"
+                        android:textColor="@color/lessTextColor"
                         style="@style/tvMain" />
                 </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    style="@style/warp_base">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:minWidth="160dp"
+                        style="@style/warp_base">
+                        <TextView
+                            android:drawableStart="@mipmap/ic_list_icon_character"
+                            android:layout_weight="1"
+                            tools:text="李玟雨"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/lessTextColor"
+                            android:text="@{`上报人: ` + item.sbpnm}"
+                            style="@style/tvMain" />
+                        <TextView
+                            android:drawableStart="@mipmap/ic_list_icon_time"
+                            android:layout_weight="1"
+                            tools:text="2020-06-24 08:19:33"
+                            android:textColor="@color/lessTextColor"
+                            android:text="@{item.itemTime(`yyyy-MM-dd HH:mm:ss`)}"
+                            android:layout_marginRight="20dp"
+                            style="@style/tvSubtitleSmall" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:minWidth="160dp"
+                        style="@style/warp_base">
+                        <TextView
+                            android:drawableStart="@mipmap/ic_list_icon_character"
+                            android:layout_weight="1"
+                            android:layout_marginBottom="8dp"
+                            tools:text="李玟雨"
+                            android:textColor="@color/lessTextColor"
+                            android:text="@{item.ckpnm != null ? `校核人: ` + item.ckpnm : `校核人: `}"
+                            style="@style/tvMain" />
+                        <TextView
+                            android:drawableStart="@mipmap/ic_list_icon_time"
+                            android:layout_weight="1"
+                            tools:text="2021-08-02 08:19:33"
+                            android:textColor="@color/lessTextColor"
+                            android:text="@{item.cktm}"
+                            android:layout_marginRight="20dp"
+                            style="@style/tvSubtitleSmall" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </kiun.com.bvroutine.views.cardview.CardView>

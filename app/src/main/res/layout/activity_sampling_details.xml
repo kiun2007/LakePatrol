@@ -10,13 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/wrapBackground"
+        android:background="@color/scroll_blue_bg"
         android:orientation="vertical">
         <kiun.com.bvroutine.views.NavigatorBar
             app:barTitle="采样详情"
+            android:background="@color/wrapBackground"
             style="@style/navigatorBar" />
         <ScrollView
-            android:background="@color/wrapDark"
+            android:background="@color/scroll_blue_bg"
             android:orientation="vertical"
             style="@style/wrap_group_view">
             <LinearLayout

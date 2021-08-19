@@ -27,6 +27,7 @@
             app:barTitle="湖泛巡查填报"
             style="@style/navigatorBar" />
         <ScrollView
+            android:background="@color/scroll_blue_bg"
             style="@style/fill_base">
             <LinearLayout
                 android:orientation="vertical"
@@ -55,6 +56,18 @@
                         android:text="@{user.nickName}"
                         style="@style/rowEditText" />
                 </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    app:title="巡查类型"
+                    style="@style/rowInput">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <com.kssoft.lake.view.FlowRadioGroup
+                        android:val="@={data.isLakeType}"
+                        app:titleArray="@array/typeLake"
+                        style="@style/rightRadioGroup" />
+                </com.kssoft.lake.view.RowLinearLayout>
                 <!-- 水质感官指标 -->
                 <LinearLayout
                     style="@style/division" />
@@ -71,6 +84,7 @@
                         style="@style/flowRadioGroup" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="气味"
                     android:verifyField="@{`smell`}"
                     style="@style/rowInputVertical">
@@ -80,6 +94,7 @@
                         style="@style/flowRadioGroup" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="水下0.5m(℃)"
                     style="@style/rowInput">
                     <EditText
@@ -89,6 +104,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="水温底层(℃)"
                     style="@style/rowInput">
                     <EditText
@@ -100,11 +116,14 @@
 
                 <!-- 气象要素 -->
                 <LinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <TextView
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     android:text="气象要素"
                     style="@style/blockTitle" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="气压(KPa)"
                     style="@style/rowInput">
                     <EditText
@@ -114,6 +133,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="风速(m/s)"
                     style="@style/rowInput">
                     <EditText
@@ -123,6 +143,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="风向"
                     style="@style/rowInput">
                     <kiun.com.bvroutine.views.text.GeneralItemText
@@ -133,6 +154,7 @@
                         style="@style/rowEditText" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="风级"
                     style="@style/rowInput">
                     <TextView
@@ -142,6 +164,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="气温(℃)"
                     style="@style/rowInput">
                     <EditText
@@ -152,11 +175,14 @@
                 </com.kssoft.lake.view.RowLinearLayout>
                 <!-- 水化学指标 -->
                 <LinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <TextView
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     android:text="水化学指标"
                     style="@style/blockTitle" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="透明度(cm)"
                     style="@style/rowInput">
                     <EditText
@@ -166,6 +192,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="氧化还原电位"
                     style="@style/rowInput">
                     <EditText
@@ -176,6 +203,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="电导率(us/cm)"
                     style="@style/rowInput">
                     <EditText
@@ -185,6 +213,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="pH (无量纲)"
                     style="@style/rowInput">
                     <EditText
@@ -194,6 +223,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="溶解氧饱和度(%)"
                     style="@style/rowInput">
                     <TextView
@@ -203,6 +233,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="溶解氧(mg/L)(水下0.5m)"
                     style="@style/rowInput">
                     <EditText
@@ -212,6 +243,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="溶解氧(mg/L)(底层)"
                     style="@style/rowInput">
                     <EditText
@@ -223,11 +255,14 @@
 
                 <!--藻密度-->
                 <LinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <TextView
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     android:text="藻密度(万个细胞/L)"
                     style="@style/blockTitle" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="直接测50cm处"
                     style="@style/rowInput">
                     <EditText
@@ -237,6 +272,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="10cm柱状水样"
                     style="@style/rowInput">
                     <EditText
@@ -246,6 +282,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="30cm柱状水样"
                     style="@style/rowInput">
                     <EditText
@@ -255,6 +292,7 @@
                         style="@style/rowEditInt" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="50cm柱状水样"
                     style="@style/rowInput">
                     <EditText
@@ -266,11 +304,14 @@
 
                 <!--叶绿素a(μg/L)-->
                 <LinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <TextView
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     android:text="叶绿素a(μg/L)"
                     style="@style/blockTitle" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="直接测50cm处"
                     style="@style/rowInput">
                     <EditText
@@ -280,6 +321,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="10cm柱状水样"
                     style="@style/rowInput">
                     <EditText
@@ -289,6 +331,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="30cm柱状水样"
                     style="@style/rowInput">
                     <EditText
@@ -298,6 +341,7 @@
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="50cm柱状水样"
                     style="@style/rowInput">
                     <EditText
@@ -308,8 +352,10 @@
                 </com.kssoft.lake.view.RowLinearLayout>
 
                 <LinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="天气状况"
                     app:titleSize="18sp"
                     app:titleColor="#333"
@@ -321,8 +367,10 @@
                         style="@style/flowRadioGroup" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <LinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="蓝藻状况"
                     app:titleSize="18sp"
                     app:titleColor="#333"
@@ -334,6 +382,7 @@
                         style="@style/flowRadioGroup" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="水草生长状况"
                     app:titleSize="18sp"
                     app:titleColor="#333"

@@ -9,6 +9,7 @@
         <import type="com.kssoft.lake.ui.activity.list.ListSamplingCheckActivity" />
         <import type="com.kssoft.lake.ui.activity.list.ListReportActivity" />
         <import type="com.kssoft.lake.ui.activity.leader.MapMonitorActivity" />
+        <import type="com.kssoft.lake.ui.activity.list.ListSamplingRecordActivity"/>
         <import type="com.kssoft.lake.data.model.XcAppM" />
         <import type="com.kssoft.lake.utils.Mipmap" />
 
@@ -33,8 +34,7 @@
                     android:show="@{module.isShow(`1`)}"
                     android:startActivity="@{MapMonitorActivity.clz}"
                     android:enabled="@{module.isAvailable(`1`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
-                    android:background="@{module.isAvailable(`1`)?Mipmap.ic_home_ld_nav1(context):@drawable/shape_bg_button_round_gray_4dp}"
+                    tools:background="@{Mipmap.ic_home_ld_nav1(context)}"
                     android:gravity="center"
                     style="@style/warp_base">
                     <kiun.com.bvroutine.views.text.HtmlTextView
@@ -46,23 +46,21 @@
                 <LinearLayout
                     android:layout_weight="1"
                     android:show="@{module.isShow(`2`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
-                    android:background="@{module.isAvailable(`1`)?Mipmap.ic_home_ld_nav2(context):@drawable/shape_bg_button_round_gray_4dp}"
+                    tools:background="@{Mipmap.ic_home_ld_nav2(context)}"
                     android:gravity="center"
                     style="@style/warp_base">
                     <kiun.com.bvroutine.views.text.HtmlTextView
                         android:enabled="@{module.isAvailable(`2`)}"
                         app:initShow="true"
                         android:drawableLeft="@mipmap/ic_home_nav_xcjl"
-                        android:startActivity="@{ListRecordActivity.clz}"
+                        android:startActivity="@{ListSamplingRecordActivity.clz}"
                         app:html="@string/titlePatrolRecord"
                         style="@style/warp_base" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_weight="1"
                     android:show="@{module.isShow(`3`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
-                    android:background="@{module.isAvailable(`1`)?Mipmap.ic_home_ld_nav3(context):@drawable/shape_bg_button_round_gray_4dp}"
+                    tools:background="@{Mipmap.ic_home_ld_nav3(context)}"
                     android:gravity="center"
                     style="@style/warp_base">
                     <kiun.com.bvroutine.views.text.HtmlTextView
@@ -77,47 +75,85 @@
             <LinearLayout
                 android:orientation="horizontal"
                 style="@style/barVertical">
+                //tools:background="@{Mipmap.ic_home_nav1(context)}"
                 <TextView
                     android:show="@{module.isShow(`4`)}"
                     android:enabled="@{module.isAvailable(`4`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
                     android:background="@{module.isAvailable(`4`)?Mipmap.ic_home_nav1(context):@drawable/shape_bg_button_round_gray_4dp}"
                     android:drawableTop="@mipmap/ic_home_nav_hufan"
                     android:text="湖泛巡查"
                     android:startIntent="@{LakeInspectionGisMapActivity.create(context,`0`)}"
                     style="@style/bt_nav_pad" />
+                //tools:background="@{Mipmap.ic_home_nav2(context)}"
                 <TextView
                     android:show="@{module.isShow(`5`)}"
                     android:enabled="@{module.isAvailable(`5`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
                     android:background="@{module.isAvailable(`5`)?Mipmap.ic_home_nav2(context):@drawable/shape_bg_button_round_gray_4dp}"
                     android:drawableTop="@mipmap/ic_home_nav_shuiwen"
                     android:text="水文巡测"
                     android:startIntent="@{LakeInspectionGisMapActivity.create(context,`1`)}"
                     style="@style/bt_nav_pad" />
 
+                //tools:background="@{Mipmap.ic_home_nav4(context)}"
                 <TextView
                     android:show="@{module.isShow(`7`)}"
                     android:enabled="@{module.isAvailable(`7`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
                     android:background="@{module.isAvailable(`7`)?Mipmap.ic_home_nav4(context):@drawable/shape_bg_button_round_gray_4dp}"
                     android:drawableTop="@mipmap/ic_home_nav_rengong"
                     android:text="人工观测"
                     android:startIntent="@{LakeInspectionGisMapActivity.create(context,`2`)}"
                     style="@style/bt_nav_pad" />
+                //tools:background="@{Mipmap.ic_home_nav3(context)}"
                 <TextView
                     android:show="@{module.isShow(`6`)}"
                     android:enabled="@{module.isAvailable(`6`)}"
-                    tools:background="@drawable/shape_bg_button_round_gray_4dp"
                     android:background="@{module.isAvailable(`6`)?Mipmap.ic_home_nav3(context):@drawable/shape_bg_button_round_gray_4dp}"
                     android:drawableTop="@mipmap/ic_home_nav_yingji"
                     android:text="应急监测"
                     android:startIntent="@{LakeInspectionGisMapActivity.create(context,`3`)}"
                     style="@style/bt_nav_pad" />
             </LinearLayout>
+<!--            android:background="@{module.isAvailable(`8`)?Mipmap.ic_home_nav_fillet01(context):@drawable/shape_bg_button_round_gray_4dp}"-->
+            <LinearLayout
+                android:orientation="horizontal"
+                style="@style/barVertical">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:show="@{module.isShow(`8`)}"
+                    android:startActivity="@{LakeTaskActivity.clz}"
+                    android:elevation="1dp"
+                    android:enabled="@{module.isAvailable(`8`)}"
+                    tools:background="@{Mipmap.ic_home_nav_fillet01(context)}"
+                    android:gravity="center"
+                    style="@style/warp_base">
+                    <kiun.com.bvroutine.views.text.HtmlTextView
+                        android:gravity="center"
+                        android:drawableLeft="@mipmap/ic_home_nav_patrol_task"
+                        app:initShow="true"
+                        app:html="@string/textPatrolRecord"
+                        style="@style/warp_base" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:elevation="1dp"
+                    android:show="@{module.isShow(`9`)}"
+                    android:startActivity="@{ListSamplingCheckActivity.clz}"
+                    android:enabled="@{module.isAvailable(`9`)}"
+                    tools:background="@{Mipmap.ic_home_nav_fillet03(context)}"
+                    android:gravity="center"
+                    style="@style/warp_base">
+                    <kiun.com.bvroutine.views.text.HtmlTextView
+                        android:gravity="center"
+                        android:drawableLeft="@mipmap/ic_home_nav_patrol_check"
+                        app:initShow="true"
+                        app:html="@string/textPatrolReport"
+                        style="@style/warp_base" />
+                </LinearLayout>
+            </LinearLayout>
             <GridLayout
                 android:layout_marginTop="10dp"
                 android:columnCount="4"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -131,20 +167,22 @@
                     <ImageView
                         android:src="@mipmap/ic_home_nav_patrol_task"
                         tools:background="@drawable/shape_bg_button_round_gray_14dp"
-                        android:background="@{module.isAvailable(`8`)?Mipmap.ic_home_nav_fillet01(context):@drawable/shape_bg_button_round_gray_14dp}"
+                        android:background="@{module.isAvailable(`8`)?Mipmap.ic_home_nav4(context):@drawable/shape_bg_button_round_gray_14dp}"
                         android:scaleType="center"
                         style="@style/warp_base" />
                     <TextView
                         android:text="巡查任务"
                         style="@style/warp_base" />
                 </LinearLayout>
+<!--                android:startActivity="@{ListRecordActivity.clz}"-->
                 <LinearLayout
                     android:show="@{module.isShow(`2`)}"
                     android:enabled="@{module.isAvailable(`2`)}"
                     android:gravity="center"
                     android:layout_columnWeight="1"
+                    android:visibility="gone"
                     android:orientation="vertical"
-                    android:startActivity="@{ListRecordActivity.clz}"
+                    android:startActivity="@{ListSamplingRecordActivity.clz}"
                     style="@style/warp_base">
                     <ImageView
                         android:src="@mipmap/ic_home_nav_patrol_record"
@@ -178,6 +216,7 @@
                     android:show="@{module.isShow(`10`)}"
                     android:enabled="@{module.isAvailable(`10`)}"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:startActivity="@{ListReportActivity.clz}"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"

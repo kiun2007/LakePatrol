@@ -19,35 +19,43 @@
             <LinearLayout
                 android:gravity="center"
                 style="@style/barVertical">
+<!--                android:drawableStart="@mipmap/ic_list_icon_time"-->
                 <TextView
-                    android:drawableStart="@mipmap/ic_list_icon_time"
                     tools:text="2020-06-24 08:19:33 至 10:53:10"
                     android:text="@{MCString.formatDate(`yyyy-MM-dd HH:mm:ss`,item.srtm)+MCString.formatDate(` 至 HH:mm:ss`,item.edtm,`至今未结束`)}"
                     android:layout_weight="1"
+                    android:textColor="@color/lessTextColor"
+                    android:textSize="14sp"
                     style="@style/tvSubtitleSmall"/>
                 <TextView
                     android:padding="4dp"
-                    android:layout_marginEnd="15dp"
                     tools:text="湖泛巡查"
-                    android:textColor="@{MCString.itemInt(item.xctp,0,@color/colorLake,@color/colorHydrology,@color/colorManual,@color/colorUrgent)}"
-                    android:background="@{MCString.itemInt(item.xctp,0,@color/backgroundLake,@color/backgroundHydrology,@color/backgroundManual,@color/backgroundUrgent)}"
+                    android:textSize="12sp"
+                    android:textColor="@{MCString.itemInt(item.xctp,0,@color/backgroundHF,@color/backgroundSW,@color/backgroundRG,@color/backgroundYJ)}"
+                    android:backgroundTint="@{MCString.itemInt(item.xctp,0,@color/backgroundHF,@color/backgroundSW,@color/backgroundRG,@color/backgroundYJ)}"
                     android:text="@{(String)MCString.item(item.xctp,0,`湖泛巡查`, `水文巡测`, `人工监测`,`应急监测`)}"
-                    style="@style/tvSubtitleSmall" />
+                    style="@style/tvRound" />
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical"
                 style="@style/barVertical">
                 <TextView
                     android:layout_weight="1"
                     android:drawableStart="@mipmap/ic_list_icon_clock"
-                    android:text="@{String.format(`用时 %.2f分钟`, item.spt)}"
-                    tools:text="用时 127.73分钟"
+                    android:text="@{String.format(`耗时: %.2f分钟`, item.spt)}"
+                    android:textSize="14sp"
+                    android:textColor="@color/lessTextColor"
+                    tools:text="耗时: 127.73分钟"
                     style="@style/tvSubtitleSmall"/>
                 <TextView
                     android:layout_weight="1"
+                    android:layout_marginTop="8dp"
                     android:drawableStart="@mipmap/ic_list_icon_licheng"
-                    android:text="@{String.format(`巡查 %.2fkm`, item.len)}"
-                    tools:text="巡查 233km"
+                    android:textSize="14sp"
+                    android:textColor="@color/lessTextColor"
+                    android:text="@{String.format(`里程: %.2f公里`, item.len)}"
+                    tools:text="里程: 233公里"
                     style="@style/tvSubtitleSmall"/>
             </LinearLayout>
             <kiun.com.bvroutine.views.ShortListView
@@ -55,16 +63,18 @@
                 app:itemLayout="@layout/item_record_picture"
                 app:flowHorizontalSpacing="12dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="4dp"
                 style="@style/barVertical" />
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="4dp"
                 style="@style/barVertical">
                 <TextView
                     android:layout_weight="1"
                     android:drawableStart="@mipmap/ic_list_icon_character"
-                    android:text="@{item.names}"
+                    android:text="@{`巡查人: ` + item.names}"
+                    android:textSize="14sp"
                     tools:text="AB"
+                    android:textColor="@color/lessTextColor"
                     style="@style/tvSubtitleSmall"/>
                 <TextView
                     android:text="采样详情"
@@ -72,12 +82,16 @@
                     android:drawableStart="@mipmap/ic_icon_detial_sampling"
                     android:layout_marginRight="15dp"
                     android:textColor="#0D72FF"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
                     style="@style/tvMain" />
                 <TextView
                     android:text="巡查轨迹"
                     android:onClick="@{()->handler.onClick(context, 2, item)}"
                     android:drawableStart="@mipmap/ic_icon_detial_trail"
                     android:textColor="#52BB80"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     style="@style/tvMain" />
             </LinearLayout>
         </LinearLayout>

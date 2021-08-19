@@ -13,7 +13,7 @@
             type="NetListProvider" />
     </data>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:background="@color/wrapDark"
+        android:background="@color/scroll_blue_bg"
         style="@style/fill_base">
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item_sampling_check"

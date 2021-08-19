@@ -10,19 +10,18 @@
     </data>
     <com.kssoft.lake.view.RowLinearLayout
         tools:title="标题"
-        app:required="true"
         app:title="@{item.chname}"
         style="@style/rowInput">
 
         <EditText
             android:show="@{!ContextUtil.getBoolean(context, `isCheck`)}"
             android:text="@={item.sbv}"
-            android:hint="请输入数值"
+            android:hint="@{`请输入` + item.chname}"
             style="@style/rowEditDouble" />
         <EditText
             android:show="@{ContextUtil.getBoolean(context, `isCheck`)}"
             android:text="@={item.jhv}"
-            android:hint="请输入校核值"
+            android:hint="@{`请输入` + item.chname}"
             style="@style/rowEditDouble" />
     </com.kssoft.lake.view.RowLinearLayout>
 </layout>

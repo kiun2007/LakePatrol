@@ -22,10 +22,14 @@ public class ModuleUtil {
     public boolean isShow(String id){
         if (moduleList != null){
             for (XcAppM xcAppM : moduleList){
-                if (xcAppM.getMnm() != null && xcAppM.getNum().equals(id)){
+//                if (xcAppM.getMnm() != null && xcAppM.getNum().equals(id)){
+//                    return true;
+//                }
+                if (xcAppM.getHide() != null && xcAppM.getNum().equals(id)) {
                     return true;
                 }
             }
+            return false;
         }
         return false;
     }

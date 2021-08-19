@@ -12,7 +12,8 @@
     </data>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/scroll_blue_bg"
         android:orientation="vertical">
         <kiun.com.bvroutine.views.cardview.CardView
             style="@style/cardViewShallow">
@@ -28,7 +29,7 @@
                     <TextView
                         tools:text="复读港"
                         android:text="@{data.stnm}"
-                        android:textColor="@color/darkBlue"
+                        android:textColor="#333"
                         android:textSize="16sp"
                         android:gravity="center"
                         android:layout_weight="1"
@@ -43,15 +44,9 @@
                         style="@style/tvSubtitleSmall" />
                 </LinearLayout>
                 <com.kssoft.lake.view.DoubleLinearLayout
-                    app:firstTitle="采样时间"
-                    app:secondTitle="填报人"
+                    app:firstTitle="填报人"
                     app:firstWeight="0.75"
                     style="@style/barVertical">
-                    <TextView
-                        tools:text="2021年5月10日"
-                        android:text="@{MCString.formatDate(`yyyy-MM-dd HH:mm`, data.spt)}"
-                        android:layout_weight="0.5"
-                        style="@style/tvDetailsValue"/>
                     <TextView
                         android:text="@{data.sbpnm}"
                         android:layout_weight="0.5"
@@ -59,13 +54,23 @@
                         tools:text="预想"
                         style="@style/tvDetailsValue"/>
                 </com.kssoft.lake.view.DoubleLinearLayout>
+                <com.kssoft.lake.view.DoubleLinearLayout
+                    app:firstTitle="采样时间"
+                    app:firstWeight="0.75"
+                    style="@style/barVertical">
+                    <TextView
+                        tools:text="2021年5月10日"
+                        android:text="@{MCString.formatDate(`yyyy-MM-dd HH:mm`, data.spt)}"
+                        android:layout_weight="0.5"
+                        style="@style/tvDetailsValue"/>
+                </com.kssoft.lake.view.DoubleLinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
                     style="@style/barVertical">
-                    <TextView
-                        android:text="采样现场情况"
-                        android:background="@null"
-                        style="@style/tvDetailsTitle" />
+<!--                    <TextView-->
+<!--                        android:text="采样现场情况"-->
+<!--                        android:background="@null"-->
+<!--                        style="@style/tvDetailsTitle" />-->
                     <kiun.com.bvroutine.views.ShortListView
                         android:val="@{data.xcsnimdtf}"
                         app:itemLayout="@layout/item_record_picture"
@@ -81,6 +86,7 @@
                     <TextView
                         android:text="采样数据"
                         android:background="@null"
+                        android:textColor="#333"
                         style="@style/tvDetailsTitle" />
                     <kiun.com.bvroutine.views.ShortListView
                         android:val="@{data.parm}"

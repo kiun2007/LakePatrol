@@ -4,7 +4,7 @@
     <!-- 连框颜色值 -->
     <item android:height="1px" android:gravity="bottom" android:left="16dp">
         <shape>
-            <solid android:color="#F0F0F0" />
+            <solid android:color="#D3D3D3" />
         </shape>
     </item>
 </layer-list>

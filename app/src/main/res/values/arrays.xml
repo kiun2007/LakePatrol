@@ -15,6 +15,12 @@
         <item>com.kssoft.lake.ui.fragment.SamplingCheckFragment</item>
     </string-array>
 
+    <string-array name="tabFragmentRecordTypes">
+        <item>com.kssoft.lake.ui.fragment.SamplingRecordFragment</item>
+        <item>com.kssoft.lake.ui.fragment.SamplingRecordFragment</item>
+        <item>com.kssoft.lake.ui.fragment.SamplingRecordFragment</item>
+    </string-array>
+
     <string-array name="tabTypesTask">
         <item>湖泛巡查</item>
         <item>水文巡测</item>

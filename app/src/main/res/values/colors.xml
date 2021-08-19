@@ -19,6 +19,7 @@
     <color name="wrapDark">#FBF3FC</color>
     <color name="cardview_shadow_start_color">#17666666</color>
     <color name="cardview_shadow_end_color">#02666666</color>
+    <color name="scroll_blue_bg">#ECF5FF</color>
 
     <color name="colorLake">#59DEC9</color>
     <color name="backgroundLake">#3359DEC9</color>
@@ -31,4 +32,9 @@
 
     <color name="colorUrgent">#D79E42</color>
     <color name="backgroundUrgent">#33D79E42</color>
+
+    <color name="backgroundHF">#027DB4</color>
+    <color name="backgroundYJ">#E26271</color>
+    <color name="backgroundSW">#F59A23</color>
+    <color name="backgroundRG">#4B7902</color>
 </resources>

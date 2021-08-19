@@ -11,25 +11,50 @@
     </data>
 
     <LinearLayout
-        style="@style/barVertical"
-        android:padding="15dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/barVertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:show="@{!``.equals(item.value)}"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                tools:text="指标标题"
+                android:text="@{item.ch}"
+                style="@style/tvMain" />
+            <RelativeLayout
+                android:layout_weight="1"
+                style="@style/barVertical"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_toLeftOf="@id/leftTextView"
+                    tools:text="2020"
+                    android:val="@{item.value}"
+                    android:textSize="12sp"
+                    android:layout_centerInParent="true"
+                    style="@style/tvNormal" />
+<!--                android:show="@{!`null`.equals(item.unit)}"-->
+                <TextView
+                    android:id="@+id/leftTextView"
+                    style="@style/tvSubtitle"
+                    android:layout_width="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="right"
+                    android:text="@{!`null`.equals(item.unit) ? item.unit: ``}"
+                    android:textSize="12sp"
+                    tools:text="单位" />
+            </RelativeLayout>
+        </LinearLayout>
         <TextView
-            tools:text="指标标题"
-            android:text="@{item.ch}"
-            style="@style/tvMain" />
-        <TextView
-            tools:text="2020"
-            android:layout_weight="1"
-            android:val="@{item.value}"
-            android:gravity="right"
-            style="@style/tvNormal" />
-        <TextView
-            tools:text="单位"
-            android:show="@{!`null`.equals(item.unit)}"
-            android:layout_marginLeft="5dp"
-            android:text="@{item.unit}"
-            style="@style/tvSubtitle" />
+            android:show="@{!``.equals(item.value)}"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#D3D3D3"/>
+
     </LinearLayout>
 </layout>

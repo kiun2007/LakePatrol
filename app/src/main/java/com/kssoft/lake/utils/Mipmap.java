@@ -24,7 +24,7 @@ public class Mipmap {
     }
 
     public static Drawable ic_home_nav_fillet01(Context context){
-        return context.getResources().getDrawable(R.mipmap.ic_home_nav_fillet01);
+        return context.getResources().getDrawable(R.drawable.shape_bg_button_round_green_4dp);
     }
 
     public static Drawable ic_home_nav_fillet02(Context context){
@@ -32,7 +32,7 @@ public class Mipmap {
     }
 
     public static Drawable ic_home_nav_fillet03(Context context){
-        return context.getResources().getDrawable(R.mipmap.ic_home_nav_fillet03);
+        return context.getResources().getDrawable(R.drawable.shape_bg_button_round_red_4dp);
     }
 
     public static Drawable ic_home_nav_fillet04(Context context){

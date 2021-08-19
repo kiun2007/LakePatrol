@@ -39,7 +39,6 @@ public class CommitLakeActivity extends CommitBaseActivity<ActivityCommitLakeFlo
 
     private void limitComplete(List<XcLkwqB> limit){
         if (!ListUtil.isEmpty(limit)){
-
             runTime().set("lakeLimit", limit.get(0));
         }
     }

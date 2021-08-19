@@ -23,4 +23,10 @@
     <string name="doubleDetailed" translatable="false">
         <![CDATA[<f c="#333333" s="15sp">%1$s</f><f c="#7F7F7F" s="11sp">%2$s</f>]]>
     </string>
+    <string name="textPatrolRecord" translatable="false">
+        <![CDATA[<f c="#FFFFFF" s="15sp">巡查任务</f>]]>
+    </string>
+    <string name="textPatrolReport" translatable="false">
+        <![CDATA[<f c="#FFFFFF" s="15sp">巡查校核</f>]]>
+    </string>
 </resources>

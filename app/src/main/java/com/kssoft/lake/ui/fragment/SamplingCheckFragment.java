@@ -21,7 +21,7 @@ import kiun.com.bvroutine.base.BVBaseActivity;
 import kiun.com.bvroutine.base.RequestBVFragment;
 import kiun.com.bvroutine.data.PagerBean;
 import kiun.com.bvroutine.handlers.ListHandler;
-import kiun.com.bvroutine.interfaces.callers.PagerCaller;
+import kiun.com.bvroutine.net.ServiceGenerator;
 import kiun.com.bvroutine.presenters.list.NetListProvider;
 import kiun.com.bvroutine.utils.ListUtil;
 import kiun.com.bvroutine.utils.RetrofitUtil;
@@ -51,6 +51,7 @@ public class SamplingCheckFragment extends RequestBVFragment<FragmentSamplingChe
                                         .putExtra("sampling", samplingBase)
                                         .putExtra("isCheck", true)
                                         .putExtra("xctp", dataDto.getXctp());
+
                                 activity.startForResult(intent, v -> {
                                     ListViewUtil.refresh(this);
                                 });
@@ -67,10 +68,10 @@ public class SamplingCheckFragment extends RequestBVFragment<FragmentSamplingChe
         int index = getArguments().getInt(PagerFragmentAdapter.INDEX);
 
         if (index == 0){
-            List<XcLakeR> lakeRList = RetrofitUtil.callServiceList(DataService.class, s-> s.dataLakeList(dataDto));
+            List<XcLakeR> lakeRList = RetrofitUtil.callServiceList(DataService.class, s-> s.dataLakeList(dataDto),pagerBean, ServiceGenerator::createService);
             return lakeRList;
         }else {
-            List<SamplingGeneral> generalList = RetrofitUtil.callServiceList(DataService.class, s-> s.dataGeneralList(dataDto));
+            List<SamplingGeneral> generalList = RetrofitUtil.callServiceList(DataService.class, s-> s.dataGeneralList(dataDto),pagerBean, ServiceGenerator::createService);
             ListUtil.map(generalList, item-> item.setXctp(String.valueOf(index)));
             return generalList;
         }

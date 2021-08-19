@@ -3,19 +3,21 @@ package com.kssoft.lake.data;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.kssoft.lake.base.EditTextCheck;
 import com.kssoft.lake.data.model.XcSnimdtF;
 import com.kssoft.lake.data.model.XcTaskP;
 import com.kssoft.lake.data.types.SamplingType;
 import com.kssoft.lake.net.responses.vo.XcTaskPro;
 import com.kssoft.lake.ui.activity.commit.CommitBaseActivity;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
 import kiun.com.bvroutine.base.EventBean;
-import kiun.com.bvroutine.data.verify.ItemCheck;
 import kiun.com.bvroutine.data.verify.NotNull;
 import kiun.com.bvroutine.interfaces.GeneralItemTextListener;
 import kiun.com.bvroutine.interfaces.verify.Verify;
@@ -67,6 +69,8 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
      */
     private String addvnm;
 
+    private String isLakeType = "0";
+
     /**
      * 展开数据.
      * @param expansion true展开, false 收起.
@@ -89,6 +93,18 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
 
     private String ckstate;
 
+    //上报人姓名
+    private String sbpnm;
+
+    //上报时间
+//    private String spt;
+
+    //校核人名称
+    private String ckpnm;
+
+    //校核时间
+    private String cktm;
+
     //对应上报的图片数据集
     @Verify(value = NotNull.class, desc = "至少上传一张图片", pass = "!classChecker.isClass(that,'XcLakeR')||that.isCheck()")
     private List<XcSnimdtF> xcsnimdtf;
@@ -100,8 +116,8 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
     private List<XcTaskPro> source = new LinkedList<>();
 
     @JSONField(serialize = false)
-    @Verify(value = ItemCheck.class, desc = "红标项必须填写", extra = "item.isPass()")
-//    @Verify(value = ItemCheck.class, desc = "其他项必须填写", extra = "item.isPass()")
+//    @Verify(value = ItemCheck.class, desc = "红标项必须填写", extra = "item.isPass()")
+    @Verify(value = EditTextCheck.class, desc = "至少填写一项", extra = "item.isPass()")
     private List<XcTaskPro> other = new LinkedList<>();
 
     private boolean isCheck = false;
@@ -130,7 +146,6 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
         this.source = source;
         other.clear();
 
-
         Map<String, XcTaskPro> map = new HashMap<>();
         ListUtil.map(source, v -> map.put(v.getEnname().toLowerCase(), v));
 
@@ -153,7 +168,6 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
             SamplingBase copy = JSON.parseObject(JSON.toJSONString(samplingMap), this.getClass());
             ObjectUtil.copyByMapping(this, copy);
         }
-
 
         other = ListUtil.filter(source, item -> {
             if (isCheck){
@@ -183,6 +197,15 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
 
     public void setRdcd(String rdcd) {
         this.rdcd = rdcd;
+    }
+
+    public String getIsLakeType() {
+        return isLakeType;
+    }
+
+    public void setIsLakeType(String var1) {
+        this.isLakeType = var1;
+        this.onChanged();
     }
 
     public String getRemark() {
@@ -226,6 +249,38 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
         this.xcTaskP = xcTaskP;
     }
 
+    public String getSbpnm() {
+        return sbpnm;
+    }
+
+    public void setSbpnm(String sbpnm) {
+        this.sbpnm = sbpnm;
+    }
+
+//    public String getSpt() {
+//        return spt;
+//    }
+//
+//    public void setSpt(String spt) {
+//        this.spt = spt;
+//    }
+
+    public String getCkpnm() {
+        return ckpnm;
+    }
+
+    public void setCkpnm(String ckpnm) {
+        this.ckpnm = ckpnm;
+    }
+
+    public String getCktm() {
+        return cktm;
+    }
+
+    public void setCktm(String cktm) {
+        this.cktm = cktm;
+    }
+
     public String getStnm() {
         return stnm;
     }
@@ -262,7 +317,7 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
     }
 
     protected String formatItemTitle(String type){
-        return String.format("%s%s(%s)", itemTime("yyyy年M月d日"), type, stnm);
+        return String.format("%s%s", itemTime("yyyy年M月d日"), type);
     }
 
     @Override

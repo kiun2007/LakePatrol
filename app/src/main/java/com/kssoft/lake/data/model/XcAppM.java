@@ -11,6 +11,9 @@ public class XcAppM {
 
     private String num;
 
+    //模块是否隐藏
+    private String hide;
+
     public String getMcd() {
         return mcd;
     }
@@ -41,5 +44,13 @@ public class XcAppM {
 
     public void setNum(String num) {
         this.num = num;
+    }
+
+    public String getHide() {
+        return hide;
+    }
+
+    public void setHide(String hide) {
+        this.hide = hide;
     }
 }
