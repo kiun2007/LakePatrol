@@ -71,6 +71,8 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
 
     private String isLakeType = "0";
 
+    private String isState = "0";
+
     /**
      * 展开数据.
      * @param expansion true展开, false 收起.
@@ -134,6 +136,10 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
         isCheck = check;
     }
 
+    public void setIsState(String isState) {
+        this.isState = isState;
+    }
+
     public boolean isCheck() {
         return isCheck;
     }
@@ -194,6 +200,10 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
 
     public String getRdcd() {
         return rdcd;
+    }
+
+    public String getIsState() {
+        return isState;
     }
 
     public void setRdcd(String rdcd) {

@@ -22,8 +22,6 @@ import kiun.com.bvroutine.base.RequestBVFragment;
 import kiun.com.bvroutine.data.PagerBean;
 import kiun.com.bvroutine.handlers.ListHandler;
 import kiun.com.bvroutine.net.ServiceGenerator;
-import kiun.com.bvroutine.interfaces.callers.PagerCaller;
-import kiun.com.bvroutine.net.ServiceGenerator;
 import kiun.com.bvroutine.presenters.list.NetListProvider;
 import kiun.com.bvroutine.utils.ListUtil;
 import kiun.com.bvroutine.utils.RetrofitUtil;
@@ -52,7 +50,8 @@ public class SamplingCheckFragment extends RequestBVFragment<FragmentSamplingChe
                                 Intent intent = new Intent(context, samplingBase.commitActivity())
                                         .putExtra("sampling", samplingBase)
                                         .putExtra("isCheck", true)
-                                        .putExtra("xctp", dataDto.getXctp());
+                                        .putExtra("xctp", dataDto.getXctp())
+                                        .putExtra("state","1");
                                 activity.startForResult(intent, v -> {
                                     ListViewUtil.refresh(this);
                                 });

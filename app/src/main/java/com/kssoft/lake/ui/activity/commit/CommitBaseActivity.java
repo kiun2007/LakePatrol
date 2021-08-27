@@ -93,6 +93,10 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
                 } else {
                     this.samplingBase.setIsLakeType("0");
                 }
+                if ("1".equals(getIntent().getStringExtra("state"))) {
+                    this.samplingBase.setIsState("1");
+                }
+//                Toast.makeText(this, "sbtp:" + sbtp + "-------state:"+ getIntent().getStringExtra("state"), Toast.LENGTH_LONG).show();
                 this.samplingBase.setCheck(true);
 
                 rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm, rdcd), null), this.samplingBase::setSource);

@@ -2,12 +2,11 @@ package com.kssoft.lake.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+
 import kiun.com.bvroutine.BuildConfig;
 import kiun.com.bvroutine.utils.AgileThread;
 
@@ -56,8 +55,8 @@ public class AMapLocationUtil {
                     }).start();
                 }
             }else{
-                Log.e("Location", aMapLocation.getErrorInfo());
-                Toast.makeText(context, BuildConfig.DEBUG ? aMapLocation.getErrorInfo() : "定位失败", Toast.LENGTH_LONG).show();
+//                Log.e("Location", aMapLocation.getErrorInfo());
+//                Toast.makeText(context, BuildConfig.DEBUG ? aMapLocation.getErrorInfo() : "定位失败", Toast.LENGTH_LONG).show();
             }
         });
         locationClient.startLocation();

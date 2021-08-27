@@ -57,6 +57,7 @@
                         style="@style/rowEditText" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isState)}"
                     app:title="巡查类型"
                     style="@style/rowInput">
                     <TextView
@@ -73,8 +74,10 @@
                     style="@style/division" />
                 <TextView
                     android:text="水质感官指标"
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/blockTitle" />
                 <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="水色"
                     android:verifyField="@{`wtcl`}"
                     style="@style/rowInputVertical">
@@ -95,7 +98,7 @@
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="水下0.5m(℃)"
+                    app:title="水下和底层(℃)"
                     style="@style/rowInput">
                     <EditText
                         android:verifyField="@{`wt`}"
@@ -105,7 +108,7 @@
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="水温底层(℃)"
+                    app:title="水温(℃)"
                     style="@style/rowInput">
                     <EditText
                         android:verifyField="@{`wtd`}"
@@ -200,7 +203,7 @@
                         android:verifyField="@{`redox`}"
                         android:val="@={data.redox}"
                         android:inputType="numberSigned"
-                        style="@style/rowEditInt" />
+                        style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
@@ -224,17 +227,7 @@
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="溶解氧饱和度(%)"
-                    style="@style/rowInput">
-                    <TextView
-                        android:hint="输入气压、水下溶解氧、水下水温计算"
-                        android:verifyField="@{`dof`}"
-                        android:text="@{String.format(`%.1f`, data.dof)}"
-                        style="@style/rowEditDouble" />
-                </com.kssoft.lake.view.RowLinearLayout>
-                <com.kssoft.lake.view.RowLinearLayout
-                    android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="溶解氧(mg/L)(水下0.5m)"
+                    app:title="溶解氧水下(mg/L)"
                     style="@style/rowInput">
                     <EditText
                         android:hint="请输入数值"
@@ -244,12 +237,22 @@
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="溶解氧(mg/L)(底层)"
+                    app:title="溶解氧底层(mg/L)"
                     style="@style/rowInput">
                     <EditText
                         android:hint="请输入数值"
                         android:verifyField="@{`doxd`}"
                         android:val="@={data.doxd}"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{!`1`.equals(data.isLakeType)}"
+                    app:title="溶解氧饱和度(%)"
+                    style="@style/rowInput">
+                    <TextView
+                        android:hint="输入气压、水下溶解氧、水下水温计算"
+                        android:verifyField="@{`dof`}"
+                        android:text="@{String.format(`%.1f`, data.dof)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
 
@@ -355,7 +358,6 @@
                     android:show="@{!`1`.equals(data.isLakeType)}"
                     style="@style/division" />
                 <com.kssoft.lake.view.RowLinearLayout
-                    android:show="@{!`1`.equals(data.isLakeType)}"
                     app:title="天气状况"
                     app:titleSize="18sp"
                     app:titleColor="#333"
@@ -365,6 +367,84 @@
                         android:val="@={data.wth}"
                         app:titleArray="@array/statusOfWeather"
                         style="@style/flowRadioGroup" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="水色"
+                    android:verifyField="@{`wtcl`}"
+                    style="@style/rowInputVertical">
+                    <com.kssoft.lake.view.FlowRadioGroup
+                        android:val="@={data.wtcl}"
+                        app:titleArray="@array/waterColor"
+                        style="@style/flowRadioGroup" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="气味"
+                    android:verifyField="@{`smell`}"
+                    style="@style/rowInputVertical">
+                    <com.kssoft.lake.view.FlowRadioGroup
+                        android:val="@={data.smell}"
+                        app:titleArray="@array/waterSmell"
+                        style="@style/flowRadioGroup" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <LinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    style="@style/division" />
+                <TextView
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    android:text="气象要素"
+                    style="@style/blockTitle" />
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="气压(KPa)"
+                    style="@style/rowInput">
+                    <EditText
+                        android:verifyField="@{`atm`}"
+                        android:val="@={data.atm}"
+                        android:hint="请输入气压数值"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="风速(m/s)"
+                    style="@style/rowInput">
+                    <EditText
+                        android:hint="请输入风速"
+                        android:verifyField="@{`wndv`}"
+                        android:val="@={data.wndv}"
+                        style="@style/rowEditDouble" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="风向"
+                    style="@style/rowInput">
+                    <kiun.com.bvroutine.views.text.GeneralItemText
+                        android:hint="请选择风向"
+                        android:val="@={data.wnddir}"
+                        android:verifyField="@{`wnddir`}"
+                        app:dialogLayoutId="@layout/dialog_wind_direction"
+                        style="@style/rowEditText" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="风级"
+                    style="@style/rowInput">
+                    <TextView
+                        android:hint="请输入风速后自动计算"
+                        android:verifyField="@{`wndpwr`}"
+                        android:val="@{data.wndpwr}"
+                        style="@style/rowEditInt" />
+                </com.kssoft.lake.view.RowLinearLayout>
+                <com.kssoft.lake.view.RowLinearLayout
+                    android:show="@{`1`.equals(data.isLakeType)}"
+                    app:title="气温(℃)"
+                    style="@style/rowInput">
+                    <EditText
+                        android:hint="请输入气温"
+                        android:verifyField="@{`airt`}"
+                        android:val="@={data.airt}"
+                        style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <LinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"

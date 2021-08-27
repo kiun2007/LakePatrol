@@ -194,7 +194,7 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
     }
 
     public boolean isPass(String var1) {
-        return !"0".equals(super.getIsLakeType()) ? (!TextUtils.isEmpty(wtcl)) : (!"1".equals(this.gaqp) && "gaqpam".equals(var1));
+        return !"0".equals(super.getIsLakeType()) ? (!TextUtils.isEmpty(wth)) : (!"1".equals(this.gaqp) && "gaqpam".equals(var1));
     }
 
     public String itemTitle() {
