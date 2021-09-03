@@ -6,6 +6,7 @@ import com.kssoft.lake.R;
 import com.kssoft.lake.data.SamplingBase;
 import com.kssoft.lake.data.model.commit.XcWqnmispR;
 import com.kssoft.lake.databinding.ActivityCommitObservationUrgentBinding;
+
 import kiun.com.bvroutine.base.EventBean;
 import kiun.com.bvroutine.utils.SharedUtil;
 import kiun.com.bvroutine_apt.ActivityOpen;
@@ -37,7 +38,7 @@ public class CommitUrgentActivity extends CommitBaseActivity<ActivityCommitObser
 
     @Override
     protected SamplingBase getSampling() {
-        if (recordId == null){
+        if (recordId == null) {
             return null;
         }
         return new XcWqnmispR(recordId);
@@ -55,13 +56,9 @@ public class CommitUrgentActivity extends CommitBaseActivity<ActivityCommitObser
 
     @Override
     protected void onSamplingChanged(SamplingBase samplingBase) {
-//        if (isNoPlan == true) {
-//            super.onSamplingChanged(samplingBase);
-//        }else {
-            if (TextUtils.isEmpty(samplingBase.getStcd()) || !isNoPlan){
-                super.onSamplingChanged(samplingBase);
-            }
-//        }
+        if (TextUtils.isEmpty(samplingBase.getStcd()) || !isNoPlan) {
+            super.onSamplingChanged(samplingBase);
+        }
     }
 
     @Override

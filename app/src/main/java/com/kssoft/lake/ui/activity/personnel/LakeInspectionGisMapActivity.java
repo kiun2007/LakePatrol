@@ -16,10 +16,7 @@ import com.kssoft.lake.net.requests.dto.XcRecdR;
 import com.kssoft.lake.services.TrailService;
 import com.kssoft.lake.ui.activity.GisMapActivity;
 import com.kssoft.lake.ui.activity.commit.CommitGeneralActivityHandler;
-import com.kssoft.lake.ui.activity.commit.CommitHydrologyActivityHandler;
 import com.kssoft.lake.ui.activity.commit.CommitLakeActivityHandler;
-import com.kssoft.lake.ui.activity.commit.CommitManualActivityHandler;
-import com.kssoft.lake.ui.activity.commit.CommitUrgentActivityHandler;
 
 import kiun.com.bvroutine.ActivityCallback;
 import kiun.com.bvroutine.utils.AlertUtil;
@@ -55,7 +52,11 @@ public class LakeInspectionGisMapActivity extends GisMapActivity<ActivityMapLake
         setVariable(BR.record, xcRecdR);
 
         String[] titles = new String[]{"湖泛巡查","水文巡查","人工观测","应急监测"};
-        getBarItem().setTitle(titles[Integer.parseInt(xctp)]);
+        if (xctp != null && !"".equals(xctp)) {
+            getBarItem().setTitle(titles[Integer.parseInt(xctp)]);
+        } else {
+            getBarItem().setTitle("");
+        }
 
         boolean isNoMap = SharedUtil.getValue("isNoMap", false);
         getBarItem().setRightTitle(isNoMap ? "启用" : "禁用" );

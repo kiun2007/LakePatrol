@@ -98,21 +98,23 @@
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="水下和底层(℃)"
+                    app:title="水温-水下0.5m处(℃)"
                     style="@style/rowInput">
                     <EditText
                         android:verifyField="@{`wt`}"
                         android:val="@={data.wt}"
+                        android:text="@{String.format(`%.1f`, data.wt)}"
                         android:hint="请输入水温数值"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
                     android:show="@{!`1`.equals(data.isLakeType)}"
-                    app:title="水温(℃)"
+                    app:title="水温-底层(℃)"
                     style="@style/rowInput">
                     <EditText
                         android:verifyField="@{`wtd`}"
                         android:val="@={data.wtd}"
+                        android:text="@{String.format(`%.1f`, data.wtd)}"
                         android:hint="请输入水温数值"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
@@ -132,6 +134,7 @@
                     <EditText
                         android:verifyField="@{`atm`}"
                         android:val="@={data.atm}"
+                        android:text="@{String.format(`%.1f`, data.atm)}"
                         android:hint="请输入气压数值"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
@@ -143,6 +146,7 @@
                         android:hint="请输入风速"
                         android:verifyField="@{`wndv`}"
                         android:val="@={data.wndv}"
+                        android:text="@{String.format(`%.1f`, data.wndv)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -174,6 +178,7 @@
                         android:hint="请输入气温"
                         android:verifyField="@{`airt`}"
                         android:val="@={data.airt}"
+                        android:text="@{String.format(`%.1f`, data.airt)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <!-- 水化学指标 -->
@@ -202,7 +207,7 @@
                         android:hint="请输入氧化还原电位"
                         android:verifyField="@{`redox`}"
                         android:val="@={data.redox}"
-                        android:inputType="numberSigned"
+                        android:text="@{String.format(`%.1f`, data.redox)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -223,6 +228,7 @@
                         android:hint="请输入pH值"
                         android:verifyField="@{`ph`}"
                         android:val="@={data.ph}"
+                        android:text="@{String.format(`%.1f`, data.ph)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -233,6 +239,7 @@
                         android:hint="请输入数值"
                         android:verifyField="@{`dox`}"
                         android:val="@={data.dox}"
+                        android:text="@{String.format(`%.1f`, data.dox)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -243,6 +250,7 @@
                         android:hint="请输入数值"
                         android:verifyField="@{`doxd`}"
                         android:val="@={data.doxd}"
+                        android:text="@{String.format(`%.1f`, data.doxd)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -321,6 +329,7 @@
                         android:hint="请输入数值"
                         android:verifyField="@{`chla`}"
                         android:val="@={data.chla}"
+                        android:text="@{String.format(`%.1f`, data.chla)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -331,6 +340,7 @@
                         android:hint="请输入数值"
                         android:verifyField="@{`chla10`}"
                         android:val="@={data.chla10}"
+                        android:text="@{String.format(`%.1f`, data.chla10)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -341,6 +351,7 @@
                         android:hint="请输入数值"
                         android:verifyField="@{`chla30`}"
                         android:val="@={data.chla30}"
+                        android:text="@{String.format(`%.1f`, data.chla30)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
                 <com.kssoft.lake.view.RowLinearLayout
@@ -351,6 +362,7 @@
                         android:hint="请输入数值"
                         android:verifyField="@{`chla50`}"
                         android:val="@={data.chla50}"
+                        android:text="@{String.format(`%.1f`, data.chla50)}"
                         style="@style/rowEditDouble" />
                 </com.kssoft.lake.view.RowLinearLayout>
 

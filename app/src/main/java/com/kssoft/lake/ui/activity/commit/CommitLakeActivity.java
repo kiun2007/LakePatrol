@@ -6,12 +6,15 @@ import com.kssoft.lake.data.model.commit.XcLakeR;
 import com.kssoft.lake.databinding.ActivityCommitLakeFloodingBinding;
 import com.kssoft.lake.net.responses.vo.XcLkwqB;
 import com.kssoft.lake.net.services.BaseService;
+
 import java.util.List;
+
 import kiun.com.bvroutine.base.EventBean;
 import kiun.com.bvroutine.utils.ListUtil;
 import kiun.com.bvroutine_apt.ActivityOpen;
 import kiun.com.bvroutine_apt.IntentValue;
-import static kiun.com.bvroutine.base.jexl.RuntimeContext.*;
+
+import static kiun.com.bvroutine.base.jexl.RuntimeContext.runTime;
 
 /**
  * 文 件 名: CommitLake
@@ -41,6 +44,7 @@ public class CommitLakeActivity extends CommitBaseActivity<ActivityCommitLakeFlo
         if (!ListUtil.isEmpty(limit)){
             runTime().set("lakeLimit", limit.get(0));
         }
+
     }
 
     @Override

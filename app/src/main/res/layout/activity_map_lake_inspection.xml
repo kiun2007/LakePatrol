@@ -205,15 +205,16 @@
                         android:iconGravity="@{Gravity.TOP}"
                         android:action="@{(a)->recordService.startRecord(record.begin(trailService.lastLocation))}"
                         android:drawableTop="@drawable/ic_baseline_play_arrow_24"/>
+
                     <TextView
-                        tools:visibility="visible"
-                        android:show="@{state == RecordState.Starting&amp;&amp;!fieldVisible.value}"
-                        android:layout_marginLeft="235dp"
-                        android:text="巡查上报"
-                        android:drawableTop="@mipmap/ic_map_btn_report"
+                        style="@style/tvMain"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="235dp"
+                        android:drawableTop="@mipmap/ic_map_btn_report"
                         android:onClick="onReportClick"
-                        style="@style/tvMain" />
+                        android:show="@{state == RecordState.Starting&amp;&amp;!fieldVisible.value}"
+                        android:text="巡查上报"
+                        tools:visibility="visible" />
                 </RelativeLayout>
             </LinearLayout>
         </FrameLayout>

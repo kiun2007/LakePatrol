@@ -95,7 +95,7 @@ public class MapMonitorActivity extends GisMapActivity<ActivityMapMonitorBinding
     }
 
     private SamplingBase getSampling(String stcd, DataDto dataDto) throws Exception{
-        List<XcTaskPro> list = rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, binding.getMonitorDto().getTm(), dataDto.getRdcd()), null);
+        List<XcTaskPro> list = rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, binding.getMonitorDto().getTm(), dataDto.getRdcd(),""), null);
         if (ListUtil.isEmpty(list)){
             return null;
         }
