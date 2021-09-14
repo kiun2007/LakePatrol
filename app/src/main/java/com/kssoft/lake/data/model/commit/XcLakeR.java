@@ -56,7 +56,7 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
     private String gaqp;
     private String gaqpam;
     private Double ph;
-    private Integer redox;
+    private Double redox;
     private String smell;
 
     private Double wndv;
@@ -161,7 +161,7 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
         return this.ph;
     }
 
-    public Integer getRedox() {
+    public Double getRedox() {
         return this.redox;
     }
 
@@ -194,7 +194,7 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
     }
 
     public boolean isPass(String var1) {
-        return !"0".equals(super.getIsLakeType()) ? (!TextUtils.isEmpty(wtcl)) : (!"1".equals(this.gaqp) && "gaqpam".equals(var1));
+        return !"0".equals(super.getIsLakeType()) ? (!TextUtils.isEmpty(wth)) : (!"1".equals(this.gaqp) && "gaqpam".equals(var1));
     }
 
     public String itemTitle() {
@@ -291,7 +291,7 @@ public class XcLakeR extends QualityStandard implements JSON, Serializable {
         this.ph = var1;
     }
 
-    public void setRedox(Integer var1) {
+    public void setRedox(Double var1) {
         this.redox = var1;
     }
 

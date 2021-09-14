@@ -9,6 +9,7 @@
         <variable name="item" type="com.kssoft.lake.net.responses.vo.XcTaskPro" />
     </data>
     <com.kssoft.lake.view.RowLinearLayout
+        android:show="@{`1`.equals(item.flag)}"
         tools:title="标题"
         app:title="@{item.chname}"
         style="@style/rowInput">

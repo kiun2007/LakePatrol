@@ -90,7 +90,7 @@
     </style>
 
     <style name="rowEditDouble" parent="rowEditDecimal">
-        <item name="android:transitionName">@string/textDouble</item>
+        <item name="android:transitionName">objectTell.create(\"com.kssoft.lake.utils.TextDoubleTwo\")</item>
     </style>
 
     <style name="rowEditFloat" parent="rowEditDecimal">

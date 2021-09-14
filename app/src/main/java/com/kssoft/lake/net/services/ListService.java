@@ -46,7 +46,7 @@ public interface ListService {
      * @return 采样样本数据.
      */
     @GET("/task/xcTaskProList")
-    Call<NetListWrapper<XcTaskPro>> xcTaskProList(@Query("stcd") String stcd, @Query("tm") String tm, @Query("rdcd") String rdcd);
+    Call<NetListWrapper<XcTaskPro>> xcTaskProList(@Query("stcd") String stcd, @Query("tm") String tm, @Query("rdcd") String rdcd, @Query("id") String id);
 
     /**
      * 获取第三方图例

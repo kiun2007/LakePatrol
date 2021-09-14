@@ -42,6 +42,8 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
 
     protected boolean isNoPlan = false;
 
+    private String searchTkcd;
+
     protected abstract SamplingBase getSampling();
 
     protected abstract EventBean saveBean();
@@ -93,9 +95,17 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
                 } else {
                     this.samplingBase.setIsLakeType("0");
                 }
+                if ("1".equals(getIntent().getStringExtra("state"))) {
+                    this.samplingBase.setIsState("1");
+                }
+//                Toast.makeText(this, "sbtp:" + sbtp + "-------state:"+ getIntent().getStringExtra("state"), Toast.LENGTH_LONG).show();
                 this.samplingBase.setCheck(true);
 
-                rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm, rdcd), null), this.samplingBase::setSource);
+                if (isNoPlan == false) {
+                    rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm, rdcd,searchTkcd), null), this.samplingBase::setSource);
+                } else {
+                    rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(stcd, tm, rdcd,""), null), this.samplingBase::setSource);
+                }
                 super.setVariable(BR.data, this.samplingBase);
             }
         }
@@ -105,7 +115,9 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
     public void onImportComplete(Object value) {
         if (value instanceof TrailService){
             TrailService trailService = (TrailService) value;
-
+            if (!"1".equals(getIntent().getStringExtra("state"))) {
+                searchTkcd = trailService.getRecord().getTkcd();
+            }
             if (samplingBase == null){
                 if (trailService.getRecord() != null) {
                     searchNearSite(trailService.getLastLocation(), trailService.getRecord().getTkcd());
@@ -126,7 +138,11 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
     }
 
     protected void onSamplingChanged(SamplingBase samplingBase){
-        rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(samplingBase.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date()),samplingBase.getRdcd()), null), samplingBase::setSource);
+        if (isNoPlan == false) {
+            rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(samplingBase.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date()),samplingBase.getRdcd(),searchTkcd), null), samplingBase::setSource);
+        } else {
+            rbp.addRequest(()-> rbp.callServiceList(ListService.class, s -> s.xcTaskProList(samplingBase.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date()),samplingBase.getRdcd(),""), null), samplingBase::setSource);
+        }
     }
 
     @Override

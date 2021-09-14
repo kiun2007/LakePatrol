@@ -139,7 +139,7 @@ public class LakeTaskActivity extends RequestBVActivity<ActivityLakeCalenderTask
 
                 cacheModel.progress(index, areaStBprpList.size()).setDesc(String.format("缓存站点-%s", areaStBprp.getStnm()));
                 rbp.callServiceList(BaseService.class, s -> s.getLakeLimit(null, areaStBprp.getStcd()), null);
-                rbp.callServiceList(ListService.class, s -> s.xcTaskProList(areaStBprp.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date()), xcRecdR.getRdcd()), null);
+                rbp.callServiceList(ListService.class, s -> s.xcTaskProList(areaStBprp.getStcd(), MCString.formatDate("yyyy-MM-dd", new Date()), xcRecdR.getRdcd(),""), null);//recdR.getTkcd()
                 index ++;
             }
         }
