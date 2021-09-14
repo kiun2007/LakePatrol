@@ -145,7 +145,11 @@ public abstract class SamplingBase extends EventBean implements Serializable, Ge
     }
 
     public void setSource(List<XcTaskPro> source) {
-        setSourceCopy(source, true);
+        if (!"1".equals(isState)) {
+            setSourceCopy(source, false);
+        } else {
+            setSourceCopy(source, true);
+        }
     }
 
     public void setSourceCopy(List<XcTaskPro> source, boolean isCopy) {

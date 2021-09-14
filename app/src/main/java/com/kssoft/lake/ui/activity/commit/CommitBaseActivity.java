@@ -115,7 +115,9 @@ public abstract class CommitBaseActivity<T extends ViewDataBinding> extends Requ
     public void onImportComplete(Object value) {
         if (value instanceof TrailService){
             TrailService trailService = (TrailService) value;
-            searchTkcd = trailService.getRecord().getTkcd();
+            if (!"1".equals(getIntent().getStringExtra("state"))) {
+                searchTkcd = trailService.getRecord().getTkcd();
+            }
             if (samplingBase == null){
                 if (trailService.getRecord() != null) {
                     searchNearSite(trailService.getLastLocation(), trailService.getRecord().getTkcd());

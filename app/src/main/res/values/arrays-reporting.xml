@@ -50,4 +50,15 @@
         <item>中量</item>
         <item>大量</item>
     </string-array>
+    
+    <string-array name="windDirections">
+        <item>东</item>
+        <item>南</item>
+        <item>西</item>
+        <item>北</item>
+        <item>东南</item>
+        <item>东北</item>
+        <item>西南</item>
+        <item>西北</item>
+    </string-array>
 </resources>
