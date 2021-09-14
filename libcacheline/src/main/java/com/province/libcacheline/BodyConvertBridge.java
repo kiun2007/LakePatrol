@@ -8,8 +8,8 @@ import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import kiun.com.bvroutine.utils.ClassUtil;
 import kiun.com.bvroutine.utils.ObjectUtil;
+import kiun.com.bvroutine.utils.type.ClassUtil;
 
 public class BodyConvertBridge {
 

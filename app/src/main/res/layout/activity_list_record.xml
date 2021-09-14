@@ -30,6 +30,7 @@
                 android:background="@color/wrapDark"
                 style="@style/fill_base">
                 <androidx.recyclerview.widget.RecyclerView
+                    tools:listitem="@layout/item_inspection"
                     android:listProvider="@{(NetListProvider.create(context, handler, @layout/item_inspection))}"
                     android:netBlock="@{pager->listService.getRecordList(recordDto.inherit(pager))}"
                     style="@style/fill_base" />

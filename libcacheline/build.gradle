@@ -40,7 +40,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.apache.commons:commons-jexl:2.1.1"
     implementation "com.alibaba:fastjson:1.2.31"
-    implementation 'com.kiun.bvroutine:bvroutine:1.1.26@aar'
+    implementation 'com.kiun.bvroutine:bvroutine:1.2.166@aar'
     implementation 'androidx.annotation:annotation:1.1.0'
 
     testImplementation 'junit:junit:4.12'

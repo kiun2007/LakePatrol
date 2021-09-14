@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kiun.bvroutine</groupId>
   <artifactId>bvroutine</artifactId>
-  <version>1.1.26</version>
+  <version>1.2.166</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
@@ -57,9 +57,9 @@
       <version>3.4.1</version>
     </dependency>
     <dependency>
-      <groupId>com.squareup.retrofit2</groupId>
+      <groupId>com.kiun.retrofit</groupId>
       <artifactId>retrofit</artifactId>
-      <version>2.9.0</version>
+      <version>2.10.2</version>
     </dependency>
     <dependency>
       <groupId>com.github.bumptech.glide</groupId>

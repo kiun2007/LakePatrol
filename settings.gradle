@@ -1,3 +1,6 @@
 rootProject.name='LakePatrol'
 include ':app'
 include ':libcacheline'
+//
+//include 'bvroutine'
+//project(':bvroutine').projectDir = file('/Volumes/data/work/Android/gusustreet/bvroutine')
